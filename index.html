@@ -33,7 +33,18 @@
 </head>
 
 <body class="bg-background text-main min-h-screen flex flex-col">
-  <div class="site-content">
+  <div id="sticky-banner"
+    class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/10 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm opacity-0 transition-opacity duration-700"
+    style="pointer-events: none;">
+    These guides are free to download, share, or print — just don't sell them or claim them as your own. Attribution is
+    appreciated. Enjoy. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+      rel="license noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>
+  </div>
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode"
+    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700">
+    <i class="fa-solid fa-circle-half-stroke" id="dark-mode-icon"></i>
+  </button>
+  <div class="site-content mt-16 md:mt-0">
     <!-- Typewriter Title Row -->
     <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl mx-auto px-6">
       <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent hover:rotate-12 transition-transform duration-300"
@@ -109,8 +120,8 @@
     <section id="anatomy-guide" class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
       <div class="max-w-3xl mx-auto">
         <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform"
-            style="color: #005271;" aria-hidden="true"></i>
+          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary"
+            aria-hidden="true"></i>
           <div class="flex-1">
             <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
               The Anatomy of Coffee Flavor – A Guide for Curious Drinkers
@@ -155,8 +166,8 @@
       class="fade-in-section bg-background px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
       <div class="max-w-3xl mx-auto">
         <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform"
-            style="color: #005271;" aria-hidden="true"></i>
+          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary"
+            aria-hidden="true"></i>
           <div class="flex-1">
             <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
               Under Pressure – The Technique, Taste, and Chaos of Espresso
@@ -201,8 +212,8 @@
     <section class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
       <div class="max-w-3xl mx-auto">
         <div class="flex items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-comments text-xl md:text-2xl group-hover:scale-110 transition-transform"
-            style="color: #005271;" aria-hidden="true"></i>
+          <i class="fa-solid fa-comments text-xl md:text-2xl group-hover:scale-110 transition-transform text-tertiary"
+            aria-hidden="true"></i>
           <h2 class="fade-line text-2xl md:text-3xl font-semibold">
             Let's Make It Better Together
           </h2>
@@ -267,13 +278,6 @@
         </div>
       </div>
     </footer>
-  </div>
-  <div id="sticky-banner"
-    class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/10 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm opacity-0 transition-opacity duration-700"
-    style="pointer-events: none;">
-    These guides are free to download, share, or print — just don't sell them or claim them as your own. Attribution is
-    appreciated. Enjoy. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-      rel="license noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>
   </div>
   <script src="script.js"></script>
 </body>

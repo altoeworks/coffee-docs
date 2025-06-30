@@ -36,20 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
           lines.forEach((line, j) => {
             setTimeout(() => {
               line.classList.add("visible");
-              if (i === otherSections.length && j === lines.length - 1) {
-                setTimeout(() => {
-                  const banner = document.getElementById("sticky-banner");
-                  if (banner) {
-                    banner.style.opacity = 1;
-                    banner.style.pointerEvents = "auto";
-                  }
-                }, 600);
-              }
             }, j * lineDelay);
           });
         }, sectionDelay);
         sectionDelay += lineDelay;
       });
+      // Fade in sticky banner after all fade-in animations
+      setTimeout(() => {
+        const banner = document.getElementById("sticky-banner");
+        if (banner) {
+          banner.style.opacity = 1;
+          banner.style.pointerEvents = "auto";
+        }
+      }, sectionDelay + 600); // 600ms after last section
     }, 1200);
   }, 100);
 });

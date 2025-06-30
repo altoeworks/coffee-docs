@@ -1,6 +1,14 @@
 body { 
   font-family: 'Inter', sans-serif;
 }
+::selection {
+  color: #FFF2EB;
+  background-color: #FF6B35;
+}
+::-moz-selection {
+  color: #FFF2EB;
+  background-color: #FF6B35;
+}
 .hover-lift {
   transition: transform 0.2s ease;
 }
@@ -51,8 +59,8 @@ body {
   white-space: nowrap;
   border-right: 3px solid #333;
   width: 0;
-  animation: typing 1.7s steps(30, end) 1s forwards;
-  animation-delay: 1s;
+  animation: typing 0.7s steps(30, end) 0.1s forwards;
+  animation-delay: 0.5s;
 }
 @keyframes typing {
   from { width: 0 }
@@ -118,3 +126,37 @@ body.dark-mode .text-gray-500 {
   animation: bounce-rotate 0.6s cubic-bezier(0.77,0,0.175,1) reverse;
   animation-fill-mode: forwards;
 } 
+
+/* discord block */
+.discord {
+  background-color: rgb(255 255 255 / 0.5) !important;
+}
+
+body.dark-mode .discord {
+  background-color: #333 !important;
+}
+
+/* Button hover effect for both modes */
+.skip-to-guides-btn,
+.bg-accent {
+  transition: background 0.2s, color 0.2s;
+}
+.skip-to-guides-btn:hover,
+.bg-accent:hover {
+  background-color: #e65a22 !important; /* slightly darker accent for light mode */
+  color: #fff !important;
+}
+body.dark-mode .skip-to-guides-btn:hover,
+body.dark-mode .bg-accent:hover {
+  background-color: #ff8a5c !important; /* lighter accent for dark mode */
+  color: #1C1C1C !important;
+}
+
+/* Ensure all links have a visible hover color in dark mode */
+body.dark-mode a:hover,
+body.dark-mode a.underline:hover,
+body.dark-mode a.font-semibold:hover,
+body.dark-mode a.text-tertiary:hover {
+  color: #FF6B35 !important;
+  text-decoration: underline;
+}

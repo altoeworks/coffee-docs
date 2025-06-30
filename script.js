@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       let sectionDelay = 0;
-      const lineDelay = 120; // slightly faster
+      const lineDelay = 80; // slightly faster
       [introFade, ...otherSections].forEach((section, i) => {
         setTimeout(() => {
           section.classList.add("visible");
@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }, j * lineDelay);
           });
         }, sectionDelay);
-        sectionDelay += 2 * lineDelay;
+        sectionDelay += lineDelay;
       });
-    }, 3500);
+    }, 1200);
   }, 100);
 });
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coffee Guides for the Curious | Oscar Höfenstock</title>
   <meta name="description"
-    content="Two free, detailed guides by Oscar Höfenstock that explore why coffee tastes the way it does—and how to make better espresso without losing your mind. Accessible, thoughtful, and deeply curious." />
+    content="Two free, detailed guides by Oscar Höfenstock that explore why coffee tastes the way it does — and how to make better espresso without losing your mind. Accessible, thoughtful, and deeply curious." />
   <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
       rel="license noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>
   </div>
   <button id="dark-mode-toggle" aria-label="Toggle dark mode"
-    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700">
+    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10">
     <i class="fa-solid fa-circle-half-stroke" id="dark-mode-icon"></i>
   </button>
   <div class="site-content mt-16 md:mt-0">
@@ -63,6 +63,14 @@
           I'm not a barista, a roaster, or anyone working in the coffee
           industry. I just got curious — and never really stopped.
         </p>
+        <!-- Skip to Guides Button -->
+        <div class="fade-line flex justify-center mb-8">
+          <a href="#the-guides"
+            class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+            <i class="fa-solid fa-arrow-down"></i>
+            Skip to The Guides
+          </a>
+        </div>
         <div class="space-y-4 text-main/80">
           <p class="fade-line">
             It began with a simple question: why does my coffee sometimes
@@ -111,26 +119,24 @@
             Pressure</a>.
         </p>
       </div>
-      <div class="fade-line flex items-center mb-8">
-        <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
-        <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight leading-tight m-0">The Guides</h2>
-      </div>
     </section>
     <!-- File Download Anatomy -->
-    <section id="anatomy-guide" class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
+    <section id="anatomy-guide"
+      class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition">
       <div class="max-w-3xl mx-auto">
-        <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary"
-            aria-hidden="true"></i>
-          <div class="flex-1">
-            <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
-              The Anatomy of Coffee Flavor – A Guide for Curious Drinkers
-            </h2>
-            <p class="fade-line text-xl text-main/90 mb-4">
-              Why does coffee taste the way it does?
-            </p>
-          </div>
+        <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
+          <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0">The Guides</h2>
         </div>
+        <div class="fade-line flex items-center mb-6 group">
+          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
+            aria-hidden="true"></i>
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">The Anatomy of Coffee Flavor – A Guide for
+            Curious Drinkers</h3>
+        </div>
+        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
+          Why does coffee taste the way it does?
+        </p>
         <div class="space-y-4 text-main/80 md:ml-14">
           <p class="fade-line">
             This guide is for anyone curious enough to ask — whether you're
@@ -152,8 +158,9 @@
             taste it with more clarity, confidence, and joy.
           </p>
           <div class="pt-2">
-            <a href="res/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf" download
-              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl hover-lift transition-all">
+            <a href="res/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf"
+              download="The-Anatomy-of-Coffee-Flavor-Oscar-Hoefenstock.pdf"
+              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
             </a>
@@ -163,22 +170,18 @@
     </section>
     <!-- File Download Under Pressure -->
     <section id="espresso-guide"
-      class="fade-in-section bg-background px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
+      class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
       <div class="max-w-3xl mx-auto">
-        <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary"
+        <div class="fade-line flex items-center mb-6 group">
+          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
             aria-hidden="true"></i>
-          <div class="flex-1">
-            <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
-              Under Pressure – The Technique, Taste, and Chaos of Espresso
-            </h2>
-            <p class="fade-line text-xl text-main/90 mb-4">
-              What exactly makes espresso good — and why is it so hard to get
-              there?
-            </p>
-          </div>
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">Under Pressure – The Technique, Taste, and
+            Chaos of Espresso</h3>
         </div>
-        <div class="space-y-4 text-main/80 ml-14">
+        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
+          What exactly makes espresso good — and why is it so hard to get there?
+        </p>
+        <div class="space-y-4 text-main/80 md:ml-14 ml-0">
           <p class="fade-line">
             This guide is a deep but approachable dive into the mechanics and
             mysteries of espresso. From grind size to flow rate, puck prep to
@@ -199,26 +202,28 @@
           </p>
           <div class="pt-2">
             <button disabled
-              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all">
+              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all w-full sm:w-auto">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #bdbdbd;" aria-hidden="true"></i>
               Coming Soon
             </button>
-            <div class="fade-line text-sm text-main/60 mt-2">I'm currently finishing this guide. Check back soon!</div>
+            <div class="fade-line text-sm text-main/60 mt-2">I'm currently finishing this guide. Check back soon!
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- Feedback/Contact -->
-    <section class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
+    <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition">
       <div class="max-w-3xl mx-auto">
-        <div class="flex items-start gap-4 mb-6 group">
-          <i class="fa-solid fa-comments text-xl md:text-2xl group-hover:scale-110 transition-transform text-tertiary"
-            aria-hidden="true"></i>
-          <h2 class="fade-line text-2xl md:text-3xl font-semibold">
+        <div class="fade-line flex items-center mb-12">
+          <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
+            aria-hidden="true">
+          </i>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight m-0">
             Let's Make It Better Together
           </h2>
         </div>
-        <div class="space-y-4 text-main/80 ml-14">
+        <div class="space-y-4 text-main/80 md:ml-14 ml-0">
           <p class="fade-line">If you made it this far — thank you.</p>
           <p class="fade-line">
             I do my best to keep these guides clear, useful, and approachable.
@@ -240,7 +245,7 @@
               Or just say hi and tell me how your last shot went
             </li>
           </ul>
-          <div class="mt-6 p-4 bg-white/50 rounded-lg backdrop-blur-sm border border-main/10">
+          <div class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10">
             <div class="flex items-center gap-3 mb-2">
               <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
               <span class="text-main/80">__altoe</span>
@@ -260,20 +265,26 @@
     <!-- Footer -->
     <footer class="fade-in-section bg-main text-background py-8 mt-auto">
       <div class="max-w-3xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div class="fade-line flex flex-col md:flex-row md:items-center md:justify-between gap-2 w-full">
-            <div class="flex items-center gap-2">
-              <i class="fa-brands fa-creative-commons text-accent" aria-hidden="true"></i>
-              <i class="fa-brands fa-creative-commons-by text-accent" aria-hidden="true"></i>
-              <span class="text-sm text-background/80">Licensed under <a
-                  href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer"
-                  class="underline hover:text-accent">CC BY 4.0</a> — Attribution appreciated.</span>
-            </div>
-            <div class="flex items-center gap-2 text-sm text-background/80">
-              <i class="fa-regular fa-copyright text-accent" aria-hidden="true"></i>
-              <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-                  rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
-            </div>
+        <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+          <!-- 1/1: Icons packed tightly together -->
+          <div class="flex flex-col items-center gap-0">
+            <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+            <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+          </div>
+          <!-- 1/2: License text grouped with icons -->
+          <div class="flex flex-col justify-center gap-0.5">
+            <span class="text-xs text-background/80">Licensed under <a
+                href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer"
+                class="underline hover:text-accent">CC BY 4.0</a> — Attribution appreciated.</span>
+          </div>
+          <!-- 2/1: Copyright icon, packed closer -->
+          <div class="flex items-center justify-center">
+            <i class="fa-regular fa-copyright text-accent text-base" aria-hidden="true"></i>
+          </div>
+          <!-- 2/2: Copyright text, packed closer -->
+          <div class="flex items-center text-xs text-background/80">
+            <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
           </div>
         </div>
       </div>

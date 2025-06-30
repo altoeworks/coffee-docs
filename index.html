@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Guides for the Curious | Oscar Höfenstock</title>
+  <meta name="description"
+    content="Two free, detailed guides by Oscar Höfenstock that explore why coffee tastes the way it does—and how to make better espresso without losing your mind. Accessible, thoughtful, and deeply curious." />
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            main: "#333333",
+            background: "#FAF8F5",
+            accent: "#FF6B35",
+            tertiary: "#005271",
+            sectionbg: "#FFF2EB",
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui"],
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-background text-main min-h-screen flex flex-col">
+  <div class="site-content">
+    <!-- Typewriter Title Row -->
+    <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl mx-auto px-6">
+      <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent hover:rotate-12 transition-transform duration-300"
+        aria-hidden="true"></i>
+      <h1 class="m-0">
+        <span id="typewriter-title" class="typewriter text-3xl md:text-4xl font-bold tracking-tight">Hi, I'm
+          Oscar.</span>
+        <span id="solid-title" class="typewriter-solid text-3xl md:text-4xl font-bold tracking-tight">Hi, I'm
+          Oscar.</span>
+      </h1>
+    </div>
+    <!-- Section 1: Intro Content -->
+    <section id="intro-fade" class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl mx-auto">
+      <div class="space-y-6">
+        <p class="fade-line text-xl md:text-2xl leading-relaxed text-main/90">
+          I'm not a barista, a roaster, or anyone working in the coffee
+          industry. I just got curious — and never really stopped.
+        </p>
+        <div class="space-y-4 text-main/80">
+          <p class="fade-line">
+            It began with a simple question: why does my coffee sometimes
+            taste amazing, and sometimes not? That curiosity led to
+            experiments, research, tasting, failing, and adjusting.
+            Eventually, I started writing. Not because I planned to — but
+            because I needed to make sense of it all.
+          </p>
+          <p class="fade-line">
+            At some point, I realized others might be on the same path. So I
+            started shaping what I'd learned into something I could share.
+          </p>
+          <p class="fade-line">
+            There's plenty of gatekeeping in coffee. I wanted to make
+            something open and approachable — something that made it easier to
+            learn, without needing to know the lingo or own fancy equipment.
+            If you're curious, you're in.
+          </p>
+          <p class="fade-line">
+            There are people who know more, do more, test more. I don't
+            pretend to be the most experienced voice in the room. But if my
+            way of explaining things helps something finally click — then it was
+            worth writing.
+          </p>
+          <p class="fade-line">
+            I believe coffee gets more enjoyable the more you understand it.
+            And learning is better when it's shared. If these guides help you
+            taste something new, solve a brewing problem, or just feel more
+            confident — that's all I hoped for.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Not Sure Where to Start Section -->
+    <section class="fade-in-section px-6 pt-8 max-w-3xl mx-auto">
+      <div class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90">
+        <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
+        <p class="mb-2">
+          Just curious about what makes coffee taste the way it does?<br />
+          <a href="#anatomy-guide" class="font-semibold text-tertiary hover:text-accent underline">Start with The
+            Anatomy of Coffee Flavor</a>.
+        </p>
+        <p>
+          Already experimenting with espresso? Or frustrated by it?<br />
+          <a href="#espresso-guide" class="font-semibold text-tertiary hover:text-accent underline">Try Under
+            Pressure</a>.
+        </p>
+      </div>
+      <div class="fade-line flex items-center mb-8">
+        <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
+        <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight leading-tight m-0">The Guides</h2>
+      </div>
+    </section>
+    <!-- File Download Anatomy -->
+    <section id="anatomy-guide" class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
+          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform"
+            style="color: #005271;" aria-hidden="true"></i>
+          <div class="flex-1">
+            <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
+              The Anatomy of Coffee Flavor – A Guide for Curious Drinkers
+            </h2>
+            <p class="fade-line text-xl text-main/90 mb-4">
+              Why does coffee taste the way it does?
+            </p>
+          </div>
+        </div>
+        <div class="space-y-4 text-main/80 md:ml-14">
+          <p class="fade-line">
+            This guide is for anyone curious enough to ask — whether you're
+            just stepping beyond supermarket blends or already deep into
+            fermentation styles, varietals, and roast curves.
+          </p>
+          <p class="fade-line">
+            Structured to be both approachable and insightful, it walks you
+            through the key forces that shape flavor: from origin and
+            processing, to roasting, brewing, and tasting. Each chapter starts
+            with a short summary to help you navigate the big picture, while
+            the body of the guide dives deeper for those who want to know why
+            things taste the way they do.
+          </p>
+          <p class="fade-line">
+            The Anatomy of Coffee Flavor is part reference, part conversation
+            — written to demystify, not to dictate. It doesn't tell you what
+            to like. It helps you understand what's in your cup — and how to
+            taste it with more clarity, confidence, and joy.
+          </p>
+          <div class="pt-2">
+            <a href="res/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf" download
+              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl hover-lift transition-all">
+              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- File Download Under Pressure -->
+    <section id="espresso-guide"
+      class="fade-in-section bg-background px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-start gap-4 mb-6 group">
+          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform"
+            style="color: #005271;" aria-hidden="true"></i>
+          <div class="flex-1">
+            <h2 class="fade-line text-2xl md:text-3xl font-semibold mb-3 leading-tight">
+              Under Pressure – The Technique, Taste, and Chaos of Espresso
+            </h2>
+            <p class="fade-line text-xl text-main/90 mb-4">
+              What exactly makes espresso good — and why is it so hard to get
+              there?
+            </p>
+          </div>
+        </div>
+        <div class="space-y-4 text-main/80 ml-14">
+          <p class="fade-line">
+            This guide is a deep but approachable dive into the mechanics and
+            mysteries of espresso. From grind size to flow rate, puck prep to
+            pressure curves, we explore the key variables that shape
+            extraction and flavor — and how to make sense of them without
+            losing your mind.
+          </p>
+          <p class="fade-line">
+            It's not a recipe book or a list of rules. Instead, it's a map: a
+            way to navigate the tension between precision and chaos that
+            defines espresso at any level. Whether you're new to dialing in or
+            neck-deep in refractometers, this guide aims to sharpen your
+            intuition, not just your technique.
+          </p>
+          <p class="fade-line">
+            Written for the curious, the obsessed, and everyone in between —
+            and free for anyone who wants to brew better.
+          </p>
+          <div class="pt-2">
+            <button disabled
+              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all">
+              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #bdbdbd;" aria-hidden="true"></i>
+              Coming Soon
+            </button>
+            <div class="fade-line text-sm text-main/60 mt-2">I'm currently finishing this guide. Check back soon!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Feedback/Contact -->
+    <section class="fade-in-section bg-sectionbg px-6 py-16 md:py-24 section-transition">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-start gap-4 mb-6 group">
+          <i class="fa-solid fa-comments text-xl md:text-2xl group-hover:scale-110 transition-transform"
+            style="color: #005271;" aria-hidden="true"></i>
+          <h2 class="fade-line text-2xl md:text-3xl font-semibold">
+            Let's Make It Better Together
+          </h2>
+        </div>
+        <div class="space-y-4 text-main/80 ml-14">
+          <p class="fade-line">If you made it this far — thank you.</p>
+          <p class="fade-line">
+            I do my best to keep these guides clear, useful, and approachable.
+            But there's always room to improve. If something helped you,
+            confused you, made you laugh, or made you want to throw your
+            tamper — I'd honestly love to hear about it.
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li class="fade-line">
+              Share feedback, edits, or ideas for what could be clearer
+            </li>
+            <li class="fade-line">
+              Suggest topics or rabbit holes I should explore next
+            </li>
+            <li class="fade-line">
+              Recommend your favorite weird tool or espresso hack
+            </li>
+            <li class="fade-line">
+              Or just say hi and tell me how your last shot went
+            </li>
+          </ul>
+          <div class="mt-6 p-4 bg-white/50 rounded-lg backdrop-blur-sm border border-main/10">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
+              <span class="text-main/80">__altoe</span>
+            </div>
+            <p class="fade-line text-sm text-main/60">
+              (Sadly, not a link. But if you've made it through all this and this is what deters you — I'm honestly
+              impressed.)
+            </p>
+          </div>
+          <p class="fade-line mt-6 text-main/80">
+            Thanks again for reading — even a little. These guides only get
+            better when they're part of a conversation.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="fade-in-section bg-main text-background py-8 mt-auto">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="fade-line flex flex-col md:flex-row md:items-center md:justify-between gap-2 w-full">
+            <div class="flex items-center gap-2">
+              <i class="fa-brands fa-creative-commons text-accent" aria-hidden="true"></i>
+              <i class="fa-brands fa-creative-commons-by text-accent" aria-hidden="true"></i>
+              <span class="text-sm text-background/80">Licensed under <a
+                  href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer"
+                  class="underline hover:text-accent">CC BY 4.0</a> — Attribution appreciated.</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-background/80">
+              <i class="fa-regular fa-copyright text-accent" aria-hidden="true"></i>
+              <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                  rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div id="sticky-banner"
+    class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/10 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm opacity-0 transition-opacity duration-700"
+    style="pointer-events: none;">
+    These guides are free to download, share, or print — just don't sell them or claim them as your own. Attribution is
+    appreciated. Enjoy. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+      rel="license noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

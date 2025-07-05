@@ -2,12 +2,22 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+  <!-- 
+    Coffee Guides for the Curious - Main Page
+    A simple, clean site for sharing coffee knowledge.
+    Built with vanilla HTML, TailwindCSS, and JavaScript.
+  -->
+
+  <title>Coffee Guides for the Curious | Oscar Höfenstock</title>
+
+  <!-- SEO and social sharing -->
+  <meta name="description"
+    content="Two free, detailed guides that explore why coffee tastes the way it does — and how to make better espresso without losing your mind. Accessible, nerdy, and deeply curious." />
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="MIOeuwHYdCBDD7llDMg1sCH2Vx6QM4iy86IpImvKE30" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coffee Guides for the Curious | Oscar Höfenstock</title>
-  <meta name="description"
-    content="Two free, detailed guides that explore why coffee tastes the way it does — and how to make better espresso without losing your mind. Accessible, nerdy, and deeply curious." />
+
+  <!-- Favicon and external resources -->
   <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
@@ -34,18 +44,35 @@
 </head>
 
 <body class="bg-background text-main min-h-screen flex flex-col">
+
+  <!-- 
+    Sticky banner at the top
+    Shows the Creative Commons license info after animations complete
+  -->
   <div id="sticky-banner"
     class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/10 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm transition-opacity duration-700"
     style="opacity: 0; pointer-events: none;">
-    These guides are free to download, edit, share, or print — just don't claim them as your own. Attribution and ShareAlike required. Enjoy. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
+    These guides are free to download, edit, share, or print — just don't claim them as your own. Attribution and
+    ShareAlike required. Enjoy. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
       rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-SA 4.0</a>
   </div>
+
+  <!-- 
+    Dark mode toggle button
+    Lets users switch between light and dark themes
+  -->
   <button id="dark-mode-toggle" aria-label="Toggle dark mode"
     class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10">
     <i class="fa-solid fa-circle-half-stroke" id="dark-mode-icon"></i>
   </button>
+
+  <!-- Main content area -->
   <div class="site-content mt-16 md:mt-0">
-    <!-- Typewriter Title Row -->
+
+    <!-- 
+      Page title and icon
+      The title animates in with a typewriter effect, then switches to a solid version
+    -->
     <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl mx-auto px-6">
       <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent hover:rotate-12 transition-transform duration-300"
         aria-hidden="true"></i>
@@ -56,21 +83,33 @@
           Oscar.</span>
       </h1>
     </div>
-    <!-- Section 1: Intro Content -->
+
+    <!-- 
+      Introduction section
+      The main story about why these guides exist
+    -->
     <section id="intro-fade" class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl mx-auto">
       <div class="space-y-6">
         <p class="fade-line text-xl md:text-2xl leading-relaxed text-main/90">
           I'm not a barista, a roaster, or anyone working in the coffee
           industry. I just got curious — and never really stopped.
         </p>
-        <!-- Skip to Guides Button -->
+
+        <!-- 
+          Skip to guides button
+          Quick way to jump past the intro story
+        -->
         <div class="fade-line flex justify-center mb-8">
-          <a href="#the-guides"
+          <button onclick="document.getElementById('the-guides').scrollIntoView({behavior: 'smooth'})"
             class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
             <i class="fa-solid fa-arrow-down"></i>
             Skip to The Guides
-          </a>
+          </button>
         </div>
+
+        <!-- 
+          The main intro story
+        -->
         <div class="space-y-4 text-main/80">
           <p class="fade-line">
             It started with a simple question: why does my coffee sometimes taste incredible, and other times… not? That
@@ -96,7 +135,8 @@
             about what's in your cup — that's more than enough.
           </p>
           <p class="fade-line">
-            I'm really glad you found this — whether by accident, curiosity, or deep caffeine-fueled investigation. I hope
+            I'm really glad you found this — whether by accident, curiosity, or deep caffeine-fueled investigation. I
+            hope
             something here helps you notice more, understand a bit better, skip what doesn't serve you (for now or
             forever), and maybe enjoy your next cup a little more because of it.
           </p>
@@ -106,7 +146,11 @@
         </div>
       </div>
     </section>
-    <!-- Not Sure Where to Start Section -->
+
+    <!-- 
+      Quick navigation help
+      Helps users decide which guide to start with
+    -->
     <section class="fade-in-section px-6 pt-8 max-w-3xl mx-auto">
       <div class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90">
         <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
@@ -122,20 +166,29 @@
         </p>
       </div>
     </section>
-    <!-- File Download Anatomy -->
+
+    <!-- 
+      First guide: The Anatomy of Coffee Flavor
+      A comprehensive guide about coffee taste origin and processing
+    -->
     <section id="anatomy-guide"
       class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition">
       <div class="max-w-3xl mx-auto">
+        <!-- Section header -->
         <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
           <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
           <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0">The Guides</h2>
         </div>
+
+        <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
           <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
             aria-hidden="true"></i>
           <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">The Anatomy of Coffee Flavor – A Guide for
             Curious Drinkers</h3>
         </div>
+
+        <!-- Guide description -->
         <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
           Why does coffee taste the way it does?
         </p>
@@ -155,27 +208,35 @@
             in between. It's not about telling you what's good. It's about helping you make sense of what you're
             tasting.
           </p>
-          <div class="pt-2">
-            <a href="files/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf"
-              download="The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf"
-              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+
+          <!-- Download button -->
+          <div class="pt-2 fade-line">
+            <button onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf', '_blank')"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <!-- File Download Under Pressure -->
+
+    <!-- 
+      Second guide: Under Pressure
+      The espresso-focused guide (currently in progress)
+    -->
     <section id="espresso-guide"
       class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
       <div class="max-w-3xl mx-auto">
+        <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
           <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
             aria-hidden="true"></i>
           <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">Under Pressure – The Technique, Taste, and
             Chaos of Espresso</h3>
         </div>
+
+        <!-- Guide description -->
         <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
           What makes a good espresso — and why is it so easy to mess up?
         </p>
@@ -205,6 +266,8 @@
             If you're just learning, it'll give you clarity and confidence. If you're further along, it'll help organize
             what you already know and give you a few new ways to think about the process.
           </p>
+
+          <!-- Coming soon button (disabled) -->
           <div class="pt-2">
             <button disabled
               class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all">
@@ -217,9 +280,14 @@
         </div>
       </div>
     </section>
-    <!-- Feedback/Contact -->
+
+    <!-- 
+      Feedback and contact section
+      Encourages users to get in touch and help improve the guides
+    -->
     <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition">
       <div class="max-w-3xl mx-auto">
+        <!-- Section header -->
         <div class="fade-line flex items-center mb-12">
           <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
             aria-hidden="true">
@@ -228,6 +296,8 @@
             Let's Make It Better Together
           </h2>
         </div>
+
+        <!-- Feedback content -->
         <div class="space-y-4 text-main/80 md:ml-14 ml-0">
           <p class="fade-line">If you made it this far — thank you.</p>
           <p class="fade-line">
@@ -236,6 +306,8 @@
             confused you, made you laugh, or made you want to throw your
             tamper — I'd honestly love to hear about it.
           </p>
+
+          <!-- Feedback suggestions -->
           <ul class="list-disc pl-6 space-y-2">
             <li class="fade-line">
               Share feedback, edits, or ideas for what could be clearer
@@ -250,6 +322,8 @@
               Or just say hi and tell me how your last shot went
             </li>
           </ul>
+
+          <!-- Discord contact info -->
           <div class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10">
             <div class="flex items-center gap-3 mb-2">
               <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
@@ -260,6 +334,7 @@
               impressed.)
             </p>
           </div>
+
           <p class="fade-line mt-6 text-main/80">
             Thanks again for reading — even a little. These guides only get
             better when they're part of a conversation.
@@ -267,27 +342,34 @@
         </div>
       </div>
     </section>
-    <!-- Footer -->
+
+    <!-- 
+      Footer with license information
+      Shows the Creative Commons license and copyright
+    -->
     <footer class="fade-in-section bg-main text-background py-8 mt-auto">
       <div class="max-w-3xl mx-auto px-6">
         <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
-          <!-- 1/1: Icons packed tightly together -->
-          <div class="flex flex-col items-center gap-0">
+          <!-- Creative Commons icons -->
+          <div class="flex flex-col md:flex-row items-center gap-0 md:gap-2">
             <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
             <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
             <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
           </div>
-          <!-- 1/2: License text grouped with icons -->
+
+          <!-- License text -->
           <div class="flex flex-col justify-center gap-0.5">
             <span class="text-xs text-background/80">Licensed under <a
                 href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer"
                 class="underline hover:text-accent">CC BY-SA 4.0</a> — Attribution & ShareAlike required.</span>
           </div>
-          <!-- 2/1: Copyright icon, packed closer -->
+
+          <!-- Copyright icon -->
           <div class="flex items-center justify-center">
-            <i class="fa-regular fa-copyright text-accent text-base" aria-hidden="true"></i>
+            <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
           </div>
-          <!-- 2/2: Copyright text, packed closer -->
+
+          <!-- Copyright text -->
           <div class="flex items-center text-xs text-background/80">
             <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
                 rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
@@ -296,7 +378,9 @@
       </div>
     </footer>
   </div>
-  <script src="script.js"></script>
+
+  <!-- JavaScript for animations and interactions -->
+  <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   CUSTOM STYLES
+   ============================================================================ */
+
+/* ===== BASE STYLES ===== */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  color: #FFF2EB;
+  background-color: #FF6B35;
+}
+
+::-moz-selection {
+  color: #FFF2EB;
+  background-color: #FF6B35;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION TRANSITIONS ===== */
+.section-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: inherit;
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in-section.visible {
+  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TYPEWRITER EFFECT ===== */
+.typewriter-container {
+  display: inline-flex;
+  align-items: center;
+  min-width: 18ch;
+}
+
+.typewriter, .typewriter-solid {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #333;
+  width: 0;
+  animation: typing 0.7s steps(30, end) 0.1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typewriter-solid {
+  display: none;
+}
+
+/* ===== FADE LINE ANIMATIONS ===== */
+.fade-line {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-line.visible {
+  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ===== DARK MODE STYLES ===== */
+body.dark-mode {
+  background-color: #1C1C1C !important;
+  color: #F2F2F2 !important;
+}
+
+body.dark-mode .bg-background {
+  background-color: #1C1C1C !important;
+}
+
+body.dark-mode .bg-sectionbg {
+  background-color: #2A2A2A !important;
+}
+
+body.dark-mode .bg-white, body.dark-mode .bg-white\/70 {
+  background-color: #2A2A2A !important;
+}
+
+body.dark-mode .text-main, body.dark-mode .text-main\/90, body.dark-mode .text-main\/80, body.dark-mode .text-main\/60 {
+  color: #F2F2F2 !important;
+}
+
+body.dark-mode .text-accent {
+  color: #FF6B35 !important;
+}
+
+body.dark-mode .text-tertiary {
+  color: #66BBD2 !important;
+}
+
+body.dark-mode .border-main\/10 {
+  border-color: #444 !important;
+}
+
+body.dark-mode .bg-accent {
+  background-color: #FF6B35 !important;
+}
+
+body.dark-mode .bg-gray-300 {
+  background-color: #333 !important;
+}
+
+body.dark-mode .text-gray-500 {
+  color: #FFF2EB !important;
+}
+
+/* ===== DARK MODE ANIMATIONS ===== */
+@keyframes bounce-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.bounce-rotate {
+  animation: bounce-rotate 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  animation-fill-mode: forwards;
+}
+
+.bounce-rotate-reverse {
+  animation: bounce-rotate 0.6s cubic-bezier(0.77, 0, 0.175, 1) reverse;
+  animation-fill-mode: forwards;
+}
+
+/* ===== COMPONENT-SPECIFIC STYLES ===== */
+.discord {
+  background-color: rgb(255 255 255 / 0.5) !important;
+}
+
+body.dark-mode .discord {
+  background-color: #333 !important;
+}
+
+.skip-to-guides-btn, .bg-accent {
+  transition: background 0.2s, color 0.2s;
+}
+
+.skip-to-guides-btn:hover, .bg-accent:hover {
+  background-color: #e65a22 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .skip-to-guides-btn:hover, body.dark-mode .bg-accent:hover {
+  background-color: #ff8a5c !important;
+  color: #1C1C1C !important;
+}
+
+body.dark-mode a:hover, body.dark-mode a.underline:hover, body.dark-mode a.font-semibold:hover, body.dark-mode a.text-tertiary:hover {
+  color: #FF6B35 !important;
+  text-decoration: underline;
+}
+
+/* ===== BUTTON HOVER EFFECT ===== */
+button:not(:disabled) {
+  transition: transform 0.2s ease;
+}
+
+button:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  transform: none !important;
+} 

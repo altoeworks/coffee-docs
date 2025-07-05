@@ -160,3 +160,17 @@ body.dark-mode a.text-tertiary:hover {
   color: #FF6B35 !important;
   text-decoration: underline;
 }
+
+/* Button hover effect - makes buttons slightly bigger on hover */
+button:not(:disabled) {
+  transition: transform 0.2s ease;
+}
+
+button:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+/* Ensure disabled buttons don't have the hover effect */
+button:disabled {
+  transform: none !important;
+}

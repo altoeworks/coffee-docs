@@ -24,14 +24,14 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="bg-background text-main min-h-screen flex flex-col">
+<body class="bg-background text-main min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
 
   <!-- 
     Sticky banner at the top
     Shows the Creative Commons license info after animations complete
   -->
   <div id="sticky-banner"
-    class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/10 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm transition-opacity duration-700"
+    class="fixed top-0 left-0 w-full z-50 bg-sectionbg border-b border-main/20 text-main text-center px-4 py-3 text-sm md:text-base font-medium shadow-sm transition-opacity duration-700 dark:bg-darksection dark:border-darkborder dark:text-darktext"
     style="opacity: 0; pointer-events: none;">
     These guides are free to download, edit, share, or print — just don't claim them as your own. Attribution and
     ShareAlike required. Enjoy. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
@@ -43,7 +43,7 @@
     Lets users switch between light and dark themes
   -->
   <button id="dark-mode-toggle" aria-label="Toggle dark mode"
-    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10">
+    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10 dark:bg-darksection dark:text-darktext">
     <i class="fa-solid fa-circle-half-stroke" id="dark-mode-icon"></i>
   </button>
 
@@ -69,9 +69,9 @@
       Introduction section
       The main story about why these guides exist
     -->
-    <section id="intro-fade" class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl mx-auto">
+    <section id="intro-fade" class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl mx-auto bg-background dark:bg-darkbg">
       <div class="space-y-6">
-        <p class="fade-line text-xl md:text-2xl leading-relaxed text-main/90">
+        <p class="fade-line text-xl md:text-2xl leading-relaxed text-main/90 dark:text-background/90">
           I'm not a barista, a roaster, or anyone working in the coffee
           industry. I just got curious — and never really stopped.
         </p>
@@ -82,7 +82,7 @@
         -->
         <div class="fade-line flex justify-center mb-8">
           <button onclick="document.getElementById('the-guides').scrollIntoView({behavior: 'smooth'})"
-            class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+            class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:bg-accent dark:focus:ring-accent">
             <i class="fa-solid fa-arrow-down"></i>
             Skip to The Guides
           </button>
@@ -91,7 +91,7 @@
         <!-- 
           The main intro story
         -->
-        <div class="space-y-4 text-main/80">
+        <div class="space-y-4 text-main/80 dark:text-background/80">
           <p class="fade-line">
             It started with a simple question: why does my coffee sometimes taste incredible, and other times… not? That
             led to a lot of trial and error, research, experiments, more coffee than I care to admit, and eventually,
@@ -133,16 +133,17 @@
       Helps users decide which guide to start with
     -->
     <section class="fade-in-section px-6 pt-8 max-w-3xl mx-auto">
-      <div class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90">
+      <div
+        class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90 dark:bg-main/80 dark:border-background/20 dark:text-background/80">
         <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
-        <p class="mb-2">
+        <p class="mb-2 text-main/80 dark:text-background/80">
           Just curious about what makes coffee taste the way it does?<br />
-          <a href="#anatomy-guide" class="font-semibold text-tertiary hover:text-accent underline">Start with The
+          <a href="#anatomy-guide" class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Start with The
             Anatomy of Coffee Flavor</a>.
         </p>
-        <p>
+        <p class="text-main/80 dark:text-background/80">
           Already experimenting with espresso? Or frustrated by it?<br />
-          <a href="#espresso-guide" class="font-semibold text-tertiary hover:text-accent underline">Try Under
+          <a href="#espresso-guide" class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Try Under
             Pressure</a>.
         </p>
       </div>
@@ -153,27 +154,27 @@
       A comprehensive guide about coffee taste origin and processing
     -->
     <section id="anatomy-guide"
-      class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition">
+      class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl mx-auto">
         <!-- Section header -->
         <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
           <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
-          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0">The Guides</h2>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">The Guides</h2>
         </div>
 
         <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
-          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
+          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true"></i>
-          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">The Anatomy of Coffee Flavor – A Guide for
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">The Anatomy of Coffee Flavor – A Guide for
             Curious Drinkers</h3>
         </div>
 
         <!-- Guide description -->
-        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
+        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0 dark:text-background/80">
           Why does coffee taste the way it does?
         </p>
-        <div class="space-y-4 text-main/80 md:ml-14">
+        <div class="space-y-4 text-main/80 md:ml-14 dark:text-background/80">
           <p class="fade-line">
             This guide is my attempt to answer that — from the ground up. It covers the main things that shape flavor:
             where coffee is grown, how it's processed, how it's roasted, brewed, and eventually tasted.
@@ -192,8 +193,9 @@
 
           <!-- Download button -->
           <div class="pt-2 fade-line">
-            <button onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf', '_blank')"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+            <button
+              onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf', '_blank')"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
             </button>
@@ -207,21 +209,21 @@
       The espresso-focused guide (currently in progress)
     -->
     <section id="espresso-guide"
-      class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition">
+      class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition dark:bg-darkbg dark:border-darksection">
       <div class="max-w-3xl mx-auto">
         <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
-          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
+          <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true"></i>
-          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight">Under Pressure – The Technique, Taste, and
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Under Pressure – The Technique, Taste, and
             Chaos of Espresso</h3>
         </div>
 
         <!-- Guide description -->
-        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0">
+        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0 dark:text-background/80">
           What makes a good espresso — and why is it so easy to mess up?
         </p>
-        <div class="space-y-4 text-main/80 md:ml-14 ml-0">
+        <div class="space-y-4 text-main/80 md:ml-14 ml-0 dark:text-background/80">
           <p class="fade-line">
             This guide is for anyone who wants to understand espresso more deeply — whether you're just starting to dial
             in or already tracking shot curves and flow rates.
@@ -251,11 +253,12 @@
           <!-- Coming soon button (disabled) -->
           <div class="pt-2">
             <button disabled
-              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all">
+              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all dark:bg-main/80 dark:text-background/80">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #bdbdbd;" aria-hidden="true"></i>
               Coming Soon
             </button>
-            <div class="fade-line text-sm text-main/60 mt-2">I'm currently finishing this guide. Check back soon!
+            <div class="fade-line text-sm text-main/60 mt-2 dark:text-background/60">I'm currently finishing this guide.
+              Check back soon!
             </div>
           </div>
         </div>
@@ -266,20 +269,20 @@
       Feedback and contact section
       Encourages users to get in touch and help improve the guides
     -->
-    <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition">
+    <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition dark:bg-darksection">
       <div class="max-w-3xl mx-auto">
         <!-- Section header -->
         <div class="fade-line flex items-center mb-12">
-          <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4"
+          <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true">
           </i>
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight m-0">
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
             Let's Make It Better Together
           </h2>
         </div>
 
         <!-- Feedback content -->
-        <div class="space-y-4 text-main/80 md:ml-14 ml-0">
+        <div class="space-y-4 text-main/80 md:ml-14 ml-0 dark:text-background/80">
           <p class="fade-line">If you made it this far — thank you.</p>
           <p class="fade-line">
             I do my best to keep these guides clear, useful, and approachable.
@@ -289,7 +292,7 @@
           </p>
 
           <!-- Feedback suggestions -->
-          <ul class="list-disc pl-6 space-y-2">
+          <ul class="list-disc pl-6 space-y-2 text-main/80 dark:text-background/80">
             <li class="fade-line">
               Share feedback, edits, or ideas for what could be clearer
             </li>
@@ -305,18 +308,18 @@
           </ul>
 
           <!-- Discord contact info -->
-          <div class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10">
+          <div class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 dark:bg-background/5 dark:border-background/20">
             <div class="flex items-center gap-3 mb-2">
               <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
-              <span class="text-main/80">__altoe</span>
+              <span class="text-main/80 dark:text-background/85">__altoe</span>
             </div>
-            <p class="fade-line text-sm text-main/60">
+            <p class="fade-line text-sm text-main/60 dark:text-background/60">
               (Sadly, not a link. But if you've made it through all this and this is what deters you — I'm honestly
               impressed.)
             </p>
           </div>
 
-          <p class="fade-line mt-6 text-main/80">
+          <p class="fade-line mt-6 text-main/80 dark:text-background/80">
             Thanks again for reading — even a little. These guides only get
             better when they're part of a conversation.
           </p>
@@ -328,7 +331,7 @@
       Footer with license information
       Shows the Creative Commons license and copyright
     -->
-    <footer class="fade-in-section bg-main text-background py-8 mt-auto">
+    <footer class="fade-in-section bg-main text-background py-8 mt-auto dark:bg-darkbg dark:text-darktext">
       <div class="max-w-3xl mx-auto px-6">
         <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
           <!-- Creative Commons icons -->
@@ -340,7 +343,7 @@
 
           <!-- License text -->
           <div class="flex flex-col justify-center gap-0.5">
-            <span class="text-xs text-background/80">Licensed under <a
+            <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
                 href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer"
                 class="underline hover:text-accent">CC BY-SA 4.0</a> — Attribution & ShareAlike required.</span>
           </div>
@@ -351,7 +354,7 @@
           </div>
 
           <!-- Copyright text -->
-          <div class="flex items-center text-xs text-background/80">
+          <div class="flex items-center text-xs text-background/80 dark:text-darktext">
             <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
                 rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
           </div>

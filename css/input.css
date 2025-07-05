@@ -110,50 +110,7 @@ body {
 }
 
 /* ===== DARK MODE STYLES ===== */
-body.dark-mode {
-  background-color: #1C1C1C !important;
-  color: #F2F2F2 !important;
-}
-
-body.dark-mode .bg-background {
-  background-color: #1C1C1C !important;
-}
-
-body.dark-mode .bg-sectionbg {
-  background-color: #2A2A2A !important;
-}
-
-body.dark-mode .bg-white, body.dark-mode .bg-white\/70 {
-  background-color: #2A2A2A !important;
-}
-
-body.dark-mode .text-main, body.dark-mode .text-main\/90, body.dark-mode .text-main\/80, body.dark-mode .text-main\/60 {
-  color: #F2F2F2 !important;
-}
-
-body.dark-mode .text-accent {
-  color: #FF6B35 !important;
-}
-
-body.dark-mode .text-tertiary {
-  color: #66BBD2 !important;
-}
-
-body.dark-mode .border-main\/10 {
-  border-color: #444 !important;
-}
-
-body.dark-mode .bg-accent {
-  background-color: #FF6B35 !important;
-}
-
-body.dark-mode .bg-gray-300 {
-  background-color: #333 !important;
-}
-
-body.dark-mode .text-gray-500 {
-  color: #FFF2EB !important;
-}
+/* Remove all custom body.dark selectors. Use Tailwind's dark: variant in HTML instead. */
 
 /* ===== DARK MODE ANIMATIONS ===== */
 @keyframes bounce-rotate {
@@ -177,11 +134,7 @@ body.dark-mode .text-gray-500 {
 
 /* ===== COMPONENT-SPECIFIC STYLES ===== */
 .discord {
-  background-color: rgb(255 255 255 / 0.5) !important;
-}
-
-body.dark-mode .discord {
-  background-color: #333 !important;
+  background-color: rgb(255 255 255 / 0.5);
 }
 
 .skip-to-guides-btn, .bg-accent {
@@ -193,12 +146,12 @@ body.dark-mode .discord {
   color: #fff !important;
 }
 
-body.dark-mode .skip-to-guides-btn:hover, body.dark-mode .bg-accent:hover {
+body.dark .skip-to-guides-btn:hover, body.dark .bg-accent:hover {
   background-color: #ff8a5c !important;
   color: #1C1C1C !important;
 }
 
-body.dark-mode a:hover, body.dark-mode a.underline:hover, body.dark-mode a.font-semibold:hover, body.dark-mode a.text-tertiary:hover {
+body.dark a:hover, body.dark a.underline:hover, body.dark a.font-semibold:hover, body.dark a.text-tertiary:hover {
   color: #FF6B35 !important;
   text-decoration: underline;
 }

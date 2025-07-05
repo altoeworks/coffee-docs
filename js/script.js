@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeElements();
   resetAnimations();
   startAnimations();
+  // Add dark mode toggle event listener after elements are initialized
+  if (DOM_ELEMENTS.darkModeToggle) {
+    DOM_ELEMENTS.darkModeToggle.addEventListener("click", handleDarkModeToggle);
+  }
 });
 
 /**
@@ -184,13 +188,13 @@ function showStickyBanner() {
  */
 function setDarkMode(enabled, animate = true) {
   if (enabled) {
-    DOM_ELEMENTS.body.classList.add("dark-mode");
+    document.documentElement.classList.add("dark");
     if (animate) {
       animateDarkModeIcon("bounce-rotate");
     }
     localStorage.setItem("darkMode", "true");
   } else {
-    DOM_ELEMENTS.body.classList.remove("dark-mode");
+    document.documentElement.classList.remove("dark");
     if (animate) {
       animateDarkModeIcon("bounce-rotate-reverse");
     }
@@ -224,7 +228,7 @@ function loadDarkModePreference() {
  * Toggle dark mode when the toggle button is clicked
  */
 function handleDarkModeToggle() {
-  const isDark = DOM_ELEMENTS.body.classList.contains("dark-mode");
+  const isDark = document.documentElement.classList.contains("dark");
   setDarkMode(!isDark);
 }
 
@@ -234,8 +238,3 @@ function handleDarkModeToggle() {
 
 // Load the user's dark mode preference on page load
 loadDarkModePreference();
-
-// Add click listener to dark mode toggle
-if (DOM_ELEMENTS.darkModeToggle) {
-  DOM_ELEMENTS.darkModeToggle.addEventListener("click", handleDarkModeToggle);
-}

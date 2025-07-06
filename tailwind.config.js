@@ -18,7 +18,7 @@ module.exports = {
         darkgray: "#333",
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        sans: ['Inter', 'Arial', 'sans-serif'],
       },
     },
   },

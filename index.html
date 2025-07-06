@@ -2,29 +2,55 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-  <!-- 
+  <!-- =============================
     Coffee Guides for the Curious - Main Page
-    A simple, clean site for sharing coffee knowledge.
     Built with vanilla HTML, TailwindCSS, and JavaScript.
-  -->
+    Author: Oscar Höfenstock
+    ============================= -->
 
-  <title>Coffee Guides for the Curious | Oscar Höfenstock</title>
-
-  <!-- SEO and social sharing -->
-  <meta name="description"
-    content="Two free, detailed guides that explore why coffee tastes the way it does — and how to make better espresso without losing your mind. Accessible, nerdy, and deeply curious." />
+  <!-- ========== Basic Meta Tags ========== -->
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="MIOeuwHYdCBDD7llDMg1sCH2Vx6QM4iy86IpImvKE30" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Guides on Coffee Flavor & Espresso | Learn to Brew Better</title>
+  <meta name="description"
+    content="Learn to taste coffee more clearly, understand processing and variety, and brew better — whether you're new or already obsessed." />
+  <meta name="keywords"
+    content="coffee guide, espresso guide, coffee flavor, how to make better coffee, coffee brewing, specialty coffee, visual guide, coffee varieties, coffee processing" />
+  <link rel="canonical" href="https://coffee.altoeworks.net/" />
 
-  <!-- Favicon and external resources -->
+  <!-- ========== SEO & Social Sharing ========== -->
+  <meta name="google-site-verification" content="MIOeuwHYdCBDD7llDMg1sCH2Vx6QM4iy86IpImvKE30" />
+  <meta property="og:title" content="Free Coffee Guides on Coffee Flavor & Espresso" />
+  <meta property="og:description"
+    content="Learn to make and understand coffee better with these in-depth guides. Free to read, share, and explore." />
+  <meta property="og:url" content="https://coffee.altoeworks.net" />
+
+  <!-- ========== Favicon & External Resources ========== -->
   <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+  <!-- FontAwesome for icons -->
   <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Tailwind & Custom Styles -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ========== Structured Data (JSON-LD) ========== -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Coffee Guides",
+      "author": {
+        "@type": "Person",
+        "name": "Oscar Höfenstock"
+      },
+      "description": "Free detailed guides that help coffee lovers understand flavor, processing, varieties, and espresso.",
+      "url": "https://coffee.altoeworks.net",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  </script>
+  <!-- End of <head> -->
 </head>
 
-<body class="bg-background text-main min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
+<body class="bg-background text-base md:text-lg min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
 
   <!-- 
     Sticky banner at the top
@@ -49,12 +75,12 @@
 
   <!-- Main content area -->
   <div class="site-content mt-16 md:mt-0">
-
+    <h1 class="sr-only">Free Coffee Guides on Flavor and Espresso by Oscar Höfenstock</h1>
     <!-- 
       Page title and icon
       The title animates in with a typewriter effect, then switches to a solid version
     -->
-    <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl md:max-w-4xl mx-auto px-6">
       <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent hover:rotate-12 transition-transform duration-300"
         aria-hidden="true"></i>
       <h1 class="m-0">
@@ -69,7 +95,8 @@
       Introduction section
       The main story about why these guides exist
     -->
-    <section id="intro-fade" class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl mx-auto bg-background dark:bg-darkbg">
+    <section id="intro-fade"
+      class="fade-in-section px-6 pb-6 md:pb-10 max-w-3xl md:max-w-4xl mx-auto bg-background dark:bg-darkbg">
       <div class="space-y-6">
         <p class="fade-line text-xl md:text-2xl leading-relaxed text-main/90 dark:text-background/90">
           I'm not a barista, a roaster, or anyone working in the coffee
@@ -132,18 +159,22 @@
       Quick navigation help
       Helps users decide which guide to start with
     -->
-    <section class="fade-in-section px-6 pt-8 max-w-3xl mx-auto">
+    <section class="fade-in-section px-6 pt-8 max-w-3xl md:max-w-4xl mx-auto">
       <div
         class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90 dark:bg-main/80 dark:border-background/20 dark:text-background/80">
         <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
         <p class="mb-2 text-main/80 dark:text-background/80">
           Just curious about what makes coffee taste the way it does?<br />
-          <a href="#anatomy-guide" class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Start with The
+          <a href="#anatomy-guide"
+            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Start
+            with The
             Anatomy of Coffee Flavor</a>.
         </p>
         <p class="text-main/80 dark:text-background/80">
           Already experimenting with espresso? Or frustrated by it?<br />
-          <a href="#espresso-guide" class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Try Under
+          <a href="#espresso-guide"
+            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Try
+            Under
             Pressure</a>.
         </p>
       </div>
@@ -155,18 +186,21 @@
     -->
     <section id="anatomy-guide"
       class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition dark:bg-darksection dark:border-darkborder">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
         <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
           <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
-          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">The Guides</h2>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
+            The Guides</h2>
         </div>
 
         <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
           <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true"></i>
-          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">The Anatomy of Coffee Flavor – A Guide for
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">The Anatomy of
+            Coffee Flavor – A Guide for
             Curious Drinkers</h3>
         </div>
 
@@ -210,12 +244,13 @@
     -->
     <section id="espresso-guide"
       class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition dark:bg-darkbg dark:border-darksection">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
           <i class="fa-solid fa-gear text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true"></i>
-          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Under Pressure – The Technique, Taste, and
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Under Pressure
+            – The Technique, Taste, and
             Chaos of Espresso</h3>
         </div>
 
@@ -270,13 +305,14 @@
       Encourages users to get in touch and help improve the guides
     -->
     <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition dark:bg-darksection">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
         <div class="fade-line flex items-center mb-12">
           <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true">
           </i>
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
+          <h2
+            class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
             Let's Make It Better Together
           </h2>
         </div>
@@ -308,7 +344,8 @@
           </ul>
 
           <!-- Discord contact info -->
-          <div class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 dark:bg-background/5 dark:border-background/20">
+          <div
+            class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 dark:bg-background/5 dark:border-background/20">
             <div class="flex items-center gap-3 mb-2">
               <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
               <span class="text-main/80 dark:text-background/85">__altoe</span>
@@ -332,7 +369,7 @@
       Shows the Creative Commons license and copyright
     -->
     <footer class="fade-in-section bg-main text-background py-8 mt-auto dark:bg-darkbg dark:text-darktext">
-      <div class="max-w-3xl mx-auto px-6">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
         <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
           <!-- Creative Commons icons -->
           <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">

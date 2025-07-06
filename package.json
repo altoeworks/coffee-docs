@@ -2,6 +2,7 @@
   "scripts": {
     "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify",
     "watch": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "serve": "npx serve .",
     "prebuild": "echo 'Building CSS...'",
     "predeploy": "npm run build"
   },

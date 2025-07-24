@@ -80,15 +80,15 @@
       Page title and icon
       The title animates in with a typewriter effect, then switches to a solid version
     -->
-    <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl md:max-w-4xl mx-auto px-6">
-      <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent hover:rotate-12 transition-transform duration-300"
+    <div class="flex items-center gap-3 mb-6 pt-16 md:pt-24 max-w-3xl md:max-w-4xl mx-auto px-6 group">
+      <i class="fa-solid fa-feather text-3xl md:text-4xl text-accent group-hover:rotate-12 transition-transform duration-300"
         aria-hidden="true"></i>
       <span class="m-0">
         <span id="typewriter-title" class="typewriter text-3xl md:text-4xl font-bold tracking-tight">Hi, I'm
           Oscar.</span>
         <span id="solid-title" class="typewriter-solid text-3xl md:text-4xl font-bold tracking-tight">Hi, I'm
           Oscar.</span>
-        </span>
+      </span>
     </div>
 
     <!-- 
@@ -164,18 +164,21 @@
         class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90 dark:bg-main/80 dark:border-background/20 dark:text-background/80">
         <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
         <p class="mb-2 text-main/80 dark:text-background/80">
-          Just curious about what makes coffee taste the way it does?<br />
+          Want to understand what shapes flavor — from origin to cup?<br />
           <a href="#anatomy-guide"
-            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Start
-            with The
-            Anatomy of Coffee Flavor</a>.
+            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
+            <i class="fa-solid fa-book group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary" aria-hidden="true"></i>
+            <span class="underline">Start with The Anatomy of Coffee Flavor</span>
+          </a>.
         </p>
         <p class="text-main/80 dark:text-background/80">
-          Already experimenting with espresso? Or frustrated by it?<br />
+          Tweaking espresso, chasing consistency, or fixing weird shots?<br />
+
           <a href="#espresso-guide"
-            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent underline dark:text-darktertiary">Try
-            Under
-            Pressure</a>.
+            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
+            <i class="fa-solid fa-gear group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary" aria-hidden="true"></i>
+            <span class="underline">Try Under Pressure</span>
+          </a>.
         </p>
       </div>
     </section>
@@ -188,7 +191,7 @@
       class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
-        <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
+        <div class="fade-line flex items-center mb-6 md:mb-12 scroll-mt-[24rem]" id="the-guides">
           <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
           <h2
             class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
@@ -214,21 +217,19 @@
             where coffee is grown, how it's processed, how it's roasted, brewed, and eventually tasted.
           </p>
           <p class="fade-line">
-            If you're just getting into specialty coffee, you'll find short summaries at the start of each section,
-            clear explanations, and a glossary to help with unfamiliar terms. If you've been in it for a while, there's
-            depth here too: from roast chemistry to fermentation types, water composition, variety differences, and
-            sensory language.
+            Whether you're just getting into specialty coffee or have been in it for a while, this guide is designed to
+            meet you where you are. Each section starts with a short summary, then goes deeper — into fermentation
+            types, variety differences, roast chemistry, water composition, sensory language, and more.
           </p>
           <p class="fade-line">
-            I wrote it to make coffee a little easier to understand — whether you're new, already obsessed, or somewhere
-            in between. It's not about telling you what's good. It's about helping you make sense of what you're
-            tasting.
+            I wrote it to make coffee a little easier to understand — not by simplifying it, but by making it more
+            navigable. It's not about telling you what's good. It's about helping you make sense of what you're tasting.
           </p>
 
           <!-- Download button -->
           <div class="pt-2 fade-line">
             <button
-              onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinkers.pdf', '_blank')"
+              onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', '_blank')"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
@@ -264,23 +265,31 @@
             in or already tracking shot curves and flow rates.
           </p>
           <p class="fade-line">
-            It breaks down all the key variables: grind size, dose, puck prep, tamping, pressure profiles, flow rate,
-            shot time, yield. There's a full section on puck prep tools and routines, one on pressure and flow profiling
-            (with actual graphs), a guide to diagnosing what went wrong in a shot, and another on mods and accessories —
-            plus which ones might not be worth chasing.
+            It covers all the core variables: grind size, dose, time, pressure, yield, temperature — plus detailed
+            sections on puck prep, pressure and flow profiling (with actual graphs), common shot failures, and
+            gear that helps (or doesn't). There's a full chapter on machine care too, so you're not chasing clarity with
+            a dirty setup.
           </p>
           <p class="fade-line">
-            It's written to help you build a framework — not a checklist. Something you can refer back to when things
-            are
-            working, and especially when they're not.
+            It's not a checklist — it's a framework. Something to help you troubleshoot, refine, and make sense of what
+            you're seeing and tasting.
           </p>
           <p class="fade-line">
-            If you're just learning, it'll give you clarity and confidence. If you're further along, it'll help organize
-            what you already know and give you a few new ways to think about the process.
+            If you're new, it'll give you confidence and clarity. If you're further along, it'll help organize what you
+            know — and probably challenge a few assumptions along the way.
           </p>
 
-          <!-- Coming soon button (disabled) -->
-          <div class="pt-2">
+          <!-- Download button -->
+          <div class="pt-2 fade-line">
+            <button
+              onclick="window.open('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', '_blank')"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+              Download PDF
+            </button>
+          </div>
+          <!-- Coming soon button -->
+          <!-- <div class="pt-2">
             <button disabled
               class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all dark:bg-main/80 dark:text-background/80">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #bdbdbd;" aria-hidden="true"></i>
@@ -289,7 +298,7 @@
             <div class="fade-line text-sm text-main/60 mt-2 dark:text-background/60">I'm currently finishing this guide.
               Check back soon!
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -301,7 +310,7 @@
     <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition dark:bg-darksection">
       <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
-        <div class="fade-line flex items-center mb-12">
+        <div class="fade-line flex items-center mb-12 group">
           <i class="fa-solid fa-comments text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true">
           </i>
@@ -340,8 +349,8 @@
           <!-- Discord contact info -->
           <div
             class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 dark:bg-background/5 dark:border-background/20">
-            <div class="flex items-center gap-3 mb-2">
-              <i class="fa-brands fa-discord text-lg md:text-xl" style="color: #5865f2;" aria-hidden="true"></i>
+            <div class="flex items-center gap-3 mb-2 group">
+              <i class="fa-brands fa-discord text-lg md:text-xl group-hover:scale-110 transition-transform" style="color: #5865f2;" aria-hidden="true"></i>
               <span class="text-main/80 dark:text-background/85">__altoe</span>
             </div>
             <p class="fade-line text-sm text-main/60 dark:text-background/60">

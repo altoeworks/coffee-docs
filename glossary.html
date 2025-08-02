@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <!-- =============================
+    Coffee Glossary - Interactive Reference
+    Built with vanilla HTML, TailwindCSS, and JavaScript.
+    Author: Oscar Höfenstock
+    ============================= -->
+
+    <!-- ========== Basic Meta Tags ========== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Coffee Glossary - Interactive Reference</title>
+    <meta name="description"
+        content="Interactive glossary of coffee terms from brewing to roasting. Search and explore coffee terminology." />
+    <meta name="keywords"
+        content="coffee glossary, coffee terms, espresso terminology, coffee brewing terms, coffee roasting terms, specialty coffee glossary" />
+    <link rel="canonical" href="https://coffee.altoeworks.net/glossary.html" />
+
+    <!-- ========== SEO & Social Sharing ========== -->
+    <meta property="og:title" content="Coffee Glossary - Interactive Reference" />
+    <meta property="og:description"
+        content="Interactive glossary of coffee terms from brewing to roasting. Search and explore coffee terminology." />
+    <meta property="og:url" content="https://coffee.altoeworks.net/glossary.html" />
+
+    <!-- ========== Favicon & External Resources ========== -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
+    <!-- Tailwind & Custom Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- ========== Structured Data (JSON-LD) ========== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Coffee Glossary",
+      "author": {
+        "@type": "Person",
+        "name": "Oscar Höfenstock"
+      },
+      "description": "Interactive glossary of coffee terms from brewing to roasting. Search and explore coffee terminology.",
+      "url": "https://coffee.altoeworks.net/glossary.html",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+  </script>
+    <!-- End of <head> -->
+</head>
+
+<body class="bg-background text-base md:text-lg min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
+
+    <!-- Progress Bar -->
+    <div id="progress-bar-container"
+        style="position:fixed;top:0;left:0;width:100vw;height:4px;z-index:100;background:transparent;">
+        <div id="progress-bar" style="height:4px;width:0;background:#ff6b35;transition:width 0.2s;"></div>
+    </div>
+
+    <!-- Back Button Container -->
+    <div class="pt-4 sm:pt-6 pl-2 sm:pl-4 bg-background dark:bg-darkbg">
+        <button id="back-btn" aria-label="Back to guides"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-700 font-medium shadow-sm hover:shadow-md transition-all duration-300 dark:bg-darksection/90 dark:border-darkborder dark:text-darktext dark:hover:bg-darksection focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 w-12 h-12 sm:w-auto sm:h-auto justify-center">
+            <i class="fa-solid fa-arrow-left text-accent" id="back-icon"></i>
+            <span class="hidden sm:inline">Back to the Guides</span>
+        </button>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button id="hamburger-menu-btn" aria-label="Open menu"
+        class="fixed top-4 sm:top-6 right-2 sm:right-4 z-60 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none transition-opacity duration-700 z-10 dark:bg-accent flex items-center justify-center hover:scale-105">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+    </button>
+
+    <!-- Hamburger Menu Overlay -->
+    <div id="hamburger-menu"
+        class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext">
+            <!-- Menu Header -->
+            <div class="flex items-center justify-between p-6 border-b border-main/10 dark:border-darkborder">
+                <h3 class="text-lg font-semibold text-main dark:text-background">Menu</h3>
+                <button id="close-menu-btn" aria-label="Close menu"
+                    class="p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Menu Content -->
+            <div class="p-6 space-y-6">
+                <!-- Back to Guides Link -->
+                <a href="index.html"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+                    <i class="fa-solid fa-arrow-left text-accent"></i>
+                    <span>Back to Guides</span>
+                </a>
+
+                <!-- Table of Contents -->
+                <div>
+                    <h4 class="text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">
+                        Table of
+                        Contents</h4>
+                    <div class="space-y-2">
+                        <a href="index.html#intro-fade"
+                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+                            Introduction
+                        </a>
+                        <a href="index.html#anatomy-guide"
+                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+                            The Anatomy of Coffee Flavor
+                        </a>
+                        <a href="index.html#espresso-guide"
+                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+                            Under Pressure
+                        </a>
+                        <a href="index.html#feedback-section"
+                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+                            Let's Make It Better Together
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Mode Toggle (Bottom) -->
+            <div class="mt-auto p-6 border-t border-main/10 dark:border-darkborder">
+                <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+                    class="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+                    <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+                    <span class="text-sm">Toggle Dark Mode</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex-1">
+        <!-- Back to Top Button -->
+        <button id="back-to-top-btn" aria-label="Back to top"
+            class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-500 opacity-0 pointer-events-none hover:scale-105 dark:bg-accent flex items-center justify-center">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+
+        <!-- Hero Section -->
+        <section class="px-4 sm:px-6 py-16 md:py-24 transition-colors duration-300 bg-background dark:bg-darkbg">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-main mb-6 dark:text-darktext">
+                    Coffee Glossary
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 dark:text-darktext">
+                    Interactive reference for coffee terminology. Search, explore, and learn about brewing, roasting,
+                    and everything in between.
+                </p>
+
+                <!-- Search Bar -->
+                <div id="search-section" class="max-w-2xl mx-auto mb-8">
+                    <div class="relative">
+                        <input type="text" id="search-input"
+                            placeholder="Search terms (e.g., 'extraction', 'crema', 'terroir')..."
+                            class="w-full px-6 py-4 pl-12 text-lg border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition-colors dark:bg-darksection dark:border-darkborder dark:text-darktext dark:placeholder-gray-400">
+                        <i
+                            class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 text-xl"></i>
+                    </div>
+                    <!-- Filter Explanation -->
+                    <p class="text-sm text-gray-500 mt-3 dark:text-gray-400">
+                        Filter by typing in the search box, or use the alphabet and category buttons below to browse terms. You can combine search, letter, and category filters. Click on category badges in glossary items to filter by that category.
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="flex justify-center space-x-8 text-sm text-gray-600 dark:text-darktext">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-book text-accent"></i>
+                        <span id="total-terms">Loading...</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-filter text-accent"></i>
+                        <span id="filtered-count">All terms</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glossary Content -->
+        <section class="px-4 sm:px-6 py-12 bg-background dark:bg-darkbg">
+            <div class="max-w-6xl mx-auto">
+                <!-- Alphabet Navigation -->
+                <div id="alphabet-nav" class="flex flex-wrap justify-center gap-2 mb-8">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Category Navigation -->
+                <div id="category-nav" class="flex flex-wrap justify-center gap-2 mb-8">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Clear All Filters Button -->
+                <div class="flex justify-center mb-8">
+                    <button id="clear-filters-btn"
+                        class="px-6 py-3 rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 opacity-50 pointer-events-none">
+                        <i class="fa-solid fa-times mr-2"></i>
+                        Clear All Filters
+                    </button>
+                </div>
+
+                <!-- Terms Container -->
+                <div id="terms-container" class="space-y-8">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- No Results Message -->
+                <div id="no-results" class="hidden text-center py-12">
+                    <i class="fa-solid fa-search text-4xl text-gray-300 dark:text-darktext mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2 dark:text-darktext">No terms found</h3>
+                    <p class="text-gray-500 dark:text-darktext">Try adjusting your search terms or browse the alphabet
+                        above.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+      Footer with license information
+      Shows the Creative Commons license and copyright
+    -->
+    <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+        <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
+            <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+                <!-- Creative Commons icons -->
+                <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
+                    <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+                    <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+                    <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
+                    <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
+                </div>
+
+                <!-- License text -->
+                <div class="flex flex-col justify-center gap-0.5">
+                    <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
+                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                            rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a> —
+                        Attribution
+                        & ShareAlike required.</span>
+                </div>
+
+                <!-- Copyright icon -->
+                <div class="flex items-center justify-center">
+                    <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
+                </div>
+
+                <!-- Copyright text -->
+                <div class="flex items-center text-xs text-background/80 dark:text-darktext">
+                    <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                            target="_blank" rel="license noopener noreferrer" class="underline hover:text-accent">Some
+                            rights reserved.</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/glossary-data.js"></script>
+    <script src="js/glossary.js"></script>
+</body>
+
+</html>

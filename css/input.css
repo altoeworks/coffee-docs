@@ -88,7 +88,8 @@ body {
   min-width: 18ch;
 }
 
-.typewriter, .typewriter-solid {
+.typewriter,
+.typewriter-solid {
   display: inline-block;
   vertical-align: bottom;
 }
@@ -106,6 +107,7 @@ body {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
@@ -133,6 +135,7 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(180deg);
   }
@@ -153,21 +156,27 @@ body {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.skip-to-guides-btn, .bg-accent {
+.skip-to-guides-btn,
+.bg-accent {
   transition: background 0.2s, color 0.2s;
 }
 
-.skip-to-guides-btn:hover, .bg-accent:hover {
+.skip-to-guides-btn:hover,
+.bg-accent:hover {
   background-color: #e65a22 !important;
   color: #fff !important;
 }
 
-body.dark .skip-to-guides-btn:hover, body.dark .bg-accent:hover {
+body.dark .skip-to-guides-btn:hover,
+body.dark .bg-accent:hover {
   background-color: #ff8a5c !important;
   color: #1C1C1C !important;
 }
 
-body.dark a:hover, body.dark a.underline:hover, body.dark a.font-semibold:hover, body.dark a.text-tertiary:hover {
+body.dark a:hover,
+body.dark a.underline:hover,
+body.dark a.font-semibold:hover,
+body.dark a.text-tertiary:hover {
   color: #FF6B35 !important;
   text-decoration: underline;
 }
@@ -183,4 +192,4 @@ button:not(:disabled):hover {
 
 button:disabled {
   transform: none !important;
-} 
+}

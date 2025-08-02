@@ -11,6 +11,9 @@
   <!-- ========== Basic Meta Tags ========== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Free Guides on Coffee Flavor & Espresso | Learn to Brew Better</title>
   <meta name="description"
     content="Learn to taste coffee more clearly, understand processing and variety, and brew better — whether you're new or already obsessed." />
@@ -65,14 +68,83 @@
       rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a>
   </div>
 
-  <!-- 
-    Dark mode toggle button
-    Lets users switch between light and dark themes
-  -->
-  <button id="dark-mode-toggle" aria-label="Toggle dark mode"
-    class="fixed top-24 md:top-16 right-4 z-60 p-3 rounded-full bg-white shadow-lg text-main text-2xl transition-transform duration-500 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10 dark:bg-darksection dark:text-darktext">
-    <i class="fa-solid fa-circle-half-stroke" id="dark-mode-icon"></i>
+
+
+  <!-- Hamburger Menu Button -->
+  <button id="hamburger-menu-btn" aria-label="Open menu"
+    class="fixed top-24 md:top-16 right-4 z-60 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-300 mt-2 md:mt-4 opacity-0 pointer-events-none transition-opacity duration-700 z-10 dark:bg-accent flex items-center justify-center hover:scale-105">
+    <i class="fa-solid fa-bars" id="hamburger-icon"></i>
   </button>
+
+  <!-- Hamburger Menu Overlay -->
+  <div id="hamburger-menu"
+    class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div
+      class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext">
+      <!-- Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-main/10 dark:border-darkborder">
+        <h3 class="text-lg font-semibold text-main dark:text-background">Menu</h3>
+        <button id="close-menu-btn" aria-label="Close menu"
+          class="p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors">
+          <i class="fa-solid fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Menu Content -->
+      <div class="p-6 space-y-6">
+                 <!-- Glossary Link -->
+         <a href="glossary.html"
+           class="flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+           <i class="fa-solid fa-book text-accent"></i>
+           <span>Interactive Glossary</span>
+         </a>
+
+        <!-- Table of Contents -->
+        <div>
+          <h4 class="text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Table of
+            Contents</h4>
+          <div class="space-y-2">
+            <a href="#intro-fade"
+              class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+              Introduction
+            </a>
+            <a href="#anatomy-guide"
+              class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+              The Anatomy of Coffee Flavor
+            </a>
+            <a href="#espresso-guide"
+              class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+              Under Pressure
+            </a>
+            <a href="#glossary-section"
+              class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+              Interactive Glossary
+            </a>
+            <a href="#feedback-section"
+              class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
+              Let's Make It Better Together
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Mode Toggle (Bottom) -->
+      <div class="mt-auto p-6 border-t border-main/10 dark:border-darkborder">
+        <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+          class="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+          <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+          <span class="text-sm">Toggle Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar-container"
+    style="position:fixed;top:0;left:0;width:100vw;height:4px;z-index:100;background:transparent;">
+    <div id="progress-bar" style="height:4px;width:0;background:#ff6b35;transition:width 0.2s;"></div>
+  </div>
+  <!-- End Progress Bar -->
 
   <!-- Main content area -->
   <div class="site-content mt-16 md:mt-0">
@@ -164,23 +236,31 @@
       <div
         class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 mb-24 text-main/90 dark:bg-main/80 dark:border-background/20 dark:text-background/80">
         <h2 class="text-xl md:text-2xl font-semibold mb-4 text-accent">Not Sure Where to Start?</h2>
-        <p class="mb-2 text-main/80 dark:text-background/80">
+        <p class="mb-4 text-main/80 dark:text-background/80">
           Want to understand what shapes flavor — from origin to cup?<br />
           <a href="#anatomy-guide"
             class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
-            <i class="fa-solid fa-book group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary"
+            <i class="fa-solid fa-magnifying-glass group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary"
               aria-hidden="true"></i>
             <span class="underline">Start with The Anatomy of Coffee Flavor.</span>
           </a>
         </p>
-        <p class="text-main/80 dark:text-background/80">
+        <p class="mb-4 text-main/80 dark:text-background/80">
           Tweaking espresso, chasing consistency, or fixing weird shots?<br />
-
           <a href="#espresso-guide"
             class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
             <i class="fa-solid fa-gear group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary"
               aria-hidden="true"></i>
             <span class="underline">Try Under Pressure.</span>
+          </a>
+        </p>
+        <p class="text-main/80 dark:text-background/80">
+          Need to look up coffee terms or understand the jargon?<br />
+          <a href="glossary.html"
+            class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
+            <i class="fa-solid fa-book group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary"
+              aria-hidden="true"></i>
+            <span class="underline">Check out the Interactive Glossary.</span>
           </a>
         </p>
       </div>
@@ -203,11 +283,16 @@
 
         <!-- Guide title and icon -->
         <div class="fade-line flex items-center mb-6 group">
-          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
+          <i class="fa-solid fa-magnifying-glass text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
             aria-hidden="true"></i>
           <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">The Anatomy of
             Coffee Flavor – A Guide for
             Curious Drinkers</h3>
+        </div>
+
+        <!-- Last updated date -->
+        <div class="fade-line text-sm text-main/60 mb-2 md:ml-14 ml-0 dark:text-background/60">
+          Last updated: 1st August
         </div>
 
         <!-- Guide description -->
@@ -229,13 +314,19 @@
             navigable. It's not about telling you what's good. It's about helping you make sense of what you're tasting.
           </p>
 
-          <!-- Download button -->
-          <div class="pt-2 fade-line">
+          <!-- Download and Share buttons -->
+          <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
             <button
-              onclick="window.open('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', '_blank')"
+              onclick="downloadPDF('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', 'The Anatomy of Coffee Flavor - A Guide for Curious Drinker')"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
+            </button>
+            <button
+              onclick="shareGuide('The Anatomy of Coffee Flavor', window.location.origin + '/files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf')"
+              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
+              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
+              Share
             </button>
           </div>
         </div>
@@ -256,6 +347,11 @@
           <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Under Pressure
             – The Technique, Taste, and
             Chaos of Espresso</h3>
+        </div>
+
+        <!-- Last updated date -->
+        <div class="fade-line text-sm text-main/60 mb-2 md:ml-14 ml-0 dark:text-background/60">
+          Last updated: 1st August
         </div>
 
         <!-- Guide description -->
@@ -282,26 +378,65 @@
             know — and probably challenge a few assumptions along the way.
           </p>
 
-          <!-- Download button -->
-          <div class="pt-2 fade-line">
+          <!-- Download and Share buttons -->
+          <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
             <button
-              onclick="window.open('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', '_blank')"
+              onclick="downloadPDF('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', 'Under Pressure - The Technique, Taste, and Chaos of Espresso')"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
               <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
               Download PDF
             </button>
-          </div>
-          <!-- Coming soon button -->
-          <!-- <div class="pt-2">
-            <button disabled
-              class="fade-line inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-300 text-gray-500 font-semibold shadow-lg cursor-not-allowed transition-all dark:bg-main/80 dark:text-background/80">
-              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #bdbdbd;" aria-hidden="true"></i>
-              Coming Soon
+            <button
+              onclick="shareGuide('Under Pressure', window.location.origin + '/files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf')"
+              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
+              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
+              Share
             </button>
-            <div class="fade-line text-sm text-main/60 mt-2 dark:text-background/60">I'm currently finishing this guide.
-              Check back soon!
-            </div>
-          </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      Interactive Glossary Section
+      Showcases the comprehensive coffee terminology reference
+    -->
+    <section id="glossary-section"
+      class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition dark:bg-darksection dark:border-darkborder">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto">
+        <!-- Section header -->
+        <div class="fade-line flex items-center mb-6 group">
+          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
+            aria-hidden="true"></i>
+          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Interactive
+            Coffee Glossary</h3>
+        </div>
+
+        <!-- Glossary description -->
+        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0 dark:text-background/80">
+          Need to look up a term? Explore coffee terminology with our interactive reference.
+        </p>
+        <div class="space-y-4 text-main/80 md:ml-14 ml-0 dark:text-background/80">
+          <p class="fade-line">
+            From "extraction" to "terroir," "crema" to "cupping" — this glossary covers the essential terms you'll
+            encounter
+            in specialty coffee. Search, filter by category, or browse alphabetically to find exactly what you're
+            looking for.
+          </p>
+          <p class="fade-line">
+            Whether you're reading the guides above or exploring coffee content elsewhere, this reference helps you
+            understand
+            the language of coffee without getting lost in jargon.
+          </p>
+
+          <!-- Explore Glossary button -->
+          <div class="pt-2 fade-line">
+            <a href="glossary.html"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent hover:scale-105">
+              <i class="fa-solid fa-search text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+              Explore Glossary
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -310,7 +445,8 @@
       Feedback and contact section
       Encourages users to get in touch and help improve the guides
     -->
-    <section class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 section-transition dark:bg-darksection">
+    <section id="feedback-section"
+      class="fade-in-section bg-background px-4 sm:px-6 py-16 md:py-24 section-transition dark:bg-darkbg dark:border-darksection">
       <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
         <div class="fade-line flex items-center mb-12 group">
@@ -412,11 +548,11 @@
                       <span class="text-xs md:text-sm text-main/60 dark:text-background/60 ml-2 md:ml-3">Research •
                         Testing • Writing • Coffee</span>
                     </div>
-                                         <a href="https://buymeacoffee.com/altoeworks" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto">
-                       <i class="fa-solid fa-mug-hot text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
-                       Buy me a coffee
-                     </a>
+                    <a href="https://buymeacoffee.com/altoeworks" target="_blank" rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto">
+                      <i class="fa-solid fa-mug-hot text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+                      Buy me a coffee
+                    </a>
                   </div>
                 </div>
               </div>
@@ -435,7 +571,7 @@
       Footer with license information
       Shows the Creative Commons license and copyright
     -->
-    <footer class="fade-in-section bg-main text-background py-8 mt-auto dark:bg-darkbg dark:text-darktext">
+    <footer class="fade-in-section bg-main text-background py-8 mt-auto dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
         <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
           <!-- Creative Commons icons -->

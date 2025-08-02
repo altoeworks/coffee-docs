@@ -27,7 +27,7 @@ const glossaryData = {
         "categories": ["espresso"]
     },
     "Acidity": {
-        "definition": "A desirable trait in specialty coffee, often perceived as brightness or liveliness. Can resemble citrus, malic (apple), tartaric (grape), or phosphoric (sparkling) acidity. Not to be confused with sourness.",
+        "definition": "A desirable trait in specialty coffee, often perceived as brightness or liveliness. Can resemble citrus, malic (apple), tartaric (grape) or phosphoric (sparkling) acidity. Not to be confused with sourness.",
         "categories": ["flavor", "evaluation"]
     },
     "Aerobic fermentation": {
@@ -35,11 +35,11 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Aftertaste": {
-        "definition": "The lingering flavor or sensation left after swallowing. Can be clean, sweet, dry, or bitter.",
+        "definition": "The lingering flavor or sensation left after swallowing. Can be clean, sweet, dry or bitter.",
         "categories": ["flavor", "evaluation"]
     },
     "Agitation": {
-        "definition": "Any movement during brewing that disturbs the coffee bed — includes stirring, swirling, or pouring techniques.",
+        "definition": "Any movement during brewing that disturbs the coffee bed — includes stirring, swirling or pouring techniques.",
         "categories": ["brewing"]
     },
     "Alignment": {
@@ -79,7 +79,7 @@ const glossaryData = {
         "categories": ["brewing", "espresso"]
     },
     "Body": {
-        "definition": "The tactile weight or texture of a coffee in the mouth. Can feel light like tea, creamy like milk, or thick and syrupy like honey.",
+        "definition": "The tactile weight or texture of a coffee in the mouth. Can feel light like tea, creamy like milk or thick and syrupy like honey.",
         "categories": ["flavor", "evaluation"]
     },
     "Bourbon": {
@@ -115,7 +115,7 @@ const glossaryData = {
         "categories": ["botany"]
     },
     "Channeling": {
-        "definition": "When water finds weak or uneven paths through the puck, bypassing some grounds and over extracting others. Causes spurting, uneven flow and inconsistent flavor. Often visible with bottomless portafilters as streams, jets, or \"tiger stripes.\"",
+        "definition": "When water finds weak or uneven paths through the puck, bypassing some grounds and over extracting others. Causes spurting, uneven flow and inconsistent flavor. Often visible with bottomless portafilters as streams, jets or \"tiger stripes.\"",
         "categories": ["espresso", "brewing"]
     },
     "Charge": {
@@ -207,7 +207,7 @@ const glossaryData = {
         "categories": ["espresso", "brewing"]
     },
     "Espresso Machine": {
-        "definition": "A device designed to brew espresso using heat, pressure and flow control. Can be manual, semi-automatic, or fully programmable.",
+        "definition": "A device designed to brew espresso using heat, pressure and flow control. Can be manual, semi-automatic or fully programmable.",
         "categories": ["espresso", "equipment"]
     },
     "Espresso Style": {
@@ -231,11 +231,11 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Fermentation Tank": {
-        "definition": "A vessel used in washed or anaerobic processes to break down mucilage. Can be plastic, concrete, steel, or ceramic.",
+        "definition": "A vessel used in washed or anaerobic processes to break down mucilage. Can be plastic, concrete, steel or ceramic.",
         "categories": ["processing", "equipment"]
     },
     "Fines": {
-        "definition": "Tiny coffee particles created during grinding. Can 'clog' baskets, cause uneven flow, or contribute to bitterness.",
+        "definition": "Tiny coffee particles created during grinding. Can 'clog' baskets, cause uneven flow or contribute to bitterness.",
         "categories": ["grinding"]
     },
     "Finish": {
@@ -347,7 +347,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Lot": {
-        "definition": "A specific batch of coffee, often separated by day, variety, or process. Defines traceability and quality tiers.",
+        "definition": "A specific batch of coffee, often separated by day, variety or process. Defines traceability and quality tiers.",
         "categories": ["sourcing"]
     },
     "Londinium Profile": {
@@ -355,7 +355,7 @@ const glossaryData = {
         "categories": ["espresso"]
     },
     "Light (roast)": {
-        "definition": "A roast level where beans are heated just enough to develop flavor while preserving origin characteristics. Light roasts typically have higher acidity, more complex flavors, and less body than darker roasts.",
+        "definition": "A roast level where beans are heated just enough to develop flavor while preserving origin characteristics. Light roasts typically have higher acidity, more complex flavors and less body than darker roasts.",
         "categories": ["roasting", "flavor"]
     },
     "Medium (roast)": {
@@ -363,11 +363,11 @@ const glossaryData = {
         "categories": ["roasting", "flavor"]
     },
     "Dark (roast)": {
-        "definition": "A roast level where beans are heated to higher temperatures, developing more roast flavors and less origin character. Dark roasts typically have lower acidity, more body, and flavors like chocolate, caramel, or smokiness.",
+        "definition": "A roast level where beans are heated to higher temperatures, developing more roast flavors and less origin character. Dark roasts typically have lower acidity, more body and flavors like chocolate, caramel or smokiness.",
         "categories": ["roasting", "flavor"]
     },
     "Maillard reaction": {
-        "definition": "A chemical reaction between amino acids and sugars during roasting. Responsible for browning and complex flavors like caramel, toast, or nuts.",
+        "definition": "A chemical reaction between amino acids and sugars during roasting. Responsible for browning and complex flavors like caramel, toast or nuts.",
         "categories": ["roasting", "flavor"]
     },
     "Maragogipe": {
@@ -379,7 +379,7 @@ const glossaryData = {
         "categories": ["processing", "equipment"]
     },
     "Micro-lot": {
-        "definition": "A small, traceable batch of coffee — often separated for quality, unique processing, or experimental purposes.",
+        "definition": "A small, traceable batch of coffee — often separated for quality, unique processing or experimental purposes.",
         "categories": ["sourcing"]
     },
     "Monsooned coffee": {
@@ -387,7 +387,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Mouthfeel": {
-        "definition": "The tactile sensation of coffee in the mouth — includes body, creaminess, or astringency.",
+        "definition": "The tactile sensation of coffee in the mouth — includes body, creaminess or astringency.",
         "categories": ["flavor", "evaluation"]
     },
     "Mucilage": {
@@ -395,7 +395,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Natural process": {
-        "definition": "Also called dry process. Whole cherries are dried with fruit still intact. Often produces fruity, winey, or wild flavors.",
+        "definition": "Also called dry process. Whole cherries are dried with fruit still intact. Often produces fruity, winey or wild flavors.",
         "categories": ["processing"]
     },
     "Origin": {
@@ -423,7 +423,7 @@ const glossaryData = {
         "categories": ["brewing"]
     },
     "Phenol / phenolic": {
-        "definition": "A type of off-flavor in coffee, often described as medicinal, smoky, or plastic-like. Can result from poor fermentation control, processing flaws, or microbial contamination.",
+        "definition": "A type of off-flavor in coffee, often described as medicinal, smoky or plastic-like. Can result from poor fermentation control, processing flaws or microbial contamination.",
         "categories": ["flavor"]
     },
     "Phenotype": {
@@ -555,7 +555,7 @@ const glossaryData = {
         "categories": ["espresso", "equipment"]
     },
     "Static (Electricity)": {
-        "definition": "Causes grinds to cling, clump, or fly around — often worsened by dry air or fast-spinning burrs.",
+        "definition": "Causes grinds to cling, clump or fly around — often worsened by dry air or fast-spinning burrs.",
         "categories": ["grinding"]
     },
     "Strength": {
@@ -611,11 +611,11 @@ const glossaryData = {
         "categories": ["espresso"]
     },
     "Under-extraction": {
-        "definition": "When \"not enough\" solubles are pulled from the coffee. Leads to sour, salty, or overwhelming shots.",
+        "definition": "When \"not enough\" solubles are pulled from the coffee. Leads to sour, salty or overwhelming shots.",
         "categories": ["brewing", "flavor"]
     },
     "Underdeveloped": {
-        "definition": "A roast defect caused by insufficient development time. Often results in sour, grassy, or vegetal flavors.",
+        "definition": "A roast defect caused by insufficient development time. Often results in sour, grassy or vegetal flavors.",
         "categories": ["roasting", "flavor"]
     },
     "Water Composition": {
@@ -635,7 +635,7 @@ const glossaryData = {
         "categories": ["espresso"]
     },
     "Yeast inoculation": {
-        "definition": "The use of selected yeast strains during fermentation to guide flavor development. Used to improve consistency, enhance clarity, or steer coffee toward specific sensory profiles.",
+        "definition": "The use of selected yeast strains during fermentation to guide flavor development. Used to improve consistency, enhance clarity or steer coffee toward specific sensory profiles.",
         "categories": ["processing"]
     },
     "Yield": {

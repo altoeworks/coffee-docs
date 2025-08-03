@@ -206,7 +206,12 @@ function createTermCard(term, data) {
 
     card.innerHTML = `
         <div class="mb-3">
-            <h3 class="text-xl font-semibold text-main dark:text-darktext mb-2">${term}</h3>
+            <div class="flex items-start justify-between mb-2">
+                <h3 class="text-xl font-semibold text-main dark:text-darktext">${term}</h3>
+                <button class="copy-link-btn p-2 text-gray-400 hover:text-accent transition-colors" title="Copy term link" data-term="${term}">
+                    <i class="fa-solid fa-link text-sm"></i>
+                </button>
+            </div>
             <div class="flex flex-wrap gap-1.5">
                 ${categoryBadgesHtml}
             </div>
@@ -222,7 +227,104 @@ function createTermCard(term, data) {
         badge.addEventListener('click', () => filterByCategory(badge.getAttribute('data-category')));
     });
 
+    // Add copy link functionality
+    const copyLinkBtn = card.querySelector('.copy-link-btn');
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const term = copyLinkBtn.getAttribute('data-term');
+            // Create a more specific URL that includes the term
+            const url = `${window.location.origin}${window.location.pathname}?term=${encodeURIComponent(term)}`;
+            
+            console.log('Copying URL:', url); // Debug log
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    // Show success feedback
+                    const originalIcon = copyLinkBtn.innerHTML;
+                    copyLinkBtn.innerHTML = '<i class="fa-solid fa-check text-sm"></i>';
+                    copyLinkBtn.classList.add('text-green-500');
+                    copyLinkBtn.title = 'Link copied!';
+                    
+                    setTimeout(() => {
+                        copyLinkBtn.innerHTML = originalIcon;
+                        copyLinkBtn.classList.remove('text-green-500');
+                        copyLinkBtn.title = 'Copy term link';
+                    }, 2000);
+                }).catch((err) => {
+                    console.error('Clipboard API failed:', err);
+                    // Fall back to execCommand
+                    fallbackCopyToClipboard(url, copyLinkBtn);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyToClipboard(url, copyLinkBtn);
+            }
+        });
+    }
+
     return card;
+}
+
+/**
+ * Fallback copy to clipboard function
+ */
+function fallbackCopyToClipboard(url, button) {
+    try {
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        if (successful) {
+            // Show success feedback
+            const originalIcon = button.innerHTML;
+            button.innerHTML = '<i class="fa-solid fa-check text-sm"></i>';
+            button.classList.add('text-green-500');
+            button.title = 'Link copied!';
+            
+            setTimeout(() => {
+                button.innerHTML = originalIcon;
+                button.classList.remove('text-green-500');
+                button.title = 'Copy term link';
+            }, 2000);
+        } else {
+            // Show error feedback
+            const originalIcon = button.innerHTML;
+            button.innerHTML = '<i class="fa-solid fa-exclamation text-sm"></i>';
+            button.classList.add('text-red-500');
+            button.title = 'Copy failed';
+            
+            setTimeout(() => {
+                button.innerHTML = originalIcon;
+                button.classList.remove('text-red-500');
+                button.title = 'Copy term link';
+            }, 2000);
+        }
+    } catch (err) {
+        console.error('Fallback copy failed:', err);
+        // Show error feedback
+        const originalIcon = button.innerHTML;
+        button.innerHTML = '<i class="fa-solid fa-exclamation text-sm"></i>';
+        button.classList.add('text-red-500');
+        button.title = 'Copy failed';
+        
+        setTimeout(() => {
+            button.innerHTML = originalIcon;
+            button.classList.remove('text-red-500');
+            button.title = 'Copy term link';
+        }, 2000);
+    }
 }
 
 /**
@@ -592,6 +694,76 @@ function initializeBackToTop() {
 }
 
 // ============================================================================
+// KEYBOARD SHORTCUTS
+// ============================================================================
+
+/**
+ * Set up keyboard shortcuts for better accessibility
+ */
+function setupKeyboardShortcuts() {
+    // Ctrl+F to focus search
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+            e.preventDefault();
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.select();
+            }
+        }
+        
+        // Escape to clear search
+        if (e.key === 'Escape') {
+            const searchInput = document.getElementById('search-input');
+            if (searchInput && searchInput.value) {
+                searchInput.value = '';
+                handleSearch();
+            }
+        }
+    });
+}
+
+/**
+ * Handle direct links to specific terms
+ */
+function handleDirectTermLinks() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const termParam = urlParams.get('term');
+    
+    if (termParam) {
+        // Decode the term
+        const term = decodeURIComponent(termParam);
+        
+        // Set the search input to the term
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = term;
+            handleSearch();
+        }
+        
+        // Scroll to the term after a short delay to ensure it's rendered
+        setTimeout(() => {
+            const termCards = document.querySelectorAll('.copy-link-btn');
+            termCards.forEach(card => {
+                if (card.getAttribute('data-term') === term) {
+                    card.closest('.bg-white').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // Highlight the card briefly
+                    const cardElement = card.closest('.bg-white');
+                    cardElement.classList.add('ring-2', 'ring-accent', 'ring-opacity-50');
+                    setTimeout(() => {
+                        cardElement.classList.remove('ring-2', 'ring-accent', 'ring-opacity-50');
+                    }, 3000);
+                }
+            });
+        }, 500);
+    }
+}
+
+// ============================================================================
 // EVENT LISTENERS
 // ============================================================================
 
@@ -623,4 +795,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Progress bar update on scroll
     window.addEventListener('scroll', updateProgressBar);
+    
+    // Set up keyboard shortcuts
+    setupKeyboardShortcuts();
+    
+    // Handle direct links to specific terms
+    handleDirectTermLinks();
 }); 

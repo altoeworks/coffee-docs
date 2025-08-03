@@ -31,7 +31,7 @@ const glossaryData = {
         "categories": ["flavor", "evaluation"]
     },
     "Aerobic fermentation": {
-        "definition": "Fermentation that occurs in the presence of oxygen — typically used in traditional washed and honey processes.",
+        "definition": "Fermentation that occurs in the presence of oxygen—typically used in traditional washed and honey processes.",
         "categories": ["processing"]
     },
     "Aftertaste": {
@@ -39,7 +39,7 @@ const glossaryData = {
         "categories": ["flavor", "evaluation"]
     },
     "Agitation": {
-        "definition": "Any movement during brewing that disturbs the coffee bed — includes stirring, swirling or pouring techniques.",
+        "definition": "Any movement during brewing that disturbs the coffee bed—includes stirring, swirling or pouring techniques.",
         "categories": ["brewing"]
     },
     "Alignment": {
@@ -51,11 +51,11 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Arabica": {
-        "definition": "Coffea arabica — the dominant species in specialty coffee. Known for its complex flavors, lower caffeine and high-altitude cultivation.",
+        "definition": "Coffea arabica—the dominant species in specialty coffee. Known for its complex flavors, lower caffeine and high-altitude cultivation.",
         "categories": ["botany"]
     },
     "Altitude / MASL": {
-        "definition": "Meters Above Sea Level. Impacts bean density and flavor development — higher altitudes often = more complex flavors.",
+        "definition": "Meters Above Sea Level. Impacts bean density and flavor development—higher altitudes often = more complex flavors.",
         "categories": ["sourcing", "botany"]
     },
     "Balance": {
@@ -87,7 +87,7 @@ const glossaryData = {
         "categories": ["botany"]
     },
     "Brew Ratio": {
-        "definition": "Another term for ratio — the proportion of coffee in vs. espresso out. Usually written like 1:2 or 1:3. Impacts strength, balance and extraction.",
+        "definition": "Another term for ratio—the proportion of coffee in vs. espresso out. Usually written like 1:2 or 1:3. Impacts strength, balance and extraction.",
         "categories": ["espresso", "brewing"]
     },
     "Brix": {
@@ -123,7 +123,7 @@ const glossaryData = {
         "categories": ["roasting"]
     },
     "Charging": {
-        "definition": "The moment green coffee is added to the roaster. It marks the start of the roast and affects how quickly heat transfers into the beans. Charge temperature — the roaster’s temp at this point — sets the tone for the entire profile.",
+        "definition": "The moment green coffee is added to the roaster. It marks the start of the roast and affects how quickly heat transfers into the beans. Charge temperature—the roaster’s temp at this point—sets the tone for the entire profile.",
         "categories": ["roasting"]
     },
     "Charge Temperature": {
@@ -143,7 +143,7 @@ const glossaryData = {
         "categories": ["flavor", "evaluation"]
     },
     "Contact Time": {
-        "definition": "The total time water and coffee are in contact. Influences extraction — longer = more extracted (to a point).",
+        "definition": "The total time water and coffee are in contact. Influences extraction—longer = more extracted (to a point).",
         "categories": ["brewing", "espresso"]
     },
     "Cooperative": {
@@ -163,7 +163,7 @@ const glossaryData = {
         "categories": ["evaluation", "sourcing"]
     },
     "Decent": {
-        "definition": "Short for the Decent DE1 espresso machine, a premium home unit with full digital control over flow, pressure and temperature — popular for profiling.",
+        "definition": "Short for the Decent DE1 espresso machine, a premium home unit with full digital control over flow, pressure and temperature—popular for profiling.",
         "categories": ["espresso", "equipment"]
     },
     "Density": {
@@ -211,7 +211,7 @@ const glossaryData = {
         "categories": ["espresso", "equipment"]
     },
     "Espresso Style": {
-        "definition": "Refers to the intended expression of a shot — ristretto (short), normale (classic), lungo (long), turbo, etc.",
+        "definition": "Refers to the intended expression of a shot—ristretto (short), normale (classic), lungo (long), turbo, etc.",
         "categories": ["espresso"]
     },
     "Evaluation": {
@@ -259,11 +259,11 @@ const glossaryData = {
         "categories": ["espresso", "brewing"]
     },
     "Flow Rate (Pouring)": {
-        "definition": "In manual brews, the rate at which water is poured over the bed — different from espresso flow rate.",
+        "definition": "In manual brews, the rate at which water is poured over the bed—different from espresso flow rate.",
         "categories": ["brewing"]
     },
     "FOB (Free on Board)": {
-        "definition": "Price at which coffee leaves the port of origin — includes milling and export costs but not farmgate.",
+        "definition": "Price at which coffee leaves the port of origin—includes milling and export costs but not farmgate.",
         "categories": ["sourcing"]
     },
     "Force Tamper": {
@@ -295,7 +295,7 @@ const glossaryData = {
         "categories": ["grinding"]
     },
     "Grind Size": {
-        "definition": "How coarse or fine the coffee is ground. Affects flow, pressure and extraction balance. The size of coffee particles after grinding. Affects how quickly flavors are extracted — finer grinds extract faster, coarser grinds slower.",
+        "definition": "How coarse or fine the coffee is ground. Affects flow, pressure and extraction balance. The size of coffee particles after grinding. Affects how quickly flavors are extracted—finer grinds extract faster, coarser grinds slower.",
         "categories": ["grinding", "espresso", "brewing"]
     },
     "Grind Size Drift": {
@@ -303,7 +303,7 @@ const glossaryData = {
         "categories": ["grinding"]
     },
     "Grinder": {
-        "definition": "The device that grinds whole beans. Affects particle size, distribution, retention and static — all of which influence espresso quality.",
+        "definition": "The device that grinds whole beans. Affects particle size, distribution, retention and static—all of which influence espresso quality.",
         "categories": ["grinding", "equipment"]
     },
     "Grouphead": {
@@ -331,7 +331,7 @@ const glossaryData = {
         "categories": ["espresso", "equipment"]
     },
     "Immersion Brewing": {
-        "definition": "A brewing method where coffee steeps in water before filtration — e.g., French press or cupping.",
+        "definition": "A brewing method where coffee steeps in water before filtration—e.g., French press or cupping.",
         "categories": ["brewing"]
     },
     "Ionizer": {
@@ -379,7 +379,7 @@ const glossaryData = {
         "categories": ["processing", "equipment"]
     },
     "Micro-lot": {
-        "definition": "A small, traceable batch of coffee — often separated for quality, unique processing or experimental purposes.",
+        "definition": "A small, traceable batch of coffee—often separated for quality, unique processing or experimental purposes.",
         "categories": ["sourcing"]
     },
     "Monsooned coffee": {
@@ -387,7 +387,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Mouthfeel": {
-        "definition": "The tactile sensation of coffee in the mouth — includes body, creaminess or astringency.",
+        "definition": "The tactile sensation of coffee in the mouth—includes body, creaminess or astringency.",
         "categories": ["flavor", "evaluation"]
     },
     "Mucilage": {
@@ -407,7 +407,7 @@ const glossaryData = {
         "categories": ["brewing", "flavor"]
     },
     "Pacamara": {
-        "definition": "A hybrid of Pacas and Maragogipe, known for large beans and unique cup profiles — often fruity, floral and creamy.",
+        "definition": "A hybrid of Pacas and Maragogipe, known for large beans and unique cup profiles—often fruity, floral and creamy.",
         "categories": ["botany"]
     },
     "Paper Filter": {
@@ -419,7 +419,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "Percolation Brewing": {
-        "definition": "A brewing method where water flows through the coffee bed via gravity or pressure — includes pour-over and batch brew.",
+        "definition": "A brewing method where water flows through the coffee bed via gravity or pressure—includes pour-over and batch brew.",
         "categories": ["brewing"]
     },
     "Phenol / phenolic": {
@@ -427,7 +427,7 @@ const glossaryData = {
         "categories": ["flavor"]
     },
     "Phenotype": {
-        "definition": "The physical expression of genetic traits — including plant shape, resistance and cup characteristics.",
+        "definition": "The physical expression of genetic traits—including plant shape, resistance and cup characteristics.",
         "categories": ["botany"]
     },
     "Portafilter": {
@@ -435,7 +435,7 @@ const glossaryData = {
         "categories": ["espresso", "equipment"]
     },
     "Post-harvest processing": {
-        "definition": "An umbrella term for the steps after harvesting coffee cherries — including fermentation, drying, hulling and sorting — to produce green coffee.",
+        "definition": "An umbrella term for the steps after harvesting coffee cherries—including fermentation, drying, hulling and sorting—to produce green coffee.",
         "categories": ["processing"]
     },
     "Preinfusion / Softinfusion": {
@@ -455,7 +455,7 @@ const glossaryData = {
         "categories": ["espresso"]
     },
     "Profiling (Espresso)": {
-        "definition": "Modifying pressure or flow during a shot to shape extraction stages. Enables finer control over flavor, body and texture — especially with modded or smart machines.",
+        "definition": "Modifying pressure or flow during a shot to shape extraction stages. Enables finer control over flavor, body and texture—especially with modded or smart machines.",
         "categories": ["espresso"]
     },
     "Puck": {
@@ -507,7 +507,7 @@ const glossaryData = {
         "categories": ["grinding"]
     },
     "Robusta": {
-        "definition": "Coffea canephora — higher in caffeine and bitterness, more disease-resistant. Less common in specialty but increasingly explored.",
+        "definition": "Coffea canephora—higher in caffeine and bitterness, more disease-resistant. Less common in specialty but increasingly explored.",
         "categories": ["botany"]
     },
     "Roast development": {
@@ -519,11 +519,11 @@ const glossaryData = {
         "categories": ["roasting"]
     },
     "SCA": {
-        "definition": "Specialty Coffee Association — sets global standards for quality, cupping and sustainability.",
+        "definition": "Specialty Coffee Association—sets global standards for quality, cupping and sustainability.",
         "categories": ["evaluation"]
     },
     "Scoring (SCA)": {
-        "definition": "The SCA cupping protocol evaluates coffees across categories like aroma, flavor, acidity, body and balance — out of 100 points.",
+        "definition": "The SCA cupping protocol evaluates coffees across categories like aroma, flavor, acidity, body and balance—out of 100 points.",
         "categories": ["evaluation"]
     },
     "Second Crack": {
@@ -555,7 +555,7 @@ const glossaryData = {
         "categories": ["espresso", "equipment"]
     },
     "Static (Electricity)": {
-        "definition": "Causes grinds to cling, clump or fly around — often worsened by dry air or fast-spinning burrs.",
+        "definition": "Causes grinds to cling, clump or fly around—often worsened by dry air or fast-spinning burrs.",
         "categories": ["grinding"]
     },
     "Strength": {
@@ -583,7 +583,7 @@ const glossaryData = {
         "categories": ["sourcing", "botany"]
     },
     "Traceability": {
-        "definition": "The ability to track a coffee from farm to cup — important for transparency and quality assurance.",
+        "definition": "The ability to track a coffee from farm to cup—important for transparency and quality assurance.",
         "categories": ["sourcing"]
     },
     "Triangulation": {
@@ -599,11 +599,11 @@ const glossaryData = {
         "categories": ["brewing"]
     },
     "Turning Point": {
-        "definition": "The lowest temperature point after charging a roaster — the moment when heat transfer overtakes thermal loss.",
+        "definition": "The lowest temperature point after charging a roaster—the moment when heat transfer overtakes thermal loss.",
         "categories": ["roasting"]
     },
     "Typica": {
-        "definition": "One of the oldest Arabica varieties — clean, balanced and genetically foundational to many modern cultivars.",
+        "definition": "One of the oldest Arabica varieties—clean, balanced and genetically foundational to many modern cultivars.",
         "categories": ["botany"]
     },
     "Ultra-Low Contact": {
@@ -627,7 +627,7 @@ const glossaryData = {
         "categories": ["processing"]
     },
     "WCR": {
-        "definition": "A nonprofit organization focused on improving coffee's future through agricultural research. WCR develops disease-resistant, high-quality varieties, supports genetic diversity and helps producers adapt to climate change — all to ensure long-term sustainability and better coffee for everyone.",
+        "definition": "A nonprofit organization focused on improving coffee's future through agricultural research. WCR develops disease-resistant, high-quality varieties, supports genetic diversity and helps producers adapt to climate change—all to ensure long-term sustainability and better coffee for everyone.",
         "categories": ["evaluation", "sourcing"]
     },
     "WDT (Weiss Distribution Technique)": {
@@ -643,7 +643,7 @@ const glossaryData = {
         "categories": ["espresso", "brewing"]
     },
     "Zer0 Profile": {
-        "definition": "A multi-phase espresso profile designed to pull different flavor compounds in stages. Slow wetting, pressure pause and strong finish — results in syrupy but clean shots.",
+        "definition": "A multi-phase espresso profile designed to pull different flavor compounds in stages. Slow wetting, pressure pause and strong finish—results in syrupy but clean shots.",
         "categories": ["espresso"]
     }
 };

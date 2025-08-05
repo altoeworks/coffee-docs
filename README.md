@@ -19,6 +19,10 @@ A detailed espresso guide focused on technique, variables, and troubleshooting�
 A comprehensive, searchable reference covering coffee terminology from "extraction" to "terroir," "crema" to "cupping." Filter by category or browse alphabetically.  
 👉 [Explore the glossary](https://coffee.altoeworks.net/glossary.html)
 
+### 4. **Espresso Variable Explorer**  
+An interactive mindmap showing the relationships between espresso brewing variables like grind size, dose, time, pressure, and temperature. Click nodes to see definitions and connections.  
+👉 [Explore variables](https://coffee.altoeworks.net/espresso-variables.html)
+
 ## 🌐 Live Website  
 The site is live at **[coffee.altoeworks.net](https://coffee.altoeworks.net)**  
 It's: 
@@ -44,6 +48,7 @@ If they help you enjoy your coffee more—that's all I could ask for.
 - **Fonts**: Inter variable font family
 - **Icons**: FontAwesome for UI elements
 - **Responsive**: Mobile-first design with hamburger navigation
+- **Interactive**: Mindmap visualization with SVG connections and tooltips
 - **Performance**: Optimized CSS, minimal JavaScript, fast loading
 
 ## 📄 License

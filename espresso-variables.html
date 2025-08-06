@@ -93,39 +93,18 @@
             <div class="p-6 space-y-6 z-60">
                 <!-- Back to Guides Link -->
                 <a href="index.html"
-                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
-                    <i class="fa-solid fa-arrow-left text-accent"></i>
+                    class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+                    <i
+                        class="fa-solid fa-arrow-left text-accent transition-transform duration-300 group-hover:scale-110"></i>
                     <span>Back to Guides</span>
                 </a>
 
-                <!-- Table of Contents -->
-                <div>
-                    <h4 class="text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">
-                        Table of
-                        Contents</h4>
-                    <div class="space-y-2">
-                        <a href="index.html#intro-fade"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Introduction
-                        </a>
-                        <a href="index.html#anatomy-guide"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            The Anatomy of Coffee Flavor
-                        </a>
-                        <a href="index.html#espresso-guide"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Under Pressure
-                        </a>
-                        <a href="#additional-tools-section"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Additional Tools
-                        </a>
-                        <a href="index.html#feedback-section"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Let's Make It Better Together
-                        </a>
-                    </div>
-                </div>
+                <!-- Glossary Link -->
+                <a href="glossary.html"
+                    class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+                    <i class="fa-solid fa-book text-accent transition-transform duration-300 group-hover:scale-110"></i>
+                    <span>Interactive Glossary</span>
+                </a>
             </div>
 
             <!-- Dark Mode Toggle (Bottom) -->
@@ -141,239 +120,257 @@
 
     <!-- Main Content -->
     <main class="min-h-screen flex-1 bg-background dark:bg-darkbg">
-        <!-- Back to Top Button -->
-        <button id="back-to-top-btn" aria-label="Back to top"
-            class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-500 opacity-0 pointer-events-none hover:scale-105 dark:bg-accent flex items-center justify-center hover:bg-accent/90 dark:hover:bg-accent/90">
-            <i class="fa-solid fa-arrow-up"></i>
-        </button>
+            <!-- Back to Top Button -->
+            <button id="back-to-top-btn" aria-label="Back to top"
+                class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-500 opacity-0 pointer-events-none hover:scale-105 dark:bg-accent flex items-center justify-center hover:bg-accent/90 dark:hover:bg-accent/90">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
 
-        <!-- Hero Section -->
-        <section
-            class="px-4 sm:px-6 py-8 md:py-12 transition-colors duration-300 bg-background dark:bg-darkbg">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-main mb-4 dark:text-darktext">
-                    Espresso Variable Explorer
-                </h1>
-                <p class="text-lg text-gray-600 mb-6 dark:text-darktext">
-                    Interactive mindmap exploring the relationships between espresso brewing variables. Input variables
-                    (orange) are controlled by the barista, while output variables (blue) are the results and
-                    measurements. Click on any node to see its relationships.
-                </p>
+            <!-- Hero Section -->
+            <section class="px-4 sm:px-6 py-8 md:py-12 transition-colors duration-300 bg-background dark:bg-darkbg">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-3xl md:text-4xl font-bold text-main mb-4 dark:text-darktext">
+                        Espresso Variable Explorer
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6 dark:text-darktext">
+                        Interactive mindmap exploring the relationships between espresso brewing variables. Input
+                        variables
+                        (orange) are controlled by the barista, while output variables (blue) are the results and
+                        measurements. Click on any node to see its relationships.
+                    </p>
 
-                <!-- Controls -->
-                <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <button id="toggle-layout-btn"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-200 text-gray-700 font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">
-                        <i class="fa-solid fa-sitemap text-lg" aria-hidden="true"></i>
-                        Toggle Layout
-                    </button>
-                </div>
-            </div>
-        </section>
-        <!-- Legend -->
-        <div class="px-4 sm:px-6 mb-6 dark:bg-darkbg">
-            <div
-                class="bg-white/70 border border-main/10 rounded-xl p-6 shadow-lg max-w-4xl mx-auto dark:bg-main/80 dark:border-background/20">
-                <div class="text-center mb-4">
-                    <h3 class="text-lg font-bold text-main dark:text-background mb-2">Legend</h3>
-                    <p class="text-sm text-main/70 dark:text-background/70">Understanding the mindmap elements</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <!-- Node Types Section -->
-                    <div class="col-span-1">
-                        <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">Node Types
-                        </h4>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div
-                                class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
-                                <div class="w-5 h-5 rounded-full bg-accent shadow-md flex-shrink-0"></div>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Input Variables
-                                    </div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">What you control</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
-                                <div class="w-5 h-5 rounded-full bg-tertiary dark:bg-darktertiary shadow-md flex-shrink-0"></div>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Output Variables
-                                    </div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">What you measure</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connection Types Section -->
-                    <div class="col-span-1">
-                        <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">Connections
-                        </h4>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div
-                                class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
-                                <div class="flex-shrink-0">
-                                    <svg width="20" height="4" viewBox="0 0 20 4" class="w-5 h-1">
-                                        <line x1="0" y1="2" x2="20" y2="2" stroke="#ff6b35" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Affects</div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">Solid line</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
-                                <div class="flex-shrink-0">
-                                    <svg width="20" height="4" viewBox="0 0 20 4" class="w-5 h-1">
-                                        <line x1="0" y1="2" x2="20" y2="2" stroke="#005271" stroke-width="2"
-                                            stroke-linecap="round" stroke-dasharray="1,3" class="tertiary-line" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Affected By</div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">Dashed line</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interaction Guide Section -->
-                    <div class="col-span-2">
-                        <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">Interaction
-                            Guide</h4>
-                        <div class="grid grid-cols-3 gap-3">
-                            <div
-                                class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
-                                <i class="fa-solid fa-mouse-pointer text-accent text-sm"></i>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Click</div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">Select node</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
-                                <i class="fa-solid fa-arrows-up-down-left-right text-accent text-sm"></i>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Drag</div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">Move nodes</div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
-                                <i class="fa-solid fa-rotate-left text-accent text-sm"></i>
-                                <div>
-                                    <div class="font-medium text-sm text-main dark:text-background">Reset</div>
-                                    <div class="text-xs text-main/60 dark:text-background/60">Clear all</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mindmap Container -->
-        <section class="px-4 sm:px-6 py-8 bg-background dark:bg-darkbg border-b border-main/10 dark:border-darkborder">
-            <div class="max-w-7xl mx-auto">
-                <!-- Mindmap Layout -->
-                <div class="grid grid-cols-1 xl:grid-cols-[1fr_450px] gap-6">
-                    <!-- Mindmap Canvas with Reset Button -->
-                    <div class="relative">
-                        <!-- Mindmap Canvas -->
-                        <div id="mindmap-container"
-                            class="bg-white/70 dark:bg-main/80 rounded-2xl border border-main/10 dark:border-background/20 overflow-hidden shadow-xl backdrop-blur-sm">
-                            <div id="mindmap-canvas" class="relative w-full p-8 bg-transparent dark:bg-transparent"
-                                style="height: 700px; min-height: 700px;">
-                                <!-- Nodes will be dynamically generated here -->
-                            </div>
-                            <!-- Subtle background pattern -->
-                            <div class="absolute inset-0 opacity-8 dark:opacity-15 pointer-events-none">
-                                <div class="absolute inset-0"
-                                    style="background-image: radial-gradient(circle at 1px 1px, rgba(255, 107, 53, 0.4) 1px, transparent 0); background-size: 20px 20px;">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Reset Button positioned outside canvas -->
-                        <button id="reset-view-btn"
-                            class="absolute top-4 right-4 z-40 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent text-sm hover:bg-accent/90 dark:hover:bg-accent/90">
-                            <i class="fa-solid fa-rotate-left text-sm" aria-hidden="true"></i>
-                            Reset
+                    <!-- Controls -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-6">
+                        <button id="toggle-layout-btn"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-200 text-gray-700 font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <i class="fa-solid fa-sitemap text-lg" aria-hidden="true"></i>
+                            Toggle Layout
                         </button>
                     </div>
-
-                    <!-- Tooltip Panel -->
-                    <div id="tooltip-panel"
-                        class="bg-white/70 dark:bg-main/80 border border-main/10 dark:border-background/20 rounded-2xl shadow-lg p-6 h-fit sticky top-6 backdrop-blur-sm">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-main dark:text-background">Variable Details</h3>
-                            <button id="close-tooltip-btn"
-                                class="text-main/60 dark:text-background/60 hover:text-main dark:hover:text-background transition-colors">
-                                <i class="fa-solid fa-times text-lg"></i>
-                            </button>
+                </div>
+            </section>
+            <!-- Legend -->
+            <div class="px-4 sm:px-6 mb-6 dark:bg-darkbg">
+                <div
+                    class="bg-white/70 border border-main/10 rounded-xl p-6 shadow-lg max-w-4xl mx-auto dark:bg-main/80 dark:border-background/20">
+                    <div class="text-center mb-4">
+                        <h3 class="text-lg font-bold text-main dark:text-background mb-2">Legend</h3>
+                        <p class="text-sm text-main/70 dark:text-background/70">Understanding the mindmap elements</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <!-- Node Types Section -->
+                        <div class="col-span-1">
+                            <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">Node Types
+                            </h4>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
+                                    <div class="w-5 h-5 rounded-full bg-accent shadow-md flex-shrink-0"></div>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Input Variables
+                                        </div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">What you control</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
+                                    <div
+                                        class="w-5 h-5 rounded-full bg-tertiary dark:bg-darktertiary shadow-md flex-shrink-0">
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Output Variables
+                                        </div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">What you measure</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="tooltip-content" class="text-sm text-main/80 dark:text-background/80">
-                            <div class="text-center text-main/60 dark:text-background/60 py-8">
-                                <i class="fa-solid fa-mouse-pointer text-2xl mb-2"></i>
-                                <p>Click on a variable to see detailed information</p>
+
+                        <!-- Connection Types Section -->
+                        <div class="col-span-1">
+                            <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">
+                                Connections
+                            </h4>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
+                                    <div class="flex-shrink-0">
+                                        <svg width="20" height="4" viewBox="0 0 20 4" class="w-5 h-1">
+                                            <line x1="0" y1="2" x2="20" y2="2" stroke="#ff6b35" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Affects</div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">Solid line</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
+                                    <div class="flex-shrink-0">
+                                        <svg width="20" height="4" viewBox="0 0 20 4" class="w-5 h-1">
+                                            <line x1="0" y1="2" x2="20" y2="2" stroke="#005271" stroke-width="2"
+                                                stroke-linecap="round" stroke-dasharray="1,3" class="tertiary-line" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Affected By
+                                        </div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">Dashed line</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interaction Guide Section -->
+                        <div class="col-span-2">
+                            <h4 class="text-sm font-semibold text-main dark:text-background mb-3 text-center">
+                                Interaction
+                                Guide</h4>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
+                                    <i class="fa-solid fa-mouse-pointer text-accent text-sm"></i>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Click</div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">Select node</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
+                                    <i class="fa-solid fa-arrows-up-down-left-right text-accent text-sm"></i>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Drag</div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">Move nodes</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 p-3 bg-accent/10 dark:bg-accent/20 rounded-lg border border-accent/20 dark:border-accent/30">
+                                    <i class="fa-solid fa-rotate-left text-accent text-sm"></i>
+                                    <div>
+                                        <div class="font-medium text-sm text-main dark:text-background">Reset</div>
+                                        <div class="text-xs text-main/60 dark:text-background/60">Clear all</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </section>
-    </main>
+            </div>
 
-    <!-- 
+            <!-- Mindmap Container -->
+            <section
+                class="px-4 sm:px-6 py-8 bg-background dark:bg-darkbg border-b border-main/10 dark:border-darkborder">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Mindmap Layout -->
+                    <div class="grid grid-cols-1 xl:grid-cols-[1fr_450px] gap-6">
+                        <!-- Mindmap Canvas with Reset Button -->
+                        <div class="relative">
+                            <!-- Mindmap Canvas -->
+                            <div id="mindmap-container"
+                                class="bg-white/70 dark:bg-main/80 rounded-2xl border border-main/10 dark:border-background/20 overflow-hidden shadow-xl backdrop-blur-sm">
+                                <div id="mindmap-canvas" class="relative w-full p-8 bg-transparent dark:bg-transparent"
+                                    style="height: 700px; min-height: 700px;">
+                                    <!-- Nodes will be dynamically generated here -->
+                                </div>
+                                <!-- Subtle background pattern -->
+                                <div class="absolute inset-0 pointer-events-none">
+                                    <div class="absolute inset-0 opacity-20"
+                                        style="background-image: radial-gradient(circle at 1px 1px, rgba(255, 107, 53, 0.6) 1px, transparent 0); background-size: 20px 20px;">
+                                    </div>
+                                    <div class="absolute inset-0 opacity-10"
+                                        style="background-image: radial-gradient(circle at 1px 1px, rgba(0, 82, 113, 0.6) 1px, transparent 0); background-size: 20px 20px;">
+                                    </div>
+                                    <!-- Dark mode pattern with light dots -->
+                                    <div class="absolute inset-0 opacity-30 dark:opacity-30"
+                                        style="background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0); background-size: 20px 20px;">
+                                    </div>
+                                    <div class="absolute inset-0 opacity-20 dark:opacity-20"
+                                        style="background-image: radial-gradient(circle at 1px 1px, rgba(173, 216, 230, 0.4) 1px, transparent 0); background-size: 20px 20px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Reset Button positioned outside canvas -->
+                            <button id="reset-view-btn"
+                                class="absolute top-4 right-4 z-40 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent text-sm hover:bg-accent/90 dark:hover:bg-accent/90">
+                                <i class="fa-solid fa-rotate-left text-sm" aria-hidden="true"></i>
+                                Reset
+                            </button>
+                        </div>
+
+                        <!-- Tooltip Panel -->
+                        <div id="tooltip-panel"
+                            class="bg-white/70 dark:bg-main/80 border border-main/10 dark:border-background/20 rounded-2xl shadow-lg p-6 h-fit sticky top-6 backdrop-blur-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold text-main dark:text-background">Variable Details</h3>
+                                <button id="close-tooltip-btn"
+                                    class="text-main/60 dark:text-background/60 hover:text-main dark:hover:text-background transition-colors">
+                                    <i class="fa-solid fa-times text-lg"></i>
+                                </button>
+                            </div>
+                            <div id="tooltip-content" class="text-sm text-main/80 dark:text-background/80">
+                                <div class="text-center text-main/60 dark:text-background/60 py-8">
+                                    <i class="fa-solid fa-mouse-pointer text-2xl mb-2"></i>
+                                    <p>Click on a variable to see detailed information</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </main>
+
+        <!-- 
       Footer with license information
       Shows the Creative Commons license and copyright
     -->
-    <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
-        <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
-            <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
-                <!-- Creative Commons icons -->
-                <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
-                    <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
-                    <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
-                    <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
-                    <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
-                </div>
+        <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+            <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
+                <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+                    <!-- Creative Commons icons -->
+                    <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
+                        <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+                        <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+                        <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
+                        <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
+                    </div>
 
-                <!-- License text -->
-                <div class="flex flex-col justify-center gap-0.5">
-                    <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
-                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
-                            rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a> —
-                        Attribution
-                        & ShareAlike required.</span>
-                </div>
+                    <!-- License text -->
+                    <div class="flex flex-col justify-center gap-0.5">
+                        <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
+                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                                rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA
+                                4.0</a> —
+                            Attribution
+                            & ShareAlike required.</span>
+                    </div>
 
-                <!-- Copyright icon -->
-                <div class="flex items-center justify-center">
-                    <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
-                </div>
+                    <!-- Copyright icon -->
+                    <div class="flex items-center justify-center">
+                        <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
+                    </div>
 
-                <!-- Copyright text -->
-                <div class="flex items-center text-xs text-background/80 dark:text-darktext">
-                    <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-                            target="_blank" rel="license noopener noreferrer" class="underline hover:text-accent">Some
-                            rights reserved.</a></span>
+                    <!-- Copyright text -->
+                    <div class="flex items-center text-xs text-background/80 dark:text-darktext">
+                        <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                                target="_blank" rel="license noopener noreferrer"
+                                class="underline hover:text-accent">Some
+                                rights reserved.</a></span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- JavaScript -->
-    <script src="js/espresso-variables-data.js"></script>
-    <script src="js/espresso-variables.js"></script>
-    <script>
-        // Debug script loading
-        console.log('Scripts loaded');
-        console.log('Data available:', typeof espressoVariablesData !== 'undefined');
-        console.log('Data keys:', Object.keys(espressoVariablesData || {}));
+        <!-- JavaScript -->
+        <script src="js/espresso-variables-data.js"></script>
+        <script src="js/espresso-variables.js"></script>
+        <script>
+            // Debug script loading
+            console.log('Scripts loaded');
+            console.log('Data available:', typeof espressoVariablesData !== 'undefined');
+            console.log('Data keys:', Object.keys(espressoVariablesData || {}));
 
 
-    </script>
+        </script>
 </body>
 
 </html>

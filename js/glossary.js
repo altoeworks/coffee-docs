@@ -99,6 +99,42 @@ function initGlossary() {
         alphabetNav.appendChild(button);
     });
 
+    // Create hamburger menu alphabet navigation
+    const menuAlphabetNav = document.getElementById('menu-alphabet-nav');
+    if (menuAlphabetNav) {
+        // Add "All" option
+        const allLink = document.createElement('a');
+        allLink.href = '#';
+        allLink.className = 'block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm';
+        allLink.textContent = 'All Terms';
+        allLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterByLetter('all');
+            // Close menu
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
+            hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+        });
+        menuAlphabetNav.appendChild(allLink);
+
+        // Add letter options
+        alphabet.forEach(letter => {
+            const letterLink = document.createElement('a');
+            letterLink.href = '#';
+            letterLink.className = 'block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm';
+            letterLink.textContent = `${letter}`;
+            letterLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                filterByLetter(letter);
+                // Close menu
+                const hamburgerMenu = document.getElementById('hamburger-menu');
+                hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
+                hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            });
+            menuAlphabetNav.appendChild(letterLink);
+        });
+    }
+
     // Add "All" button functionality
     const allButton = alphabetNav.querySelector('[data-letter="all"]');
     if (allButton) {
@@ -559,6 +595,37 @@ function handleSearch() {
 
     renderTerms(filteredTerms);
     updateClearFiltersButton();
+    updateClearSearchButton();
+}
+
+/**
+ * Update the clear search button visibility based on search input value
+ */
+function updateClearSearchButton() {
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    
+    if (searchInput && clearSearchBtn) {
+        if (searchInput.value.trim()) {
+            clearSearchBtn.style.opacity = '1';
+            clearSearchBtn.style.pointerEvents = 'auto';
+        } else {
+            clearSearchBtn.style.opacity = '0';
+            clearSearchBtn.style.pointerEvents = 'none';
+        }
+    }
+}
+
+/**
+ * Clear the search input and update filters
+ */
+function clearSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.value = '';
+        handleSearch();
+        searchInput.focus();
+    }
 }
 
 // ============================================================================
@@ -588,6 +655,8 @@ function initializeHamburgerMenu() {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerMenu.classList.remove('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.remove('translate-x-full');
+            // Lock body scroll
+            document.body.style.overflow = 'hidden';
         });
     }
 
@@ -596,6 +665,8 @@ function initializeHamburgerMenu() {
         closeMenuBtn.addEventListener('click', () => {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         });
     }
 
@@ -604,6 +675,8 @@ function initializeHamburgerMenu() {
         if (e.target === hamburgerMenu) {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         }
     });
 
@@ -613,6 +686,8 @@ function initializeHamburgerMenu() {
             toggleDarkMode();
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         });
     }
 
@@ -624,6 +699,8 @@ function initializeHamburgerMenu() {
                 // Close menu first
                 hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
                 hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+                // Unlock body scroll
+                document.body.style.overflow = '';
 
                 // For links to index.html, use replace for more reliable navigation
                 if (link.href && link.href.includes('index.html')) {
@@ -787,6 +864,12 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.addEventListener('input', handleSearch);
     }
 
+    // Clear search button
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', clearSearch);
+    }
+
     // Clear filters button
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     if (clearFiltersBtn) {
@@ -801,4 +884,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Handle direct links to specific terms
     handleDirectTermLinks();
+    
+    // Initialize clear search button state
+    updateClearSearchButton();
 }); 

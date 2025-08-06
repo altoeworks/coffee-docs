@@ -131,6 +131,13 @@ module.exports = {
     'opacity-95',
     'opacity-8',
     'opacity-15',
+    'border-0',
+    'bg-transparent',
+    'p-0',
+    'm-0',
+    'outline-none',
+    'focus:outline-none',
+    'active:outline-none',
   ],
   theme: {
     extend: {

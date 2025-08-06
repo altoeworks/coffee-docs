@@ -79,7 +79,7 @@
     <div id="hamburger-menu"
         class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
         <div
-            class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext">
+            class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext flex flex-col">
             <!-- Menu Header -->
             <div class="flex items-center justify-between p-6 border-b border-main/10 dark:border-darkborder">
                 <h3 class="text-lg font-semibold text-main dark:text-background">Menu</h3>
@@ -90,46 +90,35 @@
             </div>
 
             <!-- Menu Content -->
-            <div class="p-6 space-y-6">
+            <div class="p-6 space-y-6 flex-1 overflow-y-auto">
                 <!-- Back to Guides Link -->
                 <a href="index.html"
-                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
-                    <i class="fa-solid fa-arrow-left text-accent"></i>
+                    class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+                    <i
+                        class="fa-solid fa-arrow-left text-accent transition-transform duration-300 group-hover:scale-110"></i>
                     <span>Back to Guides</span>
                 </a>
 
-                <!-- Table of Contents -->
+                <!-- Espresso Variable Explorer Link -->
+                <a href="espresso-variables.html"
+                    class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+                    <i
+                        class="fa-solid fa-sitemap text-accent transition-transform duration-300 group-hover:scale-110"></i>
+                    <span>Espresso Variable Explorer</span>
+                </a>
+
+                <!-- Alphabet Navigation -->
                 <div>
                     <h4 class="text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">
-                        Table of
-                        Contents</h4>
-                    <div class="space-y-2">
-                        <a href="index.html#intro-fade"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Introduction
-                        </a>
-                        <a href="index.html#anatomy-guide"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            The Anatomy of Coffee Flavor
-                        </a>
-                        <a href="index.html#espresso-guide"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Under Pressure
-                        </a>
-                        <a href="#additional-tools-section"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Additional Tools
-                        </a>
-                        <a href="index.html#feedback-section"
-                            class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-                            Let's Make It Better Together
-                        </a>
+                        Browse by Letter</h4>
+                    <div id="menu-alphabet-nav" class="space-y-2">
+                        <!-- Will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
 
             <!-- Dark Mode Toggle (Bottom) -->
-            <div class="mt-auto p-6 border-t border-main/10 dark:border-darkborder">
+            <div class="p-6 border-t border-main/10 dark:border-darkborder flex-shrink-0">
                 <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
                     class="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
                     <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
@@ -163,9 +152,13 @@
                     <div class="relative">
                         <input type="text" id="search-input"
                             placeholder="Search terms (e.g., 'extraction', 'crema', 'terroir')..."
-                            class="w-full px-6 py-4 pl-12 text-lg border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition-colors dark:bg-darksection dark:border-darkborder dark:text-darktext dark:placeholder-gray-400">
+                            class="w-full px-6 py-4 pl-12 pr-12 text-lg border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition-colors dark:bg-darksection dark:border-darkborder dark:text-darktext dark:placeholder-gray-400">
                         <i
                             class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 text-xl"></i>
+                        <button id="clear-search-btn" aria-label="Clear search"
+                            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 opacity-0 pointer-events-none border-0 bg-transparent p-0 m-0 outline-none focus:outline-none active:outline-none">
+                            <i class="fa-solid fa-times text-lg"></i>
+                        </button>
                     </div>
                     <!-- Filter Explanation -->
                     <p class="text-sm text-gray-500 mt-3 dark:text-gray-400">

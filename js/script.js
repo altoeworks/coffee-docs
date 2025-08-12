@@ -260,7 +260,22 @@ function updateProgressBar() {
  * @param {string} url - The URL to share
  */
 function shareGuide(title, url) {
-  copyToClipboard(url, title);
+  // Prefer the native Web Share API when available
+  if (navigator.share) {
+    navigator.share({
+      title,
+      text: `${title} — free coffee guide`,
+      url
+    }).catch((err) => {
+      // If user cancels or share fails, fall back to clipboard
+      if (err && err.name !== 'AbortError') {
+        copyToClipboard(url, title);
+      }
+    });
+  } else {
+    // Fallback
+    copyToClipboard(url, title);
+  }
 }
 
 /**

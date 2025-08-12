@@ -189,8 +189,8 @@
         -->
         <div class="fade-line flex justify-center mb-8">
           <button onclick="document.getElementById('the-guides').scrollIntoView({behavior: 'smooth'})"
-            class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:bg-accent dark:focus:ring-accent">
-            <i class="fa-solid fa-arrow-down"></i>
+            class="skip-to-guides-btn inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+            <i class="fa-solid fa-arrow-down text-lg md:text-xl"></i>
             Skip to The Guides
           </button>
         </div>
@@ -321,19 +321,25 @@
             navigable. It's not about telling you what's good. It's about helping you make sense of what you're tasting.
           </p>
 
-          <!-- Download and Share buttons -->
+          <!-- Primary Read Online, compact Download and Share -->
           <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <a href="files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+              <i class="fa-solid fa-book-open text-lg md:text-xl" aria-hidden="true"></i>
+              Read Online
+            </a>
             <button
               onclick="downloadPDF('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', 'The Anatomy of Coffee Flavor - A Guide for Curious Drinker')"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
-              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
-              Download PDF
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Download PDF">
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
             </button>
             <button
               onclick="shareGuide('The Anatomy of Coffee Flavor', window.location.origin + '/files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf')"
-              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
-              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
-              Share
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Share">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -385,19 +391,25 @@
             know—and probably challenge a few assumptions along the way.
           </p>
 
-          <!-- Download and Share buttons -->
+          <!-- Primary Read Online, compact Download and Share -->
           <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <a href="files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+              <i class="fa-solid fa-book-open text-lg md:text-xl" aria-hidden="true"></i>
+              Read Online
+            </a>
             <button
               onclick="downloadPDF('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', 'Under Pressure - The Technique, Taste, and Chaos of Espresso')"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
-              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
-              Download PDF
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Download PDF">
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
             </button>
             <button
               onclick="shareGuide('Under Pressure', window.location.origin + '/files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf')"
-              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
-              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
-              Share
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Share">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -454,9 +466,8 @@
 
               <div class="pt-2">
                 <a href="glossary.html"
-                  class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out dark:bg-accent hover:scale-105 transform">
-                  <i class="fa-solid fa-search text-lg md:text-xl transition-transform duration-300 group-hover:scale-110"
-                    style="color: #fff;" aria-hidden="true"></i>
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                  <i class="fa-solid fa-search text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
                   Explore Glossary
                 </a>
               </div>
@@ -490,9 +501,8 @@
 
               <div class="pt-2">
                 <a href="espresso-variables.html"
-                  class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out dark:bg-accent hover:scale-105 transform">
-                  <i class="fa-solid fa-sitemap text-lg md:text-xl transition-transform duration-300 group-hover:scale-110"
-                    style="color: #fff;" aria-hidden="true"></i>
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                  <i class="fa-solid fa-sitemap text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
                   Explore Variables
                 </a>
               </div>
@@ -548,17 +558,21 @@
 
           <!-- Discord contact info -->
           <div
-            class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 bg-main/5 dark:bg-background/5 dark:border-background/20"
-            style="border-color: rgba(88, 101, 242, 0.15); background-color: rgba(88, 101, 242, 0.06); box-shadow: 0 2px 4px 0 rgba(88, 101, 242, 0.08);"
-            data-discord-section>
-            <div class="flex items-center gap-3 mb-2 group">
-              <i class="fa-brands fa-discord text-lg md:text-xl group-hover:scale-110 transition-transform"
-                style="color: #5865f2;" aria-hidden="true"></i>
-              <span class="text-main/80 dark:text-background/85">__altoe</span>
+            class="mt-6 p-4 rounded-lg backdrop-blur-sm border border-main/10 bg-main/5 dark:bg-background/5 dark:border-background/20"
+            data-contact-section>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="flex items-center justify-center w-8 h-8 rounded-full bg-accent/20">
+                <i class="fa-solid fa-envelope text-accent" aria-hidden="true"></i>
+              </div>
+              <div class="flex flex-col">
+                <a href="mailto:coffee@altoeworks.net"
+                  class="text-main/80 dark:text-background/85 font-medium underline decoration-transparent hover:decoration-accent">
+                  coffee@altoeworks.net
+                </a>
+              </div>
             </div>
             <p class="fade-line text-sm text-main/60 dark:text-background/60">
-              (Sadly, not a link. But if you've made it through all this and this is what deters you—I'm honestly
-              impressed.)
+              Feedback, questions, nitpicks or ideas—send me an email. I read everything and reply when I can.
             </p>
           </div>
 
@@ -612,9 +626,8 @@
                         Testing • Writing • Coffee</span>
                     </div>
                     <a href="https://ko-fi.com/altoeworks" target="_blank" rel="noopener noreferrer"
-                      class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto hover:scale-105 transform">
-                      <i class="fa-solid fa-mug-hot text-lg md:text-xl transition-transform duration-300 group-hover:scale-110"
-                        style="color: #fff;" aria-hidden="true"></i>
+                      class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                      <i class="fa-solid fa-mug-hot text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
                       Support me on Ko-fi
                     </a>
                   </div>

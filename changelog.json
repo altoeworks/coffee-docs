@@ -1,0 +1,52 @@
+[
+  {
+    "date": "2025-08-12",
+    "title": "Espresso Variables Explorer and a lot of polish",
+    "description": "Launched the interactive Espresso Variables Explorer. Added an in‑site Changelog. Made the guides easier to use with clear Read Online, Download and Share actions. Switched contact from Discord to email (coffee@altoeworks.net)."
+  },
+  {
+    "date": "2025-08-03",
+    "title": "Glossary grows",
+    "description": "Added more terms and a few quality‑of‑life tweaks to the interactive glossary to make browsing and filtering smoother."
+  },
+  {
+    "date": "2025-08-02",
+    "title": "Sharing and momentum",
+    "description": "Added a subtle progress bar to every page, native share buttons to the guides, and published the first version of the interactive glossary."
+  },
+  {
+    "date": "2025-08-01",
+    "title": "Tip jar",
+    "description": "Added a Ko‑fi link for anyone who wants to support the project. Thank you! Also restyled the title page of both guides for a cleaner, more welcoming start."
+  },
+  {
+    "date": "2025-07-24",
+    "title": "New guide: Under Pressure",
+    "description": "Published the second long‑form guide, ‘Under Pressure’ — a deep‑dive into espresso technique, taste and chaos."
+  },
+  {
+    "date": "2025-07-06",
+    "title": "Smoother and faster",
+    "description": "Another round of quality‑of‑life and performance improvements across the site (snappier loads, smoother interactions)."
+  },
+  {
+    "date": "2025-07-05",
+    "title": "Quality‑of‑life pass",
+    "description": "General polish and performance tweaks to make the site feel nicer to use."
+  },
+  {
+    "date": "2025-07-03",
+    "title": "Anatomy title page refresh",
+    "description": "Restyled the title page of ‘The Anatomy of Coffee Flavor’ for clearer hierarchy and a cleaner first impression."
+  },
+  {
+    "date": "2025-07-02",
+    "title": "Words that sound like me",
+    "description": "Overhauled the on‑site text to be friendlier, more ‘me’, and generally a lot more pleasant to read."
+  },
+  {
+    "date": "2025-06-30",
+    "title": "First release",
+    "description": "Shipped the initial website with the first guide 'The Anatomy of Coffee Flavor'. The start of it all."
+  }
+]

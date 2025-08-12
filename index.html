@@ -281,11 +281,13 @@
       class="fade-in-section bg-sectionbg px-4 sm:px-6 py-14 md:py-20 border-t section-transition dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
-        <div class="fade-line flex items-center mb-6 md:mb-12" id="the-guides">
-          <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
-          <h2
-            class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
-            The Guides</h2>
+        <div class="fade-line flex items-center justify-between mb-6 md:mb-12" id="the-guides">
+          <div class="flex items-center">
+            <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
+              The Guides</h2>
+          </div>
         </div>
 
         <!-- Guide title and icon -->
@@ -300,6 +302,11 @@
         <!-- Last updated date -->
         <div class="fade-line text-sm text-main/60 mb-2 md:ml-14 ml-0 dark:text-background/60">
           Last updated: 1st August 2025
+          <button
+            class="ml-2 inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle"
+            data-open-changelog type="button" title="Open changelog">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+          </button>
         </div>
 
         <!-- Guide description -->
@@ -365,6 +372,11 @@
         <!-- Last updated date -->
         <div class="fade-line text-sm text-main/60 mb-2 md:ml-14 ml-0 dark:text-background/60">
           Last updated: 1st August 2025
+          <button
+            class="ml-2 inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle"
+            data-open-changelog type="button" title="Open changelog">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+          </button>
         </div>
 
         <!-- Guide description -->
@@ -450,7 +462,12 @@
             </div>
 
             <div class="text-sm text-main/60 mb-4 dark:text-background/60">
-              Last updated: 2nd August 2025
+              Last updated: 3rd August 2025
+              <button
+                class="ml-2 inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle"
+                data-open-changelog type="button" title="Open changelog">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+              </button>
             </div>
 
             <div class="space-y-4 text-main/80 dark:text-background/80">
@@ -485,7 +502,12 @@
             </div>
 
             <div class="text-sm text-main/60 mb-4 dark:text-background/60">
-              Last updated: 1st August 2025
+              Last updated: 12th August 2025
+              <button
+                class="ml-2 inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle"
+                data-open-changelog type="button" title="Open changelog">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+              </button>
             </div>
 
             <div class="space-y-4 text-main/80 dark:text-background/80">
@@ -665,6 +687,9 @@
                 href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
                 rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a>—Attribution
               & ShareAlike required.</span>
+            <button id="footer-open-changelog"
+              class="text-xs underline text-background/80 hover:text-accent dark:text-darktext w-fit mt-1"
+              type="button">Changelog</button>
           </div>
 
           <!-- Copyright icon -->
@@ -684,6 +709,29 @@
 
   <!-- JavaScript for animations and interactions -->
   <script src="js/script.js"></script>
+  <script src="js/changelog.js"></script>
+
+  <!-- Changelog Modal -->
+  <div id="changelog-modal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="absolute inset-0 bg-black/50" data-close-changelog></div>
+    <div class="absolute left-1/2 top-16 -translate-x-1/2 w-[92vw] max-w-2xl">
+      <div
+        class="rounded-xl bg-white/90 dark:bg-darksection/90 backdrop-blur-sm border border-main/10 dark:border-darkborder shadow-2xl">
+        <div class="flex items-center justify-between p-4 border-b border-main/10 dark:border-darkborder">
+          <h3 class="text-lg font-semibold text-main dark:text-background">Changelog</h3>
+          <button id="close-changelog" class="p-2 rounded hover:bg-main/10 dark:hover:bg-background/10"
+            aria-label="Close changelog">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+        <div id="changelog-list"
+          class="p-4 space-y-4 max-h-[70vh] overflow-y-auto text-main/80 dark:text-background/80">
+          <!-- Entries injected by JS -->
+          <div class="text-sm opacity-60">Loading…</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

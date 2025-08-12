@@ -180,6 +180,11 @@
                         <i class="fa-solid fa-filter text-accent"></i>
                         <span id="filtered-count">All terms</span>
                     </div>
+                    <button class="inline-flex items-center gap-1 text-gray-600 hover:text-accent dark:text-darktext"
+                        data-open-changelog type="button" title="Open changelog">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                        <span class="hidden sm:inline">Changelog</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -241,9 +246,12 @@
                 <div class="flex flex-col justify-center gap-0.5">
                     <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
                             href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
-                            rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a> —
-                        Attribution
+                            rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA
+                            4.0</a>—Attribution
                         & ShareAlike required.</span>
+                    <button id="footer-open-changelog"
+                        class="text-xs underline text-background/80 hover:text-accent dark:text-darktext w-fit mt-1"
+                        type="button">Changelog</button>
                 </div>
 
                 <!-- Copyright icon -->
@@ -262,6 +270,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/changelog.js"></script>
     <script src="js/glossary-data.js"></script>
     <script src="js/glossary.js"></script>
 </body>

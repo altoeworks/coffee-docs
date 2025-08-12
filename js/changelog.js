@@ -12,7 +12,7 @@
         <div class="rounded-xl bg-white/90 dark:bg-darksection/90 backdrop-blur-sm border border-main/10 dark:border-darkborder shadow-2xl">
           <div class="flex items-center justify-between p-4 border-b border-main/10 dark:border-darkborder">
             <h3 class="text-lg font-semibold text-main dark:text-background">Changelog</h3>
-            <button id="close-changelog" class="p-2 rounded hover:bg-main/10 dark:hover:bg-background/10" aria-label="Close changelog">
+            <button id="close-changelog" class="p-2 rounded text-main/60 dark:text-background/60 hover:text-main dark:hover:text-background hover:bg-main/10 dark:hover:bg-background/10 transition-colors" aria-label="Close changelog">
               <i class="fa-solid fa-times"></i>
             </button>
           </div>

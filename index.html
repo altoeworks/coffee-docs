@@ -99,6 +99,13 @@
           <span>Interactive Glossary</span>
         </a>
 
+        <!-- Espresso Variable Explorer Link -->
+        <a href="espresso-variables.html"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-sitemap text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Espresso Variable Explorer</span>
+        </a>
+
         <!-- Table of Contents -->
         <div>
           <h4 class="text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Table of
@@ -116,9 +123,9 @@
               class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
               Under Pressure
             </a>
-            <a href="#glossary-section"
+            <a href="#additional-tools-section"
               class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
-              Interactive Glossary
+              Additional Tools
             </a>
             <a href="#feedback-section"
               class="block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm">
@@ -182,8 +189,8 @@
         -->
         <div class="fade-line flex justify-center mb-8">
           <button onclick="document.getElementById('the-guides').scrollIntoView({behavior: 'smooth'})"
-            class="skip-to-guides-btn inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:bg-accent dark:focus:ring-accent">
-            <i class="fa-solid fa-arrow-down"></i>
+            class="skip-to-guides-btn inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+            <i class="fa-solid fa-arrow-down text-lg md:text-xl"></i>
             Skip to The Guides
           </button>
         </div>
@@ -256,11 +263,11 @@
         </p>
         <p class="text-main/80 dark:text-background/80">
           Need to look up coffee terms or understand the jargon?<br />
-          <a href="#glossary-section"
+          <a href="#additional-tools-section"
             class="font-semibold text-tertiary hover:text-accent dark:hover:text-accent dark:text-darktertiary inline-flex items-center group">
             <i class="fa-solid fa-book group-hover:text-accent dark:group-hover:text-accent transition-transform text-tertiary mr-4 dark:text-darktertiary"
               aria-hidden="true"></i>
-            <span class="underline">Check out the Interactive Glossary.</span>
+            <span class="underline">Explore the interactive tools and glossary.</span>
           </a>
         </p>
       </div>
@@ -314,19 +321,25 @@
             navigable. It's not about telling you what's good. It's about helping you make sense of what you're tasting.
           </p>
 
-          <!-- Download and Share buttons -->
+          <!-- Primary Read Online, compact Download and Share -->
           <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <a href="files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+              <i class="fa-solid fa-book-open text-lg md:text-xl" aria-hidden="true"></i>
+              Read Online
+            </a>
             <button
               onclick="downloadPDF('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', 'The Anatomy of Coffee Flavor - A Guide for Curious Drinker')"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
-              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
-              Download PDF
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Download PDF">
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
             </button>
             <button
               onclick="shareGuide('The Anatomy of Coffee Flavor', window.location.origin + '/files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf')"
-              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
-              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
-              Share
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Share">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -378,19 +391,25 @@
             know—and probably challenge a few assumptions along the way.
           </p>
 
-          <!-- Download and Share buttons -->
+          <!-- Primary Read Online, compact Download and Share -->
           <div class="pt-2 fade-line flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <a href="files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+              <i class="fa-solid fa-book-open text-lg md:text-xl" aria-hidden="true"></i>
+              Read Online
+            </a>
             <button
               onclick="downloadPDF('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', 'Under Pressure - The Technique, Taste, and Chaos of Espresso')"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
-              <i class="fa-solid fa-file-arrow-down text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
-              Download PDF
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Download PDF">
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
             </button>
             <button
               onclick="shareGuide('Under Pressure', window.location.origin + '/files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf')"
-              class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-main/80 hover:text-accent font-medium transition-all dark:text-background/80 dark:hover:text-accent">
-              <i class="fa-solid fa-share-nodes text-lg md:text-xl" aria-hidden="true"></i>
-              Share
+              class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
+              aria-label="Share">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -398,49 +417,96 @@
     </section>
 
     <!-- 
-      Interactive Glossary Section
-      Showcases the comprehensive coffee terminology reference
+      Additional Tools Section
+      Interactive tools to help with coffee learning and exploration
     -->
-    <section id="glossary-section"
+    <section id="additional-tools-section"
       class="fade-in-section bg-sectionbg px-4 sm:px-6 py-16 md:py-24 border-t border-sectionbg/50 section-transition dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl sm:max-w-4xl mx-auto">
         <!-- Section header -->
-        <div class="fade-line flex items-center mb-6 group">
-          <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
-            aria-hidden="true"></i>
-          <h3 class="text-2xl md:text-3xl font-semibold m-0 leading-tight text-main dark:text-background">Interactive
-            Coffee Glossary</h3>
+        <div class="fade-line flex items-center mb-6 md:mb-12">
+          <span class="block w-1.5 h-8 rounded bg-accent mr-4"></span>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight m-0 text-main dark:text-background">
+            Additional Tools</h2>
         </div>
 
-        <!-- Last updated date -->
-        <div class="fade-line text-sm text-main/60 mb-2 md:ml-14 ml-0 dark:text-background/60">
-          Last updated: 2nd August 2025
-        </div>
-
-        <!-- Glossary description -->
-        <p class="fade-line text-xl text-main/90 mb-4 md:ml-14 ml-0 dark:text-background/80">
-          Need to look up a term? Explore coffee terminology with my interactive reference.
+        <!-- Section introduction -->
+        <p class="fade-line text-xl text-main/90 mb-8 dark:text-background/80">
+          Beyond the guides, these interactive tools help you explore coffee terminology and understand espresso
+          variables.
         </p>
-        <div class="space-y-4 text-main/80 md:ml-14 ml-0 dark:text-background/80">
-          <p class="fade-line">
-            From "extraction" to "terroir," "crema" to "cupping"—this glossary covers the essential terms you'll
-            encounter
-            in specialty coffee. Search, filter by category or browse alphabetically to find exactly what you're
-            looking for.
-          </p>
-          <p class="fade-line">
-            Whether you're reading the guides above or exploring coffee content elsewhere, this reference helps you
-            understand
-            the language of coffee without getting lost in jargon.
-          </p>
 
-          <!-- Explore Glossary button -->
-          <div class="pt-2 fade-line">
-            <a href="glossary.html"
-              class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out dark:bg-accent hover:scale-105 transform">
-              <i class="fa-solid fa-search text-lg md:text-xl transition-transform duration-300 group-hover:scale-110" style="color: #fff;" aria-hidden="true"></i>
-              Explore Glossary
-            </a>
+        <!-- Tools grid -->
+        <div class="space-y-8">
+          <!-- Interactive Glossary -->
+          <div
+            class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 dark:bg-main/80 dark:border-background/20">
+            <div class="flex items-center mb-4 group">
+              <i class="fa-solid fa-book text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
+                aria-hidden="true"></i>
+              <h3 class="text-xl md:text-2xl font-semibold m-0 leading-tight text-main dark:text-background">Interactive
+                Coffee Glossary</h3>
+            </div>
+
+            <div class="text-sm text-main/60 mb-4 dark:text-background/60">
+              Last updated: 2nd August 2025
+            </div>
+
+            <div class="space-y-4 text-main/80 dark:text-background/80">
+              <p>
+                From "extraction" to "terroir," "crema" to "cupping"—this comprehensive glossary covers the essential
+                terms you'll encounter in specialty coffee. Search, filter by category or browse alphabetically to find
+                exactly what you're looking for.
+              </p>
+              <p>
+                Whether you're reading the guides above or exploring coffee content elsewhere, this reference helps you
+                understand the language of coffee without getting lost in jargon.
+              </p>
+
+              <div class="pt-2">
+                <a href="glossary.html"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                  <i class="fa-solid fa-search text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+                  Explore Glossary
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Espresso Variables Explorer -->
+          <div
+            class="fade-line bg-white/70 border border-main/10 rounded-xl p-6 dark:bg-main/80 dark:border-background/20">
+            <div class="flex items-center mb-4 group">
+              <i class="fa-solid fa-sitemap text-2xl md:text-3xl group-hover:scale-110 transition-transform text-tertiary mr-4 dark:text-darktertiary"
+                aria-hidden="true"></i>
+              <h3 class="text-xl md:text-2xl font-semibold m-0 leading-tight text-main dark:text-background">Espresso
+                Variables Explorer</h3>
+            </div>
+
+            <div class="text-sm text-main/60 mb-4 dark:text-background/60">
+              Last updated: 1st August 2025
+            </div>
+
+            <div class="space-y-4 text-main/80 dark:text-background/80">
+              <p>
+                An interactive tool to help you understand how different espresso variables affect your shot. Explore
+                the relationships between grind size, dose, time, pressure, yield, and temperature.
+              </p>
+              <p>
+                Perfect for troubleshooting shots, learning about variable interactions, or planning your next dial-in
+                session. Visualize how changing one variable affects others and understand the science behind espresso
+                extraction.
+              </p>
+
+              <div class="pt-2">
+                <a href="espresso-variables.html"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                  <i class="fa-solid fa-sitemap text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
+                  Explore Variables
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -492,17 +558,21 @@
 
           <!-- Discord contact info -->
           <div
-            class="mt-6 p-4 discord rounded-lg backdrop-blur-sm border border-main/10 bg-main/5 dark:bg-background/5 dark:border-background/20"
-            style="border-color: rgba(88, 101, 242, 0.15); background-color: rgba(88, 101, 242, 0.06); box-shadow: 0 2px 4px 0 rgba(88, 101, 242, 0.08);"
-            data-discord-section>
-            <div class="flex items-center gap-3 mb-2 group">
-              <i class="fa-brands fa-discord text-lg md:text-xl group-hover:scale-110 transition-transform"
-                style="color: #5865f2;" aria-hidden="true"></i>
-              <span class="text-main/80 dark:text-background/85">__altoe</span>
+            class="mt-6 p-4 rounded-lg backdrop-blur-sm border border-main/10 bg-main/5 dark:bg-background/5 dark:border-background/20"
+            data-contact-section>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="flex items-center justify-center w-8 h-8 rounded-full bg-accent/20">
+                <i class="fa-solid fa-envelope text-accent" aria-hidden="true"></i>
+              </div>
+              <div class="flex flex-col">
+                <a href="mailto:coffee@altoeworks.net"
+                  class="text-main/80 dark:text-background/85 font-medium underline decoration-transparent hover:decoration-accent">
+                  coffee@altoeworks.net
+                </a>
+              </div>
             </div>
             <p class="fade-line text-sm text-main/60 dark:text-background/60">
-              (Sadly, not a link. But if you've made it through all this and this is what deters you—I'm honestly
-              impressed.)
+              Feedback, questions, nitpicks or ideas—send me an email. I read everything and reply when I can.
             </p>
           </div>
 
@@ -556,9 +626,8 @@
                         Testing • Writing • Coffee</span>
                     </div>
                     <a href="https://ko-fi.com/altoeworks" target="_blank" rel="noopener noreferrer"
-                      class="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto hover:scale-105 transform">
-                      <i class="fa-solid fa-mug-hot text-lg md:text-xl transition-transform duration-300 group-hover:scale-110"
-                        style="color: #fff;" aria-hidden="true"></i>
+                      class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+                      <i class="fa-solid fa-mug-hot text-lg md:text-xl" style="color: #fff;" aria-hidden="true"></i>
                       Support me on Ko-fi
                     </a>
                   </div>

@@ -82,7 +82,7 @@ function initGlossary() {
     const alphabetNav = document.getElementById('alphabet-nav');
     if (alphabetNav) {
         alphabetNav.innerHTML = `
-            <button class="px-3 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors" data-letter="all">
+            <button class="px-3 py-1.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors" data-letter="all">
                 All
             </button>
         `;
@@ -92,12 +92,43 @@ function initGlossary() {
 
     alphabet.forEach(letter => {
         const button = document.createElement('button');
-        button.className = 'px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors dark:bg-darksection dark:text-darktext dark:hover:bg-darkbg';
+        button.className = 'px-3 py-1.5 rounded-lg bg-gray-100 text-main font-medium border border-main/10 hover:bg-gray-200 transition-colors dark:bg-darksection dark:text-darktext dark:border-darkborder dark:hover:bg-darkbg';
         button.textContent = letter;
         button.setAttribute('data-letter', letter);
         button.addEventListener('click', () => filterByLetter(letter));
         alphabetNav.appendChild(button);
     });
+
+    // Create hamburger menu alphabet navigation
+    const menuAlphabetNav = document.getElementById('menu-alphabet-nav');
+    if (menuAlphabetNav) {
+        // No "All Terms" link in burger menu; only per-letter anchors
+
+        // Add letter options
+        alphabet.forEach(letter => {
+            const letterLink = document.createElement('a');
+            letterLink.href = '#';
+            letterLink.className = 'block p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background text-sm';
+            letterLink.textContent = `${letter}`;
+            letterLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Ensure all content is visible, then smooth-scroll to the letter section
+                clearAllFilters();
+                setTimeout(() => {
+                    const target = document.getElementById(`letter-${letter}`);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+                // Close menu and unlock scroll
+                const hamburgerMenu = document.getElementById('hamburger-menu');
+                hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
+                hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            });
+            menuAlphabetNav.appendChild(letterLink);
+        });
+    }
 
     // Add "All" button functionality
     const allButton = alphabetNav.querySelector('[data-letter="all"]');
@@ -109,7 +140,7 @@ function initGlossary() {
     const categoryNav = document.getElementById('category-nav');
     if (categoryNav) {
         categoryNav.innerHTML = `
-            <button class="px-3 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors" data-category="all">
+            <button class="px-3 py-1.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors" data-category="all">
                 All Categories
             </button>
         `;
@@ -117,7 +148,7 @@ function initGlossary() {
         categories.forEach(category => {
             const button = document.createElement('button');
             const categoryColor = categoryColors[category] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
-            button.className = `px-3 py-2 rounded-lg font-medium transition-colors ${categoryColor}`;
+            button.className = `px-3 py-1.5 rounded-lg font-medium transition-colors ${categoryColor}`;
             button.textContent = category.charAt(0).toUpperCase() + category.slice(1);
             button.setAttribute('data-category', category);
             button.addEventListener('click', () => filterByCategory(category));
@@ -169,6 +200,7 @@ function renderTerms(terms) {
     sortedLetters.forEach(letter => {
         const letterSection = document.createElement('div');
         letterSection.className = 'mb-12';
+        letterSection.id = `letter-${letter}`;
 
         const letterHeader = document.createElement('h2');
         letterHeader.className = 'text-3xl font-bold text-main mb-6 dark:text-darktext';
@@ -337,12 +369,12 @@ function filterByLetter(letter) {
     // Update alphabet navigation
     document.querySelectorAll('#alphabet-nav button').forEach(btn => {
         btn.classList.remove('bg-accent', 'text-white');
-        btn.classList.add('bg-gray-100', 'text-gray-700', 'dark:bg-darksection', 'dark:text-darktext');
+        btn.classList.add('bg-gray-100', 'text-main', 'border', 'border-main/10', 'dark:bg-darksection', 'dark:text-darktext', 'dark:border-darkborder');
     });
 
     const activeButton = document.querySelector(`[data-letter="${letter}"]`);
     if (activeButton) {
-        activeButton.classList.remove('bg-gray-100', 'text-gray-700', 'dark:bg-darksection', 'dark:text-darktext');
+        activeButton.classList.remove('bg-gray-100', 'text-main', 'border', 'border-main/10', 'dark:bg-darksection', 'dark:text-darktext', 'dark:border-darkborder');
         activeButton.classList.add('bg-accent', 'text-white');
     }
 
@@ -397,7 +429,7 @@ function filterByCategory(category) {
         const btnCategory = btn.getAttribute('data-category');
         if (btnCategory === 'all') {
             // Reset "All Categories" button to default state (not accent color)
-            btn.className = 'px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors dark:bg-darksection dark:text-darktext dark:hover:bg-darkbg';
+            btn.className = 'px-3 py-1.5 rounded-lg bg-gray-100 text-main font-medium border border-main/10 hover:bg-gray-200 transition-colors dark:bg-darksection dark:text-darktext dark:border-darkborder dark:hover:bg-darkbg';
         } else {
             const categoryColor = categoryColors[btnCategory] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
             btn.className = `px-3 py-2 rounded-lg font-medium transition-colors ${categoryColor}`;
@@ -407,7 +439,7 @@ function filterByCategory(category) {
     // Set the active button to accent color
     const activeButton = document.querySelector(`[data-category="${category}"]`);
     if (activeButton) {
-        activeButton.className = 'px-3 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors';
+        activeButton.className = 'px-3 py-1.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors';
     }
 
     // Don't reset letter filter - allow multiple filters
@@ -559,6 +591,37 @@ function handleSearch() {
 
     renderTerms(filteredTerms);
     updateClearFiltersButton();
+    updateClearSearchButton();
+}
+
+/**
+ * Update the clear search button visibility based on search input value
+ */
+function updateClearSearchButton() {
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    
+    if (searchInput && clearSearchBtn) {
+        if (searchInput.value.trim()) {
+            clearSearchBtn.style.opacity = '1';
+            clearSearchBtn.style.pointerEvents = 'auto';
+        } else {
+            clearSearchBtn.style.opacity = '0';
+            clearSearchBtn.style.pointerEvents = 'none';
+        }
+    }
+}
+
+/**
+ * Clear the search input and update filters
+ */
+function clearSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.value = '';
+        handleSearch();
+        searchInput.focus();
+    }
 }
 
 // ============================================================================
@@ -588,6 +651,8 @@ function initializeHamburgerMenu() {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerMenu.classList.remove('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.remove('translate-x-full');
+            // Lock body scroll
+            document.body.style.overflow = 'hidden';
         });
     }
 
@@ -596,6 +661,8 @@ function initializeHamburgerMenu() {
         closeMenuBtn.addEventListener('click', () => {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         });
     }
 
@@ -604,6 +671,8 @@ function initializeHamburgerMenu() {
         if (e.target === hamburgerMenu) {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         }
     });
 
@@ -613,6 +682,8 @@ function initializeHamburgerMenu() {
             toggleDarkMode();
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            document.body.style.overflow = '';
         });
     }
 
@@ -624,6 +695,8 @@ function initializeHamburgerMenu() {
                 // Close menu first
                 hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
                 hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+                // Unlock body scroll
+                document.body.style.overflow = '';
 
                 // For links to index.html, use replace for more reliable navigation
                 if (link.href && link.href.includes('index.html')) {
@@ -787,6 +860,12 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.addEventListener('input', handleSearch);
     }
 
+    // Clear search button
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', clearSearch);
+    }
+
     // Clear filters button
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     if (clearFiltersBtn) {
@@ -801,4 +880,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Handle direct links to specific terms
     handleDirectTermLinks();
+    
+    // Initialize clear search button state
+    updateClearSearchButton();
 }); 

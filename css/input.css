@@ -193,3 +193,50 @@ button:not(:disabled):hover {
 button:disabled {
   transform: none !important;
 }
+
+/* ===== CLEAR SEARCH BUTTON ===== */
+#clear-search-btn {
+  transform: translateY(-50%) !important;
+  transition: none !important;
+}
+
+#clear-search-btn:hover,
+#clear-search-btn:focus,
+#clear-search-btn:active {
+  transform: translateY(-50%) !important;
+}
+
+/* ===== HAMBURGER MENU SCROLLING ===== */
+#hamburger-menu .overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+#hamburger-menu .overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+#hamburger-menu .overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#hamburger-menu .overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+#hamburger-menu .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.7);
+}
+
+.dark #hamburger-menu .overflow-y-auto {
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+}
+
+.dark #hamburger-menu .overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.3);
+}
+
+.dark #hamburger-menu .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.5);
+}

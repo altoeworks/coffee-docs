@@ -139,18 +139,32 @@
                         measurements. Click on any node to see its relationships.
                     </p>
 
-                    <!-- Controls -->
-                    <div class="flex flex-wrap justify-center gap-4 mb-6">
-                        <button id="toggle-layout-btn"
-                            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-200 text-gray-700 font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">
-                            <i class="fa-solid fa-sitemap text-lg" aria-hidden="true"></i>
-                            Toggle Layout
-                        </button>
+                    
+                </div>
+            </section>
+            <!-- Mobile apology (shown on small screens only) -->
+            <section class="px-4 sm:px-6 py-8 block sm:hidden">
+                <div class="bg-white/80 border border-main/10 rounded-xl p-6 shadow-lg max-w-2xl mx-auto text-center dark:bg-main/80 dark:border-background/20">
+                    <div class="mb-3">
+                        <i class="fa-solid fa-desktop text-accent text-2xl" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-main dark:text-background mb-2">This feature works best on desktop</h2>
+                    <p class="text-sm text-main/70 dark:text-background/70 mb-4">The interactive mindmap isn't available on small screens. Please visit on a larger display to explore the relationships between variables.</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white font-medium shadow-md hover:shadow-lg transition-all hover:bg-accent/90">
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                            Back to Guides
+                        </a>
+                        <a href="glossary.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 text-gray-800 font-medium shadow-md hover:shadow-lg transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                            <i class="fa-solid fa-book" aria-hidden="true"></i>
+                            Open Glossary
+                        </a>
                     </div>
                 </div>
             </section>
-            <!-- Legend -->
-            <div class="px-4 sm:px-6 mb-6 dark:bg-darkbg">
+
+            <!-- Legend (hidden on small screens) -->
+            <div class="px-4 sm:px-6 mb-6 dark:bg-darkbg hidden sm:block">
                 <div
                     class="bg-white/70 border border-main/10 rounded-xl p-6 shadow-lg max-w-4xl mx-auto dark:bg-main/80 dark:border-background/20">
                     <div class="text-center mb-4">
@@ -173,10 +187,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
-                                    <div
-                                        class="w-5 h-5 rounded-full bg-tertiary dark:bg-darktertiary shadow-md flex-shrink-0">
-                                    </div>
+                                    class="flex items-center gap-3 p-3 bg-gray-100 dark:bg-background/10 rounded-lg border border-main/10 dark:border-darkborder/50">
+                                    <div class="w-5 h-5 rounded-full bg-tertiary shadow-md flex-shrink-0"></div>
                                     <div>
                                         <div class="font-medium text-sm text-main dark:text-background">Output Variables
                                         </div>
@@ -206,7 +218,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
+                                    class="flex items-center gap-3 p-3 bg-gray-100 dark:bg-background/10 rounded-lg border border-main/10 dark:border-darkborder/50">
                                     <div class="flex-shrink-0">
                                         <svg width="20" height="4" viewBox="0 0 20 4" class="w-5 h-1">
                                             <line x1="0" y1="2" x2="20" y2="2" stroke="#005271" stroke-width="2"
@@ -237,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="flex items-center gap-3 p-3 bg-main/10 dark:bg-main/20 rounded-lg border border-main/20 dark:border-main/30">
+                                    class="flex items-center gap-3 p-3 bg-gray-100 dark:bg-background/10 rounded-lg border border-main/10 dark:border-darkborder/50">
                                     <i class="fa-solid fa-arrows-up-down-left-right text-accent text-sm"></i>
                                     <div>
                                         <div class="font-medium text-sm text-main dark:text-background">Drag</div>
@@ -258,23 +270,29 @@
                 </div>
             </div>
 
-            <!-- Mindmap Container -->
+            <!-- Mindmap Container (hidden on small screens) -->
             <section
-                class="px-4 sm:px-6 py-8 bg-background dark:bg-darkbg border-b border-main/10 dark:border-darkborder">
-                <div class="max-w-7xl mx-auto">
+                class="px-4 sm:px-6 py-8 bg-background dark:bg-darkbg border-b border-main/10 dark:border-darkborder hidden sm:block">
+                <div class="max-w-[1600px] mx-auto">
                     <!-- Mindmap Layout -->
-                    <div class="grid grid-cols-1 xl:grid-cols-[1fr_450px] gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-6">
                         <!-- Mindmap Canvas with Reset Button -->
                         <div class="relative">
                             <!-- Mindmap Canvas -->
                             <div id="mindmap-container"
                                 class="bg-white/70 dark:bg-main/80 rounded-2xl border border-main/10 dark:border-background/20 overflow-hidden shadow-xl backdrop-blur-sm">
-                                <div id="mindmap-canvas" class="relative w-full p-8 bg-transparent dark:bg-transparent"
+                                <!-- Layout toggle (top-left) -->
+                                <button id="layout-toggle-btn"
+                                    class="absolute top-4 left-4 z-40 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 text-main font-semibold shadow-md hover:shadow-lg transition-all dark:bg-gray-600 dark:text-darktext border border-main/10 dark:border-darkborder text-xs hover:bg-gray-200 dark:hover:bg-gray-500">
+                                    <i class="fa-solid fa-layer-group text-sm" aria-hidden="true"></i>
+                                    Layout
+                                </button>
+                                <div id="mindmap-canvas" class="relative z-10 w-full p-8 bg-transparent dark:bg-transparent"
                                     style="height: 700px; min-height: 700px;">
                                     <!-- Nodes will be dynamically generated here -->
                                 </div>
                                 <!-- Subtle background pattern -->
-                                <div class="absolute inset-0 pointer-events-none">
+                                <div class="absolute inset-0 pointer-events-none z-0">
                                     <div class="absolute inset-0 opacity-20"
                                         style="background-image: radial-gradient(circle at 1px 1px, rgba(255, 107, 53, 0.6) 1px, transparent 0); background-size: 20px 20px;">
                                     </div>
@@ -363,14 +381,7 @@
         <!-- JavaScript -->
         <script src="js/espresso-variables-data.js"></script>
         <script src="js/espresso-variables.js"></script>
-        <script>
-            // Debug script loading
-            console.log('Scripts loaded');
-            console.log('Data available:', typeof espressoVariablesData !== 'undefined');
-            console.log('Data keys:', Object.keys(espressoVariablesData || {}));
-
-
-        </script>
+        
 </body>
 
 </html>

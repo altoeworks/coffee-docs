@@ -98,7 +98,9 @@ module.exports = {
     'grid-cols-3',
     'md:grid-cols-2',
     'lg:grid-cols-3',
-    'xl:grid-cols-[1fr_450px]',
+    'lg:grid-cols-[1fr_450px]',
+    'max-w-[1400px]',
+    'max-w-[1600px]',
     'gap-6',
     'gap-1.5',
     'px-3.5',
@@ -138,6 +140,24 @@ module.exports = {
     'outline-none',
     'focus:outline-none',
     'active:outline-none',
+    // Mobile visibility helpers for espresso-variables page
+    // Canvas layout button palette
+    'bg-gray-100',
+    'hover:bg-gray-200',
+    'dark:bg-gray-600',
+    'dark:hover:bg-gray-500',
+    'border-main/10',
+    'bg-gray-100',
+    'dark:bg-background/10',
+    'dark:border-darkborder/50',
+    // Custom brand colors used on espresso page
+    'bg-tertiary',
+    'hidden',
+    'block',
+    'sm:hidden',
+    'sm:block',
+    // Position helpers used on espresso-variables canvas buttons
+    'left-4',
   ],
   theme: {
     extend: {

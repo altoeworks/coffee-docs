@@ -186,6 +186,11 @@ function showStickyBanner() {
       // Keep offset accurate on resize or orientation changes
       window.addEventListener('resize', updateTopNavOffset, { passive: true });
       window.addEventListener('orientationchange', updateTopNavOffset, { passive: true });
+      
+      // Show cookie banner simultaneously if it exists
+      if (typeof window.__showCookieBanner === 'function') {
+        window.__showCookieBanner();
+      }
     }
   }, totalDelay);
 }
@@ -502,9 +507,6 @@ function showShareFeedback(message) {
   const notification = document.createElement('div');
   notification.textContent = message;
   notification.className = 'share-notification';
-
-  // Check if dark mode is active
-  const isDark = document.documentElement.classList.contains('dark');
 
   notification.style.cssText = `
     position: fixed;

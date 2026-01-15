@@ -103,6 +103,114 @@ export const GUIDES = [
     ],
     updatedOn: TODAY_ISO,
     changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "machine-care-hoffmann",
+    title: "Machine Care — James Hoffmann",
+    category: "Cleaning & Maintenance",
+    summary: "How to care for your machine and keep it and your coffee tasting clean.",
+    source: { name: "James Hoffmann", url: "https://youtu.be/Bl7kuC1IQ-g", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "milk-steaming-bryant",
+    title: "Milk Steaming — Emilee Bryant",
+    category: "Milk & Steaming",
+    summary: "A beginner-friendly guide to milk steaming with a focus on overall technique and consistency.",
+    source: { name: "Emilee Bryant", url: "https://youtu.be/SswxZZlgEyg", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "milk-steaming-hedrick",
+    title: "Milk Steaming — Lance Hedrick",
+    category: "Milk & Steaming",
+    summary: "Milk steaming techniques for creating perfect consistancy and micro-foamed milk.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/gTC3dJvwgUI", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "flow-and-pressure-hedrick",
+    title: "Flow and Pressure in Espresso — Lance Hedrick",
+    category: "Understanding Methods",
+    summary: "Learn about the flow and pressure in espresso, how they interact, and how to influence them.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/d829iUgM8aw", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "dialing-in-espresso-hedrick",
+    title: "Dialing in Espresso — Lance Hedrick",
+    category: "Understanding Methods",
+    summary: "Learn how to dial espresso in by taste and how to finetune it.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/j-Hu4hF5PTM", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "fixing-bad-shots-hedrick",
+    title: "Fixing Bad Shots — Lance Hedrick",
+    category: "Understanding Methods",
+    summary: "Learn how to fix bad espresso shots by understanding the cause and how to prevent them.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/dZh8sjfKegw", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "espresso-baskets-hedrick",
+    title: "Espresso Baskets — Lance Hedrick",
+    category: "Equipment",
+    summary: "Learn about different espresso baskets and if they are worth it.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/JzmGNwyN0MI", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "espresso-tampers-hedrick",
+    title: "Espresso Tampers — Lance Hedrick",
+    category: "Equipment",
+    summary: "Learn about different espresso tampers and their differences.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/tifwe68kUv8", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
+  },
+  {
+    id: "burrs-hedrick",
+    title: "Conical vs Flat Burrs — Lance Hedrick",
+    category: "Equipment",
+    summary: "Learn about the differences between conical and flat burrs and how they affect taste, texture and more.",
+    source: { name: "Lance Hedrick", url: "https://youtu.be/me-Q1M3NZNU", embed: "youtube" },
+    meta: { },
+    steps: [
+    ],
+    updatedOn: TODAY_ISO,
+    changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
   }
 ];
 

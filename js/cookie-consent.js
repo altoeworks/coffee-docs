@@ -31,7 +31,11 @@
   function ensureOverlayForIframe(iframe) {
     const parent = iframe.parentElement;
     if (!parent) return;
-    parent.style.position = parent.style.position || 'relative';
+    // Ensure parent has relative positioning for overlay
+    const computedPosition = window.getComputedStyle(parent).position;
+    if (computedPosition === 'static' || !computedPosition) {
+      parent.style.position = 'relative';
+    }
     if (parent.querySelector('.yt-consent-overlay')) return;
 
     const overlay = document.createElement('div');
@@ -42,7 +46,7 @@
     ].join(';');
 
     const label = document.createElement('span');
-    label.textContent = 'Click to enable YouTube and play';
+    label.textContent = 'Please accept cookies to play.';
     label.style.cssText = 'font-size:13px;color:#333;background:rgba(255,255,255,0.9);padding:6px 10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)';
 
     overlay.appendChild(label);
@@ -78,7 +82,9 @@
       } else {
         // store and blank
         if (!dataSrc && currentSrc) iframe.setAttribute('data-yt-src', currentSrc);
-        if (currentSrc) iframe.setAttribute('src', '');
+        if (currentSrc) {
+          iframe.setAttribute('src', 'about:blank');
+        }
         ensureOverlayForIframe(iframe);
       }
     });
@@ -89,8 +95,9 @@
     return dark ? 'dark' : 'light';
   }
 
-  function createBanner() {
+  function createBanner(skipFadeIn) {
     if (document.getElementById('cookie-consent-banner')) return; // already present
+    skipFadeIn = skipFadeIn || false;
     const theme = currentTheme();
     const isDark = theme === 'dark';
 
@@ -217,15 +224,42 @@
       }, 100);
       return;
     }
-    // Fade in
-    requestAnimationFrame(() => {
-      wrapper.style.opacity = '1';
-      wrapper.style.transform = 'translateY(0)';
-    });
+    // Fade in (unless skipped for index.html timing)
+    if (!skipFadeIn) {
+      requestAnimationFrame(() => {
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'translateY(0)';
+      });
+    }
   }
 
   function boot() {
     if (hasConsented()) return;
+    
+    // On index.html, wait for sticky banner timing
+    const isIndexPage = window.location.pathname === '/' || 
+                       window.location.pathname.endsWith('index.html') ||
+                       document.getElementById('sticky-banner') !== null;
+    
+    if (isIndexPage && document.getElementById('sticky-banner')) {
+      // Create banner but don't show it yet - script.js will call showCookieBanner()
+      createBanner(true); // pass true to skip fade-in
+      // Expose function for script.js to call
+      try { 
+        window.__showCookieBanner = function() {
+          const banner = document.getElementById('cookie-consent-banner');
+          if (banner) {
+            requestAnimationFrame(() => {
+              banner.style.opacity = '1';
+              banner.style.transform = 'translateY(0)';
+            });
+          }
+        };
+      } catch {}
+      return;
+    }
+    
+    // On other pages, show immediately
     createBanner();
   }
 
@@ -241,6 +275,17 @@
   // Gate or restore YouTube embeds on load and on consent
   function initGating() {
     gateYouTubeEmbeds();
+    
+    // Watch for dynamically added iframes
+    const iframeObserver = new MutationObserver(() => {
+      gateYouTubeEmbeds();
+    });
+    
+    iframeObserver.observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+    
     window.addEventListener('cookie-consented', function () {
       if (pendingPlayTarget) {
         const src = pendingPlayTarget.getAttribute('data-yt-src') || '';
@@ -257,7 +302,12 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initGating);
   } else {
-    initGating();
+    // If body isn't ready yet, wait a bit
+    if (!document.body) {
+      setTimeout(initGating, 100);
+    } else {
+      initGating();
+    }
   }
 })();
 

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <!-- =============================
+    Ressource Library - Curated Methods & Resources
+    Built with vanilla HTML, TailwindCSS and JavaScript.
+    ============================= -->
+
+  <!-- ========== Basic Meta Tags ========== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Ressource Library — A growing library of trusted methods & resources</title>
+  <meta name="description"
+    content="Curated coffee Ressources: brew methods, milk steaming, cleaning, recipes, and more. Filter, search, and explore trusted resources." />
+  <meta name="keywords"
+    content="coffee resources, brew methods, french press, v60, aeropress, milk steaming, cleaning, recipes" />
+  <link rel="canonical" href="/ressources/" />
+
+  <!-- ========== Favicon & External Ressources ========== -->
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+  <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- ========== Structured Data (JSON-LD) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Guides",
+    "description": "Curated coffee guides for brew methods, milk steaming, cleaning, recipes, and more.",
+    "url": "https://coffee.altoeworks.net/guides/"
+  }
+  </script>
+</head>
+
+<body class="bg-background text-base md:text-lg min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
+  <!-- Progress Bar -->
+  <div id="progress-bar-container"
+    style="position:fixed;top:0;left:0;width:100vw;height:4px;z-index:100;background:transparent;">
+    <div id="progress-bar" style="height:4px;width:0;background:#ff6b35;transition:width 0.2s;"></div>
+  </div>
+
+  <!-- Top Navigation -->
+  <div id="top-nav"
+    class="block bg-white/90 backdrop-blur-sm dark:bg-darkbg/90 border-b border-main/10 dark:border-darkborder dark:bg-darkbg top-0 z-50 shadow-sm">
+    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="inline-flex items-center gap-2 text-main dark:text-background font-semibold">
+        <i class="fa-solid fa-coffee text-accent"></i>
+        <span>Coffee Docs</span>
+      </a>
+      <button id="hamburger-menu-btn" aria-label="Open menu"
+        class="md:hidden z-50 w-12 h-12 rounded-lg bg-white dark:bg-darkbg text-accent transition-all duration-300 pointer-events-none transition-opacity duration-700 z-10 flex items-center justify-center hover:scale-105">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
+      <nav class="hidden md:flex items-center gap-4 text-sm">
+        <a href="/" class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Home</a>
+        <a href="/glossary.html"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Interactive
+          Glossary</a>
+        <a href="/espresso-variables.html"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Espresso
+          Variables</a>
+        <a href="/ressources/"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Ressource
+          Library</a>
+        <a href="/#feedback-section"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Contact</a>
+        <div class="mt-auto p-6 border-t border-main/10 dark:border-darkborder">
+          <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+            class="flex items-center p-2 w-full rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+            <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hamburger Menu Overlay -->
+  <div id="hamburger-menu"
+    class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div
+      class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext flex flex-col">
+      <!-- Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-main/10 dark:border-darkborder">
+        <h3 class="text-lg font-semibold text-main dark:text-background">Menu</h3>
+        <button id="close-menu-btn" aria-label="Close menu"
+          class="p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors">
+          <i class="fa-solid fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Menu Content -->
+      <div class="p-6 space-y-6 flex-1 overflow-y-auto">
+        <!-- Home Link -->
+        <a href="/"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-house text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Home</span>
+        </a>
+        <!-- Glossary Link -->
+        <a href="/glossary.html"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-book text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Interactive Glossary</span>
+        </a>
+
+        <!-- Espresso Variable Explorer Link -->
+        <a href="/espresso-variables.html"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-sitemap text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Espresso Variable Explorer</span>
+        </a>
+
+        <!-- Guides Library Link -->
+        <a href="/ressources"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-list text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Guides Library</span>
+        </a>
+      </div>
+
+      <!-- Dark Mode Toggle (Bottom) -->
+      <div class="p-6 border-t border-main/10 dark:border-darkborder flex-shrink-0">
+        <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+          class="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+          <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+          <span class="text-sm">Toggle Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="min-h-screen flex-1">
+    <!-- Hero -->
+    <section
+      class="px-4 sm:px-6 py-12 md:py-16 bg-background dark:bg-darksection dark:border-darkborder">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center mb-3 gap-3">
+          <i class="fa-solid fa-list text-2xl text-accent" aria-hidden="true"></i>
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-main m-0 dark:text-background">Ressource Library</h1>
+        </div>
+        <p class="text-lg md:text-xl text-main/80 dark:text-background/80">A growing library of trusted methods &
+          resources.</p>
+        <div class="mt-2 text-sm text-main/60 dark:text-background/60">
+          Updated on: <time data-updated-on>—</time>
+          <button
+            class="ml-2 inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle"
+            data-open-changelog type="button" title="Open changelog">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="px-4 sm:px-6 py-6 bg-background dark:bg-darkbg">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-4 sm:gap-6 md:gap-8 items-start">
+          <!-- Category Filter -->
+          <div class="mb-4 md:mb-0">
+            <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/80 dark:bg-darksection/80 p-4 md:p-6">
+              <h3 class="text-xs md:text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Browse by category</h3>
+              <div id="category-filter" class="flex flex-wrap gap-2 md:gap-3"></div>
+            </div>
+          </div>
+          <!-- Search -->
+          <div class="mt-3 md:mt-0">
+            <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/80 dark:bg-darksection/80 p-4 md:p-6">
+              <h3 class="text-xs md:text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Search Ressources</h3>
+              <div class="relative">
+                <input id="search-input"
+                  type="text"
+                  placeholder="Search Ressources (title, author, ...)"
+                  class="w-full px-4 md:px-6 py-3 md:py-4 pl-12 md:pl-14 pr-10 md:pr-12 text-base md:text-lg border-2 border-main/10 rounded-xl focus:border-accent focus:outline-none transition-colors dark:bg-darksection dark:border-darkborder dark:text-darktext dark:placeholder-gray-400" />
+                <i class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg md:text-xl"></i>
+                <button id="clear-search-btn" aria-label="Clear search"
+                  class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 opacity-0 pointer-events-none border-0 bg-transparent p-0 m-0 outline-none focus:outline-none active:outline-none">
+                  <i class="fa-solid fa-times text-base md:text-lg"></i>
+                </button>
+              </div>
+              <p class="text-xs md:text-sm text-main/60 dark:text-background/60 mt-3">Filter by category and search across titles and
+                steps. Combine both for faster narrowing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ressources Overview -->
+    <section class="px-4 sm:px-6 py-8 bg-background dark:bg-darkbg">
+      <div class="max-w-6xl mx-auto">
+        <div id="guides-container" class="space-y-12">
+          <!-- Groups by category injected by JS -->
+        </div>
+        <!-- No results -->
+        <div id="no-results" class="hidden text-center py-12">
+          <i class="fa-solid fa-search text-4xl text-gray-300 dark:text-darktext mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2 dark:text-darktext">No Ressource matches your filters</h3>
+          <p class="text-gray-500 dark:text-darktext">Try adjusting category or search terms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources Note -->
+    <section
+      class="px-4 sm:px-6 py-12 md:py-14 bg-sectionbg border-t border-sectionbg/60 dark:bg-darksection dark:border-darkborder">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 mb-4 md:mb-5">
+          <i class="fa-solid fa-quote-left text-accent"></i>
+          <h2 class="text-xl md:text-2xl font-semibold text-main dark:text-background m-0">Notes on Sources</h2>
+        </div>
+        <p class="text-main/80 dark:text-background/80 leading-relaxed">These are curated, credited Ressources from trusted sources. Titles
+          and summaries are mine; the methods and attribution belong to their creators. Please support the originals.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+    <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+        <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
+          <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex flex-col justify-center gap-0.5">
+          <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+              rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a>—Attribution &
+            ShareAlike required.</span>
+          <button id="footer-open-changelog"
+            class="text-xs underline text-background/80 hover:text-accent dark:text-darktext w-fit mt-1"
+            type="button">Changelog</button>
+        </div>
+        <div class="flex items-center justify-center">
+          <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex items-center text-xs text-background/80 dark:text-darktext">
+          <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+              rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/changelog.js"></script>
+  <script src="/js/cookie-consent.js"></script>
+  <script type="module" src="./js/guides.js"></script>
+</body>
+
+</html>

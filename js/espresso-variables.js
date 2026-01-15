@@ -126,9 +126,6 @@ function initializeEventListeners() {
     if (DOM_ELEMENTS.toggleLayoutBtn) {
     DOM_ELEMENTS.toggleLayoutBtn.addEventListener('click', toggleLayout);
     }
-    DOM_ELEMENTS.backBtn.addEventListener('click', () => {
-        window.history.back();
-    });
 
     if (DOM_ELEMENTS.closeTooltipBtn) {
         DOM_ELEMENTS.closeTooltipBtn.addEventListener('click', () => {
@@ -920,7 +917,7 @@ function initializeHamburgerMenu() {
     const hamburgerBtn = document.getElementById('hamburger-menu-btn');
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const closeMenuBtn = document.getElementById('close-menu-btn');
-    const menuDarkModeToggle = document.getElementById('menu-dark-mode-toggle');
+    const menuDarkModeToggles = document.querySelectorAll('#menu-dark-mode-toggle, .menu-dark-mode-toggle');
     const backBtn = document.getElementById('back-btn');
 
     if (hamburgerBtn) {
@@ -932,6 +929,8 @@ function initializeHamburgerMenu() {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerMenu.classList.remove('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.remove('translate-x-full');
+            // Lock body scroll
+            lockBodyScroll();
         });
     }
 
@@ -939,6 +938,8 @@ function initializeHamburgerMenu() {
         closeMenuBtn.addEventListener('click', () => {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            unlockBodyScroll();
         });
     }
 
@@ -946,14 +947,19 @@ function initializeHamburgerMenu() {
         if (e.target === hamburgerMenu) {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+            // Unlock body scroll
+            unlockBodyScroll();
         }
     });
 
-    if (menuDarkModeToggle) {
-        menuDarkModeToggle.addEventListener('click', () => {
-            toggleDarkMode();
-            hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
-            hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+    if (menuDarkModeToggles && menuDarkModeToggles.length) {
+        menuDarkModeToggles.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                toggleDarkMode();
+                hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
+                hamburgerMenu.querySelector('div').classList.add('translate-x-full');
+                unlockBodyScroll();
+            });
         });
     }
 
@@ -982,14 +988,14 @@ function initializeHamburgerMenu() {
 }
 
 function toggleDarkMode() {
-    const body = document.body;
-    const isDark = body.classList.contains('dark');
+    const root = document.documentElement;
+    const isDark = root.classList.contains('dark');
 
     if (isDark) {
-        body.classList.remove('dark');
+        root.classList.remove('dark');
         localStorage.setItem('darkMode', 'false');
     } else {
-        body.classList.add('dark');
+        root.classList.add('dark');
         localStorage.setItem('darkMode', 'true');
     }
     
@@ -998,9 +1004,9 @@ function toggleDarkMode() {
 
 function loadDarkModePreference() {
     const savedPreference = localStorage.getItem('darkMode');
-    if (savedPreference === 'true') {
-        document.body.classList.add('dark');
-    }
+    const shouldEnable = savedPreference === 'true';
+    const root = document.documentElement;
+    if (shouldEnable) root.classList.add('dark');
 }
 
 // ============================================================================
@@ -1040,4 +1046,27 @@ function initializeBackToTop() {
             behavior: 'smooth'
         });
     });
+} 
+
+// Scroll lock helpers
+let __scrollLockY = 0;
+function lockBodyScroll() {
+    if (document.body.style.position === 'fixed') return;
+    __scrollLockY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${__scrollLockY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.documentElement.style.overscrollBehavior = 'none';
+}
+function unlockBodyScroll() {
+    if (document.body.style.position !== 'fixed') return;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.documentElement.style.overscrollBehavior = '';
+    window.scrollTo(0, __scrollLockY || 0);
 } 

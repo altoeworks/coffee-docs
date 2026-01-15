@@ -628,6 +628,29 @@ function clearSearch() {
 // HAMBURGER MENU FUNCTIONALITY
 // ============================================================================
 
+// Scroll lock helpers
+let __scrollLockY = 0;
+function lockBodyScroll() {
+    if (document.body.style.position === 'fixed') return;
+    __scrollLockY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${__scrollLockY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.documentElement.style.overscrollBehavior = 'none';
+}
+function unlockBodyScroll() {
+    if (document.body.style.position !== 'fixed') return;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.documentElement.style.overscrollBehavior = '';
+    window.scrollTo(0, __scrollLockY || 0);
+}
+
 /**
  * Initialize hamburger menu functionality
  */
@@ -636,6 +659,7 @@ function initializeHamburgerMenu() {
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const closeMenuBtn = document.getElementById('close-menu-btn');
     const menuDarkModeToggle = document.getElementById('menu-dark-mode-toggle');
+    const menuDarkModeToggles = document.querySelectorAll('#menu-dark-mode-toggle, .menu-dark-mode-toggle');
     const backBtn = document.getElementById('back-btn');
 
     // Show hamburger button immediately
@@ -644,15 +668,13 @@ function initializeHamburgerMenu() {
         hamburgerBtn.style.pointerEvents = 'auto';
     }
 
-    // Back button is now static, no need to manipulate opacity
-
     // Open menu
     if (hamburgerBtn) {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerMenu.classList.remove('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.remove('translate-x-full');
             // Lock body scroll
-            document.body.style.overflow = 'hidden';
+            lockBodyScroll();
         });
     }
 
@@ -662,7 +684,7 @@ function initializeHamburgerMenu() {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
             // Unlock body scroll
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         });
     }
 
@@ -672,19 +694,22 @@ function initializeHamburgerMenu() {
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
             // Unlock body scroll
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         }
     });
 
-    // Menu dark mode toggle
-    if (menuDarkModeToggle) {
-        menuDarkModeToggle.addEventListener('click', () => {
+    // Menu dark mode toggle(s)
+    const wireToggle = (btn) => {
+        btn.addEventListener('click', () => {
             toggleDarkMode();
             hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
             hamburgerMenu.querySelector('div').classList.add('translate-x-full');
-            // Unlock body scroll
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         });
+    };
+    if (menuDarkModeToggle) wireToggle(menuDarkModeToggle);
+    if (menuDarkModeToggles && menuDarkModeToggles.length) {
+        menuDarkModeToggles.forEach(wireToggle);
     }
 
     // Close menu when any menu link is clicked
@@ -695,8 +720,7 @@ function initializeHamburgerMenu() {
                 // Close menu first
                 hamburgerMenu.classList.add('opacity-0', 'pointer-events-none');
                 hamburgerMenu.querySelector('div').classList.add('translate-x-full');
-                // Unlock body scroll
-                document.body.style.overflow = '';
+                unlockBodyScroll();
 
                 // For links to index.html, use replace for more reliable navigation
                 if (link.href && link.href.includes('index.html')) {

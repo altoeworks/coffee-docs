@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-01-15",
+    "title": "Resource Library",
+    "description": "Published the Resource Library — a curated collection of guides and resources. I also reworked the menu across the site for smoother navigation and a more consistent experience."
+  },
+  {
     "date": "2025-08-12",
     "title": "Espresso Variables Explorer and a lot of polish",
     "description": "Launched the interactive Espresso Variables Explorer. Added an in‑site Changelog. Made the guides easier to use with clear Read Online, Download and Share actions. Switched contact from Discord to email (coffee@altoeworks.net)."

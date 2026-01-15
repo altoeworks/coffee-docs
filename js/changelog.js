@@ -41,7 +41,7 @@
     const list = document.getElementById('changelog-list');
     if (!list) return;
     try {
-      const res = await fetch('changelog.json', { cache: 'no-cache' });
+      const res = await fetch('/changelog.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('Failed to load changelog');
       const entries = await res.json();
       renderEntries(entries);

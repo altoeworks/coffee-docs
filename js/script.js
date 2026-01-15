@@ -29,6 +29,9 @@ const ANIMATION_CONFIG = {
   INITIAL_DELAY: 100
 };
 
+// Persist dismissal state for the sticky banner
+const STICKY_BANNER_STORAGE_KEY = "stickyBannerDismissed";
+
 // ============================================================================
 // DOM ELEMENTS
 // ============================================================================
@@ -41,6 +44,8 @@ const DOM_ELEMENTS = {
   solidTitle: null,
   darkModeIcon: null,
   stickyBanner: null,
+  stickyBannerClose: null,
+  topNav: null,
   body: document.body
 };
 
@@ -50,6 +55,7 @@ const DOM_ELEMENTS = {
 
 document.addEventListener("DOMContentLoaded", function () {
   initializeElements();
+  initializeStickyBanner();
   resetAnimations();
   startAnimations();
   initializeHamburgerMenu();
@@ -67,6 +73,8 @@ function initializeElements() {
   DOM_ELEMENTS.solidTitle = document.getElementById("solid-title");
   DOM_ELEMENTS.darkModeIcon = document.getElementById("dark-mode-icon");
   DOM_ELEMENTS.stickyBanner = document.getElementById("sticky-banner");
+  DOM_ELEMENTS.stickyBannerClose = document.getElementById("sticky-banner-close");
+  DOM_ELEMENTS.topNav = document.getElementById("top-nav");
 }
 
 /**
@@ -165,10 +173,84 @@ function showStickyBanner() {
 
   setTimeout(() => {
     if (DOM_ELEMENTS.stickyBanner) {
+      // Skip showing if user has dismissed it previously
+      const isDismissed = localStorage.getItem(STICKY_BANNER_STORAGE_KEY) === "true";
+      if (isDismissed) {
+        updateTopNavOffset();
+        return;
+      }
+
       DOM_ELEMENTS.stickyBanner.style.opacity = 1;
       DOM_ELEMENTS.stickyBanner.style.pointerEvents = "auto";
+      updateTopNavOffset();
+      // Keep offset accurate on resize or orientation changes
+      window.addEventListener('resize', updateTopNavOffset, { passive: true });
+      window.addEventListener('orientationchange', updateTopNavOffset, { passive: true });
     }
   }, totalDelay);
+}
+
+/**
+ * Ensure top navigation sits below the sticky banner by adjusting its top offset
+ */
+function updateTopNavOffset() {
+  const banner = DOM_ELEMENTS.stickyBanner;
+  const nav = DOM_ELEMENTS.topNav;
+  if (!banner || !nav) return;
+
+  const isBannerVisible = banner.style.opacity === '1' || banner.style.opacity === 1 || getComputedStyle(banner).opacity === '1';
+  const bannerHeight = isBannerVisible ? banner.offsetHeight : 0;
+
+  // Apply a transform via style to avoid layout shift of the document flow
+  nav.style.top = bannerHeight + 'px';
+}
+
+// Initialize banner dismissal and persistence
+function initializeStickyBanner() {
+  if (!DOM_ELEMENTS.stickyBanner) return;
+
+  const isDismissed = localStorage.getItem(STICKY_BANNER_STORAGE_KEY) === "true";
+  if (isDismissed) {
+    // Ensure the banner is completely inactive and nav is at the top
+    DOM_ELEMENTS.stickyBanner.style.opacity = 0;
+    DOM_ELEMENTS.stickyBanner.style.pointerEvents = "none";
+    DOM_ELEMENTS.stickyBanner.style.display = "none";
+    if (DOM_ELEMENTS.topNav) {
+      DOM_ELEMENTS.topNav.style.top = '0px';
+    }
+    return;
+  }
+
+  if (DOM_ELEMENTS.stickyBannerClose) {
+    DOM_ELEMENTS.stickyBannerClose.addEventListener("click", dismissStickyBanner);
+  }
+}
+
+function dismissStickyBanner() {
+  if (!DOM_ELEMENTS.stickyBanner) return;
+  localStorage.setItem(STICKY_BANNER_STORAGE_KEY, "true");
+
+  // Smoothly fade out, stop interactions
+  DOM_ELEMENTS.stickyBanner.style.opacity = 0;
+  DOM_ELEMENTS.stickyBanner.style.pointerEvents = "none";
+
+  // Immediately move nav back to the very top
+  if (DOM_ELEMENTS.topNav) {
+    DOM_ELEMENTS.topNav.style.top = '0px';
+  }
+
+  // After transition ends, fully hide the banner to avoid any layout quirks
+  const handleTransitionEnd = () => {
+    if (DOM_ELEMENTS.stickyBanner) {
+      DOM_ELEMENTS.stickyBanner.style.display = 'none';
+    }
+    updateTopNavOffset();
+  };
+  DOM_ELEMENTS.stickyBanner.addEventListener('transitionend', handleTransitionEnd, { once: true });
+
+  // No longer need to adjust on resize/orientation once dismissed
+  window.removeEventListener('resize', updateTopNavOffset);
+  window.removeEventListener('orientationchange', updateTopNavOffset);
 }
 
 // ============================================================================
@@ -510,7 +592,31 @@ window.addEventListener('scroll', updateProgressBar);
 
 // ============================================================================
 // HAMBURGER MENU FUNCTIONALITY
-// ============================================================================
+// =========================================================================
+
+// Scroll lock helpers to prevent background page scrolling while menu is open
+let __scrollLockY = 0;
+function lockBodyScroll() {
+  if (document.body.style.position === 'fixed') return; // already locked
+  __scrollLockY = window.scrollY || window.pageYOffset || 0;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${__scrollLockY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+  // Prevent rubber-band on mobile
+  document.documentElement.style.overscrollBehavior = 'none';
+}
+function unlockBodyScroll() {
+  if (document.body.style.position !== 'fixed') return;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  document.documentElement.style.overscrollBehavior = '';
+  window.scrollTo(0, __scrollLockY || 0);
+}
 
 /**
  * Initialize hamburger menu functionality
@@ -519,15 +625,18 @@ function initializeHamburgerMenu() {
   const hamburgerBtn = document.getElementById('hamburger-menu-btn');
   const closeMenuBtn = document.getElementById('close-menu-btn');
   const hamburgerMenu = document.getElementById('hamburger-menu');
-  const menuDarkModeToggle = document.getElementById('menu-dark-mode-toggle');
+  const menuDarkModeToggles = document.querySelectorAll('#menu-dark-mode-toggle, .menu-dark-mode-toggle');
   const hamburgerIcon = document.getElementById('hamburger-icon');
 
   // Show hamburger menu button after animations
   if (hamburgerBtn) {
+    // Make it clickable immediately to avoid timing issues
+    hamburgerBtn.classList.remove("pointer-events-none");
+    hamburgerBtn.style.pointerEvents = "auto";
+    // Preserve the intended fade-in of opacity
     setTimeout(() => {
-      hamburgerBtn.classList.remove("opacity-0", "pointer-events-none");
+      hamburgerBtn.classList.remove("opacity-0");
       hamburgerBtn.classList.add("opacity-100");
-      hamburgerBtn.style.pointerEvents = "auto";
     }, ANIMATION_CONFIG.TYPEWRITER_DURATION + 100);
   }
 
@@ -555,11 +664,13 @@ function initializeHamburgerMenu() {
   }
 
   // Dark mode toggle within menu
-  if (menuDarkModeToggle) {
-    menuDarkModeToggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setDarkMode(!isDark);
-      closeHamburgerMenu();
+  if (menuDarkModeToggles && menuDarkModeToggles.length) {
+    menuDarkModeToggles.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        setDarkMode(!isDark);
+        closeHamburgerMenu();
+      });
     });
   }
 
@@ -603,6 +714,12 @@ function openHamburgerMenu() {
     hamburgerMenu.style.opacity = '1';
     hamburgerMenu.style.pointerEvents = 'auto';
     menuContent.style.transform = 'translateX(0)';
+    // Allow scrolling inside the menu panel only
+    menuContent.style.overflowY = 'auto';
+    menuContent.style.maxHeight = '100vh';
+    menuContent.style.webkitOverflowScrolling = 'touch';
+    // Lock background scroll
+    lockBodyScroll();
 
     // Change icon to X
     if (hamburgerIcon) {
@@ -625,6 +742,9 @@ function closeHamburgerMenu() {
     hamburgerMenu.style.opacity = '0';
     hamburgerMenu.style.pointerEvents = 'none';
     menuContent.style.transform = 'translateX(100%)';
+
+    // Unlock background scroll
+    unlockBodyScroll();
 
     // Change icon back to bars
     if (hamburgerIcon) {

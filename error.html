@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Coffee Docs</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Let's get you back to brewing." />
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-background text-base md:text-lg min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
+  <!-- Main Content -->
+  <main class="min-h-screen flex-1 flex items-center justify-center px-4 sm:px-6 py-16 md:py-24">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- Error Code -->
+      <div class="mb-8">
+        <h1 id="error-code" class="text-8xl md:text-9xl font-extrabold text-accent mb-4 dark:text-accent">
+          404
+        </h1>
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <!-- <i class="fa-solid fa-mug-hot text-4xl md:text-4xl text-accent animate-bounce" style="animation-duration: 2s;"></i> -->
+          <h2 id="error-title" class="text-3xl md:text-4xl font-bold text-main dark:text-background">
+            Page not found
+          </h2>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="space-y-6 mb-10">
+        <p id="error-message" class="text-xl md:text-2xl text-main/80 dark:text-background/80 leading-relaxed">
+          The page you're looking for doesn't exist. It might have been moved, or perhaps the link was incorrect.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-white font-semibold shadow-lg hover:shadow-xl transition-all dark:bg-accent">
+          <i class="fa-solid fa-house text-lg"></i>
+          <span>Back to Home</span>
+        </a>
+      </div>
+
+      <!-- Fun Coffee Facts -->
+      <div class="mt-16 pt-8 border-t border-main/10 dark:border-darkborder">
+        <p class="text-sm text-main/60 dark:text-background/60 mb-4">
+          While you're here, did you know?
+        </p>
+        <p id="coffee-fact" class="text-base text-main/70 dark:text-background/70 italic">
+          Coffee beans are actually seeds from the fruit of the coffee plant, called cherries.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+    <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+        <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
+          <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex flex-col justify-center gap-0.5">
+          <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+              rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a>—Attribution &
+            ShareAlike required.</span>
+        </div>
+        <div class="flex items-center justify-center">
+          <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex items-center text-xs text-background/80 dark:text-darktext">
+          <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+              rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/script.js"></script>
+  <script>
+    // Error page configuration
+    const errorConfig = {
+      // 400 Bad Request
+      400: {
+        title: "That's not how this works.",
+        message: "I don't know what you're trying to do, but it's not going to work.",
+        fact: "Coffee beans are actually seeds from the fruit of the coffee plant, called cherries."
+      },
+      // 401 Unauthorized
+      401: {
+        title: "Who are you?",
+        message: "I'm not good with names, but that one doesn't ring a bell.",
+        fact: "Espresso means 'pressed out' in Italian, referring to the way the coffee is extracted under pressure."
+      },
+      // 403 Forbidden
+      403: {
+        title: "Nope. Not happening.",
+        message: "You don't have permission to view this page. Not that I have anything to hide, but you're not allowed to see this.",
+        fact: "Coffee was discovered by a goat herder in Ethiopia who noticed his goats became more energetic after eating coffee berries."
+      },
+      // 404 Not Found
+      404: {
+        title: "Where did you get that link from?",
+        message: "There's nothing here, at least not that I can remember.",
+        fact: "Coffee beans are actually seeds from the fruit of the coffee plant, called cherries."
+      },
+      // 405 Method Not Allowed
+      405: {
+        title: "PUT what now?",
+        message: "You're trying to use a method that's not allowed. PUT, DELETE, PATCH—they're not all the same, you know.",
+        fact: "The term 'Americano' comes from American soldiers in WWII who diluted espresso with hot water to make it more like drip coffee."
+      },
+      // 406 Not Acceptable
+      406: {
+        title: "Unacceptable.",
+        message: "Period.",
+        fact: "The first instant coffee was invented in 1901 by a Japanese-American chemist named Satori Kato."
+      },
+      // 409 Conflict
+      409: {
+        title: "You're not the only one here.",
+        message: "Don't try to cut in line. Someone else is already using it.",
+        fact: "Coffee plants are self-pollinating, meaning they don't need bees or other pollinators to produce fruit."
+      },
+      // 408 Request Timeout
+      408: {
+        title: "Sooo slooowww...",
+        message: "You took too long to respond. I'm not going to wait forever. I've got other things to do.",
+        fact: "A single coffee tree produces about 2,000 coffee cherries per year, which equals about 4,000 coffee beans."
+      },
+      // 410 Gone
+      410: {
+        title: "It's gone. Forever.",
+        message: "This page used to exist, but it doesn't anymore. It's not coming back. Sorry.",
+        fact: "Coffee grounds can be used as a natural fertilizer for plants that prefer acidic soil."
+      },
+      // 413 Payload Too Large
+      413: {
+        title: "That's way too big.",
+        message: "Whatever you're trying to send is too large. Make it smaller. Much smaller.",
+        fact: "The caffeine in coffee starts to take effect about 10 minutes after consumption and peaks after 45 minutes."
+      },
+      // 414 URI Too Long
+      414: {
+        title: "That URL is ridiculous.",
+        message: "Your URL is way too long. I'm not even going to try to process that.",
+        fact: "Coffee was originally consumed as a food—the berries were mixed with animal fat and eaten as energy balls."
+      },
+      // 415 Unsupported Media Type
+      415: {
+        title: "I don't know what that is, but it's not coffee.",
+        message: "Use something I actually understand, please.",
+        fact: "Coffee contains antioxidants that can help protect against certain diseases."
+      },
+      // 418 I'm a teapot
+      418: {
+        title: "Don't you dare. This is a coffee website.",
+        message: "",
+        fact: "The first webcam was set up at Cambridge University to monitor a coffee pot in 1991."
+      },
+      // 422 Unprocessable Entity
+      422: {
+        title: "I can't work with this.",
+        message: "Not that I'm not willing to help you, but whatever 'this' is, I have no clue what it is.",
+        fact: "Coffee can help improve physical performance by increasing adrenaline levels and breaking down body fat."
+      },
+      // 429 Too Many Requests
+      429: {
+        title: "Slow down there.",
+        message: "I know you're excited, but that's a bit too much. Take a breath, have some coffee, and try again in a bit.",
+        fact: "Coffee is the second most traded commodity in the world, after oil."
+      },
+      // 431 Request Header Fields Too Large
+      431: {
+        title: "Your headers are too big.",
+        message: "Yes, that's a thing. No, I don't know why you'd need headers that big.",
+        fact: "The world's largest coffee producer is Brazil, producing about one-third of all coffee globally."
+      },
+      // 451 Unavailable For Legal Reasons
+      451: {
+        title: "That's not a good idea.",
+        message: "Whatever it is you're trying to do, I don't want anything to do with it.",
+        fact: "Coffee plants need about 1,000-2,000 mm of rainfall per year to grow properly."
+      },
+      // 500 Internal Server Error
+      500: {
+        title: "Whoops.",
+        message: "The server had a bit of a mishap. I don't know what happened, but it's not my fault.",
+        fact: "The crema on espresso is formed by CO2 and oils released during the brewing process."
+      },
+      // 501 Not Implemented
+      501: {
+        title: "That's not how this works.",
+        message: "I can only show you stuff that's actually implemented. I can't just make it up on the spot, you know?",
+        fact: "Coffee was banned in Mecca in 1511 and in Italy in the 1600s, with the Pope eventually declaring it acceptable."
+      },
+      // 502 Bad Gateway
+      502: {
+        title: "I'm confused.",
+        message: "Something upstream isn't working right. It's probably someone else's problem. In this case, yours.",
+        fact: "There are over 100 coffee species, but only two are commercially grown: Arabica and Robusta."
+      },
+      // 503 Service Unavailable
+      503: {
+        title: "Where did the server go?",
+        message: "You can't expect it to be available all the time, right? It's barely working as it is.",
+        fact: "Arabica coffee accounts for about 60-70% of the world's coffee production."
+      },
+      // 504 Gateway Timeout
+      504: {
+        title: "Still waiting...",
+        message: "The server is taking forever to respond. It's probably stuck somewhere. I'll wait if you will.",
+        fact: "Coffee plants can live for up to 100 years, but they're most productive between 7 and 20 years old."
+      },
+      // 520 Web Server Returned an Unknown Error (Cloudflare)
+      520: {
+        title: "Something broke.",
+        message: "The web server returned an unknown error. I have no idea what that means, but it's definitely not good.",
+        fact: "Finland consumes the most coffee per capita in the world, averaging about 12 kg per person per year."
+      },
+      // 521 Web Server Is Down (Cloudflare)
+      521: {
+        title: "The server is offline.",
+        message: "It's probably having a bad day. Can't say I blame it.",
+        fact: "Coffee cherries typically contain two seeds, but about 5% have only one seed, called a peaberry."
+      },
+      // 522 Connection Timed Out (Cloudflare)
+      522: {
+        title: "The server is taking too long.",
+        message: "Maybe it's thinking really hard about something. Or maybe it's just broken.",
+        fact: "The first coffeehouse opened in Constantinople (now Istanbul) in 1475."
+      },
+      // 523 Origin Is Unreachable (Cloudflare)
+      523: {
+        title: "Can't reach the server.",
+        message: "I can swear it was there a moment ago, but now it's gone. Like a ghost.",
+        fact: "Decaffeinated coffee still contains small amounts of caffeine—usually 2-5% of the original amount."
+      },
+      // 524 A Timeout Occurred (Cloudflare)
+      524: {
+        title: "Timeout, but different.",
+        message: "A timeout occurred, but the connection was established. So we got somewhere, just not all the way.",
+        fact: "Cold brew coffee is less acidic than hot-brewed coffee because cold water extracts fewer acids."
+      },
+      // 505 HTTP Version Not Supported
+      505: {
+        title: "Please use something standard, I beg you...",
+        message: "I'm not sure what version of HTTP you're using, but it's not the one I'm using. Please use the one I'm using.",
+        fact: "Coffee can stay fresh for up to 2-4 weeks after roasting if stored properly in an airtight container."
+      }
+    };
+
+    // Get error code from URL or default to 404
+    function getErrorCode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code') || '404';
+      return parseInt(code, 10) || 404;
+    }
+
+    // Update page content based on error code
+    function updateErrorPage() {
+      const code = getErrorCode();
+      const config = errorConfig[code] || errorConfig[404];
+      
+      document.getElementById('error-code').textContent = code;
+      document.getElementById('error-title').textContent = config.title;
+      document.getElementById('error-message').textContent = config.message;
+      document.getElementById('coffee-fact').textContent = config.fact;
+      
+      // Update page title
+      document.title = `${code} Error | Coffee Docs`;
+    }
+
+    // Coffee facts for random display
+    const coffeeFacts = [
+      "Coffee beans are actually seeds from the fruit of the coffee plant, called cherries.",
+      "Espresso means 'pressed out' in Italian, referring to the way the coffee is extracted under pressure.",
+      "Coffee was discovered by a goat herder in Ethiopia who noticed his goats became more energetic after eating coffee berries.",
+      "A single coffee tree produces about 2,000 coffee cherries per year, which equals about 4,000 coffee beans.",
+      "Coffee is the second most traded commodity in the world, after oil.",
+      "The crema on espresso is formed by CO2 and oils released during the brewing process.",
+      "There are over 100 coffee species, but only two are commercially grown: Arabica and Robusta.",
+      "Arabica coffee accounts for about 60-70% of the world's coffee production.",
+      "Coffee plants can live for up to 100 years, but they're most productive between 7 and 20 years old.",
+      "Finland consumes the most coffee per capita in the world, averaging about 12 kg per person per year.",
+      "Coffee cherries typically contain two seeds, but about 5% have only one seed, called a peaberry.",
+      "The first coffeehouse opened in Constantinople (now Istanbul) in 1475.",
+      "Decaffeinated coffee still contains small amounts of caffeine—usually 2-5% of the original amount.",
+      "Cold brew coffee is less acidic than hot-brewed coffee because cold water extracts fewer acids.",
+      "The term 'Americano' comes from American soldiers in WWII who diluted espresso with hot water to make it more like drip coffee.",
+      "Coffee grounds can be used as a natural fertilizer for plants that prefer acidic soil.",
+      "The caffeine in coffee starts to take effect about 10 minutes after consumption and peaks after 45 minutes.",
+      "Coffee was originally consumed as a food—the berries were mixed with animal fat and eaten as energy balls.",
+      "The first webcam was set up at Cambridge University to monitor a coffee pot in 1991.",
+      "Coffee can help improve physical performance by increasing adrenaline levels and breaking down body fat.",
+      "The world's largest coffee producer is Brazil, producing about one-third of all coffee globally.",
+      "Coffee plants need about 1,000-2,000 mm of rainfall per year to grow properly.",
+      "Coffee was banned in Mecca in 1511 and in Italy in the 1600s, with the Pope eventually declaring it acceptable.",
+      "Coffee can stay fresh for up to 2-4 weeks after roasting if stored properly in an airtight container.",
+      "The first instant coffee was invented in 1901 by a Japanese-American chemist named Satori Kato.",
+      "Coffee plants are self-pollinating, meaning they don't need bees or other pollinators to produce fruit.",
+      "Coffee contains antioxidants that can help protect against certain diseases.",
+      "Coffee can help reduce the risk of type 2 diabetes, Parkinson's disease, and liver disease.",
+      "The first commercial espresso machine was patented in 1901 by Luigi Bezzera.",
+      "The ideal storage temperature for coffee is between 50-70°F (10-21°C), away from light and moisture.",
+      "Coffee was first introduced to Europe in the 17th century through Venice.",
+      "Coffee plants need 3-4 years to produce their first harvest after being planted.",
+      "Coffee can help improve cognitive function, memory, and reaction time.",
+      "Coffee was first cultivated in Yemen in the 15th century."
+    ];
+
+    // Randomize coffee fact on page load
+    function randomizeCoffeeFact() {
+      const randomFact = coffeeFacts[Math.floor(Math.random() * coffeeFacts.length)];
+      const factElement = document.getElementById('coffee-fact');
+      if (factElement && Math.random() > 0.5) {
+        factElement.textContent = randomFact;
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      updateErrorPage();
+      randomizeCoffeeFact();
+    });
+  </script>
+</body>
+
+</html>

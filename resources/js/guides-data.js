@@ -144,7 +144,7 @@ export const GUIDES = [
     id: "flow-and-pressure-hedrick",
     title: "Flow and Pressure in Espresso — Lance Hedrick",
     category: "Understanding Methods",
-    summary: "Learn about the flow and pressure in espresso, how they interact, and how to influence them.",
+    summary: "Learn about flow and pressure in espresso, how they interact, and how to use them properly.",
     source: { name: "Lance Hedrick", url: "https://youtu.be/d829iUgM8aw", embed: "youtube" },
     meta: { },
     steps: [

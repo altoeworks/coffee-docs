@@ -229,6 +229,8 @@ module.exports = {
     'items-center',
     // Changelog triggers
     'fa-arrow-up-right-from-square',
+    // Error page
+    'mb-10'
   ],
   theme: {
     extend: {

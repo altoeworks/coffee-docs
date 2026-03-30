@@ -189,10 +189,10 @@ export const GUIDES = [
     changelog: [{ date: TODAY_ISO, change: "Initial addition." }]
   },
   {
-    id: "espresso-tampers-hedrick",
-    title: "Espresso Tampers — Lance Hedrick",
+    id: "tampers-hedrick",
+    title: "Tampers — Lance Hedrick",
     category: "Equipment",
-    summary: "Learn about different espresso tampers and their differences.",
+    summary: "Learn about different tampers and their differences.",
     source: { name: "Lance Hedrick", url: "https://youtu.be/tifwe68kUv8", embed: "youtube" },
     meta: { },
     steps: [

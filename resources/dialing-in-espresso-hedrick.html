@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dialing in Espresso — Lance Hedrick</title>
+  <meta name="description" content="Learn how to dial in espresso by taste and how to finetune it. Curated from Lance Hedrick." />
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://kit.fontawesome.com/e0c62c0de8.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-background text-base md:text-lg min-h-screen flex flex-col dark:bg-darkbg dark:text-darktext">
+  <div id="progress-bar-container" style="position:fixed;top:0;left:0;width:100vw;height:4px;z-index:100;background:transparent;">
+    <div id="progress-bar" style="height:4px;width:0;background:#ff6b35;transition:width 0.2s;"></div>
+  </div>
+
+  <!-- Top Navigation -->
+  <div id="top-nav"
+    class="block bg-white dark:bg-darkbg border-b border-main/10 dark:border-darkborder sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="inline-flex items-center gap-2 text-main dark:text-background font-semibold">
+        <i class="fa-solid fa-coffee text-accent"></i>
+        <span>Coffee Docs</span>
+      </a>
+      <button id="hamburger-menu-btn" aria-label="Open menu"
+        class="md:hidden z-50 w-12 h-12 rounded-lg bg-white text-accent transition-all duration-300 opacity-0 pointer-events-none transition-opacity duration-700 z-10 dark:bg-accent flex items-center justify-center hover:scale-105">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
+      <nav class="hidden md:flex items-center gap-4 text-sm">
+        <a href="/" class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Home</a>
+        <a href="/glossary.html"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Interactive
+          Glossary</a>
+        <a href="/espresso-variables.html"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Espresso
+          Variables</a>
+        <a href="/resources/"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Resource
+          Library</a>
+        <a href="./#feedback-section"
+          class="text-main/80 hover:text-accent dark:hover:text-accent dark:text-background/80">Contact</a>
+        <div class="mt-auto p-6 border-t border-main/10 dark:border-darkborder">
+          <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+            class="flex items-center p-2 w-full rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+            <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hamburger Menu Overlay -->
+  <div id="hamburger-menu"
+    class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div
+      class="absolute top-0 right-0 h-full w-80 max-w-[90vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 dark:bg-darksection dark:text-darktext flex flex-col">
+      <!-- Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-main/10 dark:border-darkborder">
+        <h3 class="text-lg font-semibold text-main dark:text-background">Menu</h3>
+        <button id="close-menu-btn" aria-label="Close menu"
+          class="p-2 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors">
+          <i class="fa-solid fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Menu Content -->
+      <div class="p-6 space-y-6 flex-1 overflow-y-auto">
+        <!-- Back to Guides Link -->
+        <a href="/"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-house text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- Resource Library Link -->
+        <a href="/resources/"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-list text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Resource Library</span>
+        </a>
+
+        <!-- Espresso Variable Explorer Link -->
+        <a href="/espresso-variables.html"
+          class="group flex items-center gap-3 p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-all text-main dark:text-background hover:scale-105 hover:shadow-md">
+          <i class="fa-solid fa-sitemap text-accent transition-transform duration-300 group-hover:scale-110"></i>
+          <span>Espresso Variable Explorer</span>
+        </a>
+      </div>
+
+      <!-- Dark Mode Toggle (Bottom) -->
+      <div class="p-6 border-t border-main/10 dark:border-darkborder flex-shrink-0">
+        <button id="menu-dark-mode-toggle" aria-label="Toggle dark mode"
+          class="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-main/10 dark:hover:bg-background/10 transition-colors text-main dark:text-background">
+          <i class="fa-solid fa-circle-half-stroke text-lg text-accent"></i>
+          <span class="text-sm">Toggle Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="min-h-screen flex-1">
+    <section class="px-4 sm:px-6 py-10 md:py-14 bg-sectionbg border-b border-sectionbg/60 dark:bg-darksection dark:border-darkborder">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto py-6">
+        <div class="flex items-center gap-3 mb-3">
+          <i class="fa-solid fa-gear text-accent text-2xl"></i>
+          <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-main m-0 dark:text-background">Dialing in Espresso — Lance Hedrick</h1>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-main/70 dark:text-background/70">
+          <span class="inline-flex items-center px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/30">Understanding Methods</span>
+          <span>Attribution: <a class="underline text-tertiary dark:text-darktertiary hover:text-accent" href="https://www.youtube.com/@LanceHedrick" target="_blank" rel="noopener noreferrer">Lance Hedrick</a></span>
+          <span>Updated on: <time data-updated-on></time></span>
+          <button class="inline-flex items-center gap-1 text-main/70 hover:text-accent dark:text-background/70 align-middle" data-open-changelog type="button" title="Open changelog">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 sm:px-6 py-6 bg-background dark:bg-darkbg">
+      <div class="max-w-3xl sm:max-w-4xl mx-auto">
+        <div class="relative w-full" style="padding-top: 56.25%;">
+          <iframe class="absolute left-0 top-0 w-full h-full rounded-xl border border-main/10 dark:border-darkborder" src="https://www.youtube.com/embed/j-Hu4hF5PTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="mt-2 text-xs text-main/60 dark:text-background/60">Source: <a class="underline" href="https://youtu.be/j-Hu4hF5PTM" target="_blank" rel="noopener noreferrer">YouTube</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+    <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
+        <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
+          <i class="fa-brands fa-creative-commons text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-by text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-nc text-accent text-xl" aria-hidden="true"></i>
+          <i class="fa-brands fa-creative-commons-sa text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex flex-col justify-center gap-0.5">
+          <span class="text-xs text-background/80 dark:text-darktext">Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" class="underline hover:text-accent">CC BY-NC-SA 4.0</a>—Attribution & ShareAlike required.</span>
+          <button id="footer-open-changelog" class="text-xs underline text-background/80 hover:text-accent dark:text-darktext w-fit mt-1" type="button">Changelog</button>
+        </div>
+        <div class="flex items-center justify-center">
+          <i class="fa-regular fa-copyright text-accent text-xl" aria-hidden="true"></i>
+        </div>
+        <div class="flex items-center text-xs text-background/80 dark:text-darktext">
+          <span>2025 Oscar Höfenstock. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" class="underline hover:text-accent">Some rights reserved.</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/changelog.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+  <script type="module" src="./js/guide-detail.js"></script>
+</body>
+
+</html>
+

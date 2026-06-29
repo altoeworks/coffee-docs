@@ -14,19 +14,19 @@
 
 const ANIMATION_CONFIG = {
   // Typewriter animation duration (ms)
-  TYPEWRITER_DURATION: 1200,
+  TYPEWRITER_DURATION: 600,
 
   // Delay between fade-in section (ms)
-  SECTION_DELAY: 80,
+  SECTION_DELAY: 40,
 
   // Delay between individual lines within a section (ms)
-  LINE_DELAY: 80,
+  LINE_DELAY: 50,
 
   // Extra delay before showing the sticky banner
   BANNER_DELAY: 200,
 
   // Initial delay before starting animations (ms)
-  INITIAL_DELAY: 100
+  INITIAL_DELAY: 80
 };
 
 // Persist dismissal state for the sticky banner
@@ -99,12 +99,11 @@ function resetAnimations() {
  */
 function startAnimations() {
   setTimeout(() => {
-    setTimeout(() => {
-      completeTypewriterAnimation();
-      showDarkModeToggle();
-      animateSections();
-      showStickyBanner();
-    }, ANIMATION_CONFIG.TYPEWRITER_DURATION);
+    // Reveal content immediately — typewriter plays in parallel, not as a gate
+    animateSections();
+    showStickyBanner();
+    showDarkModeToggle();
+    setTimeout(completeTypewriterAnimation, ANIMATION_CONFIG.TYPEWRITER_DURATION);
   }, ANIMATION_CONFIG.INITIAL_DELAY);
 }
 

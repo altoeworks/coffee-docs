@@ -18,7 +18,7 @@
     content="Curated coffee resources: brew methods, milk steaming, cleaning, recipes, and more. Filter, search, and explore trusted resources." />
   <meta name="keywords"
     content="coffee resources, brew methods, french press, v60, aeropress, milk steaming, cleaning, recipes" />
-  <link rel="canonical" href="/ressources/" />
+  <link rel="canonical" href="/resources/" />
 
   <!-- ========== Favicon & External Ressources ========== -->
   <link rel="icon" href="https://cdn.jsdelivr.net/npm/@tabler/icons@2.30.0/icons/coffee.svg" />
@@ -138,13 +138,15 @@
   <main class="min-h-screen flex-1">
     <!-- Hero -->
     <section
-      class="px-4 sm:px-6 py-12 md:py-16 bg-background dark:bg-darksection dark:border-darkborder">
-      <div class="max-w-4xl mx-auto">
+      class="px-4 sm:px-6 py-12 md:py-16 bg-gradient-to-b from-sectionbg to-background dark:from-darksection dark:to-darkbg">
+      <div class="max-w-4xl mx-auto page-hero-content">
         <div class="flex items-center mb-3 gap-3">
-          <i class="fa-solid fa-list text-2xl text-accent" aria-hidden="true"></i>
-          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-main m-0 dark:text-background">Ressource Library</h1>
+          <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent/10 dark:bg-accent/20" aria-hidden="true">
+            <i class="fa-solid fa-list text-2xl text-accent"></i>
+          </span>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-main m-0 dark:text-background">Resource Library</h1>
         </div>
-        <p class="text-lg md:text-xl text-main/80 dark:text-background/80">A growing library of trusted methods &
+        <p class="text-lg md:text-xl text-main/70 dark:text-background/70">A growing library of trusted methods &
           resources.</p>
         <div class="mt-2 text-sm text-main/60 dark:text-background/60">
           Updated on: <time data-updated-on>—</time>
@@ -163,19 +165,19 @@
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-4 sm:gap-6 md:gap-8 items-start">
           <!-- Category Filter -->
           <div class="mb-4 md:mb-0">
-            <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/80 dark:bg-darksection/80 p-4 md:p-6">
+            <div class="rounded-xl border border-main/10 dark:border-darkborder border-l-2 border-l-tertiary/40 dark:border-l-tertiary/30 bg-white dark:bg-darksection p-4 md:p-6">
               <h3 class="text-xs md:text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Browse by category</h3>
               <div id="category-filter" class="flex flex-wrap gap-2 md:gap-3"></div>
             </div>
           </div>
           <!-- Search -->
           <div class="mt-3 md:mt-0">
-            <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/80 dark:bg-darksection/80 p-4 md:p-6">
-              <h3 class="text-xs md:text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Search Ressources</h3>
+            <div class="rounded-xl border border-main/10 dark:border-darkborder border-l-2 border-l-tertiary/40 dark:border-l-tertiary/30 bg-white dark:bg-darksection p-4 md:p-6">
+              <h3 class="text-xs md:text-sm font-semibold text-main/70 dark:text-background/70 mb-3 uppercase tracking-wide">Search Resources</h3>
               <div class="relative">
                 <input id="search-input"
                   type="text"
-                  placeholder="Search Ressources (title, author, ...)"
+                  placeholder="Search resources (title, author, ...)"
                   class="w-full px-4 md:px-6 py-3 md:py-4 pl-12 md:pl-14 pr-10 md:pr-12 text-base md:text-lg border-2 border-main/10 rounded-xl focus:border-accent focus:outline-none transition-colors dark:bg-darksection dark:border-darkborder dark:text-darktext dark:placeholder-gray-400" />
                 <i class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg md:text-xl"></i>
                 <button id="clear-search-btn" aria-label="Clear search"
@@ -200,7 +202,7 @@
         <!-- No results -->
         <div id="no-results" class="hidden text-center py-12">
           <i class="fa-solid fa-search text-4xl text-gray-300 dark:text-darktext mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-600 mb-2 dark:text-darktext">No Ressource matches your filters</h3>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2 dark:text-darktext">No resources match your filters</h3>
           <p class="text-gray-500 dark:text-darktext">Try adjusting category or search terms.</p>
         </div>
       </div>
@@ -208,13 +210,13 @@
 
     <!-- Sources Note -->
     <section
-      class="px-4 sm:px-6 py-12 md:py-14 bg-sectionbg border-t border-sectionbg/60 dark:bg-darksection dark:border-darkborder">
+      class="px-4 sm:px-6 py-12 md:py-14 bg-sectionbg border-t border-accent/10 dark:bg-darksection dark:border-darkborder">
       <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-3 mb-4 md:mb-5">
           <i class="fa-solid fa-quote-left text-accent"></i>
           <h2 class="text-xl md:text-2xl font-semibold text-main dark:text-background m-0">Notes on Sources</h2>
         </div>
-        <p class="text-main/80 dark:text-background/80 leading-relaxed">These are curated, credited Ressources from trusted sources. Titles
+        <p class="text-main/80 dark:text-background/80 leading-relaxed">These are curated, credited resources from trusted sources. Titles
           and summaries are partially mine; the methods and attribution belong to their creators. Please support the originals.
         </p>
       </div>
@@ -222,7 +224,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext border-t-2 border-accent/40">
     <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
       <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
         <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">

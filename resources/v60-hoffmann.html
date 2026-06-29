@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -18,7 +18,7 @@
 
   <!-- Top Navigation -->
   <div id="top-nav"
-    class="block bg-white dark:bg-darkbg border-b border-main/10 dark:border-darkborder sticky top-0 z-50">
+    class="block bg-white/90 backdrop-blur-sm dark:bg-darkbg/90 border-b border-main/10 dark:border-darkborder sticky top-0 z-50 shadow-sm">
     <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
       <a href="./" class="inline-flex items-center gap-2 text-main dark:text-background font-semibold">
         <i class="fa-solid fa-coffee text-accent"></i>
@@ -101,11 +101,11 @@
   </div>
 
   <main class="min-h-screen flex-1">
-    <section class="px-4 sm:px-6 py-10 md:py-14 bg-sectionbg border-b border-sectionbg/60 dark:bg-darksection dark:border-darkborder">
+    <section class="px-4 sm:px-6 py-10 md:py-14 bg-sectionbg border-b border-accent/10 dark:bg-darksection dark:border-darkborder">
       <div class="max-w-3xl sm:max-w-4xl mx-auto py-6">
         <div class="flex items-center gap-3 mb-3">
-          <i class="fa-solid fa-filter text-accent text-2xl"></i>
-          <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-main m-0 dark:text-background">The Ultimate V60 Technique — James Hoffmann</h1>
+          <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent/10 dark:bg-accent/20 flex-shrink-0"><i class="fa-solid fa-filter text-accent text-xl"></i></span>
+          <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-main m-0 dark:text-background">The Ultimate V60 Technique — James Hoffmann</h1>
         </div>
         <div class="flex flex-wrap items-center gap-3 text-sm text-main/70 dark:text-background/70">
           <span class="inline-flex items-center px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/30">Brew Methods</span>
@@ -126,10 +126,10 @@
         </div>
         <p class="mt-2 text-xs text-main/60 dark:text-background/60">Source: <a class="underline" href="https://youtu.be/AI4ynXzkSQo" target="_blank" rel="noopener noreferrer">YouTube</a></p>
 
-        <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/70 dark:bg-darksection/80 p-4">
+        <div class="rounded-xl border border-main/10 border-t-2 border-t-accent/60 dark:border-t-accent/40 dark:border-darkborder bg-white dark:bg-darksection p-4 shadow-md">
           <div class="flex items-center justify-between mb-3">
             <h2 class="text-lg font-semibold text-main dark:text-background m-0">Metadata</h2>
-            <button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200" data-copy-meta>
+            <button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 text-accent border border-accent/20 hover:bg-accent hover:text-white transition-all dark:bg-accent/15 dark:text-accent dark:border-accent/30" data-copy-meta>
               <i class="fa-solid fa-copy"></i>
               <span class="text-sm">Copy</span>
             </button>
@@ -143,10 +143,10 @@
           </div>
         </div>
 
-        <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/70 dark:bg-darksection/80 p-4">
+        <div class="rounded-xl border border-main/10 border-t-2 border-t-accent/60 dark:border-t-accent/40 dark:border-darkborder bg-white dark:bg-darksection p-4 shadow-md">
           <div class="flex items-center justify-between mb-3">
             <h2 class="text-lg font-semibold text-main dark:text-background m-0">Steps</h2>
-            <button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200" data-copy-steps>
+            <button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 text-accent border border-accent/20 hover:bg-accent hover:text-white transition-all dark:bg-accent/15 dark:text-accent dark:border-accent/30" data-copy-steps>
               <i class="fa-solid fa-copy"></i>
               <span class="text-sm">Copy</span>
             </button>
@@ -167,7 +167,7 @@
           </ol>
         </div>
 
-        <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/70 dark:bg-darksection/80 p-4">
+        <div class="rounded-xl border border-main/10 border-t-2 border-t-accent/60 dark:border-t-accent/40 dark:border-darkborder bg-white dark:bg-darksection p-4 shadow-md">
           <h2 class="text-lg font-semibold text-main dark:text-background mb-3">Guide Changelog</h2>
           <ul class="space-y-2 text-sm">
             <li class="flex items-center justify-between"><span>Initial addition.</span><time data-updated-on></time></li>
@@ -194,7 +194,7 @@
     </section>
   </main>
 
-  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+  <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext border-t-2 border-accent/40">
     <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
       <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
         <div class="flex flex-col md:flex-row items-center justify-center md:gap-2">
@@ -225,3 +225,6 @@
 </body>
 
 </html>
+
+
+

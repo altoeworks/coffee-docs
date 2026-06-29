@@ -61,7 +61,7 @@
 
     <!-- Top Navigation -->
     <div id="top-nav"
-        class="block bg-white dark:bg-darkbg border-b border-main/10 dark:border-darkborder sticky top-0 z-50">
+        class="block bg-white/90 backdrop-blur-sm dark:bg-darkbg/90 border-b border-main/10 dark:border-darkborder sticky top-0 z-50 shadow-sm">
         <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
             <a href="./" class="inline-flex items-center gap-2 text-main dark:text-background font-semibold">
                 <i class="fa-solid fa-coffee text-accent"></i>
@@ -170,12 +170,17 @@
         </button>
 
         <!-- Hero Section -->
-        <section class="px-4 sm:px-6 py-16 md:py-24 transition-colors duration-300 bg-background dark:bg-darkbg">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-main mb-6 dark:text-darktext">
+        <section class="px-4 sm:px-6 py-16 md:py-24 transition-colors duration-300 bg-gradient-to-b from-sectionbg to-background dark:from-darksection dark:to-darkbg">
+            <div class="max-w-4xl mx-auto text-center page-hero-content">
+                <div class="flex justify-center mb-5">
+                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent/10 dark:bg-accent/20">
+                        <i class="fa-solid fa-book text-accent text-2xl"></i>
+                    </span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-main mb-6 dark:text-darktext">
                     Coffee Glossary
                 </h1>
-                <p class="text-xl text-gray-600 mb-8 dark:text-darktext">
+                <p class="text-lg md:text-xl text-main/70 dark:text-background/70 mb-8">
                     Interactive reference for coffee terminology. Search, explore and learn about brewing, roasting,
                     and everything in between.
                 </p>
@@ -264,7 +269,7 @@
       Footer with license information
       Shows the Creative Commons license and copyright
     -->
-    <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext">
+    <footer class="bg-main text-background py-8 mt-auto dark:bg-darksection dark:text-darktext border-t-2 border-accent/40">
         <div class="max-w-3xl sm:max-w-4xl mx-auto px-6">
             <div class="grid grid-cols-[1fr_5fr] gap-x-2 gap-y-3 items-center">
                 <!-- Creative Commons icons -->

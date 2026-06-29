@@ -71,7 +71,7 @@ body {
 }
 
 .fade-in-section.visible {
-  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes fadeIn {
@@ -97,10 +97,10 @@ body {
 .typewriter {
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid #333;
+  border-right: 3px solid currentColor;
   width: 0;
-  animation: typing 0.7s steps(30, end) 0.1s forwards;
-  animation-delay: 0.5s;
+  animation: typing 0.5s steps(30, end) forwards;
+  animation-delay: 0.1s;
 }
 
 @keyframes typing {
@@ -124,7 +124,7 @@ body {
 }
 
 .fade-line.visible {
-  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* ===== DARK MODE STYLES ===== */
@@ -241,10 +241,54 @@ button:disabled {
   background-color: rgba(156, 163, 175, 0.5);
 }
 
+/* ===== PAGE HERO ENTRANCE (non-homepage pages) ===== */
+.page-hero-content {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.08s both;
+}
+
 /* ===== ACTIVE NAV LINK ===== */
 a.nav-active {
   color: #FF6B35 !important;
   font-weight: 600;
+  background-color: rgba(255, 107, 53, 0.12);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.625rem;
+  margin: -0.2rem -0.625rem;
+}
+
+.dark a.nav-active {
+  background-color: rgba(255, 107, 53, 0.15);
+}
+
+/* ===== STEP COUNTER ===== */
+ol[data-steps] {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
+}
+ol[data-steps] li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  counter-increment: step;
+}
+ol[data-steps] li::before {
+  content: counter(step);
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.12);
+  color: #FF6B35;
+  font-weight: 700;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.dark ol[data-steps] li::before {
+  background: rgba(255, 107, 53, 0.2);
 }
 
 /* ===== REDUCED MOTION ===== */
@@ -284,6 +328,11 @@ a.nav-active {
   .hover-lift:hover {
     transform: none !important;
     transition: none !important;
+  }
+
+  .page-hero-content {
+    animation: none !important;
+    opacity: 1 !important;
   }
 
   * {

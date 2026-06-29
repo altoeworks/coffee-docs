@@ -226,7 +226,7 @@ function renderTerms(terms) {
  */
 function createTermCard(term, data) {
     const card = document.createElement('div');
-    card.className = 'bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all dark:bg-darksection dark:border-darkborder';
+    card.className = 'bg-white dark:bg-darksection border border-main/10 dark:border-darkborder border-t-2 border-t-accent/60 dark:border-t-accent/40 rounded-xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all';
 
     // Handle both old single category and new multiple categories format
     const categories = data.categories || [data.category];

@@ -24,8 +24,8 @@
       active = path.startsWith('/resources') || (path + '/').indexOf('/resources/') !== -1;
     } else {
       // Other pages: match by filename
-      var basename = resolved.split('/').pop();
-      var currentBasename = path.split('/').pop();
+      var basename = resolved.split('/').pop().replace(/\.html$/, '');
+      var currentBasename = path.split('/').pop().replace(/\.html$/, '');
       active = basename.length > 0 && basename === currentBasename;
     }
 

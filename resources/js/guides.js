@@ -28,7 +28,7 @@ function renderCategoryFilter(activeCategory) {
   const categories = ['All', ...GUIDE_CATEGORIES];
   container.innerHTML = categories.map((cat) => {
     const active = (activeCategory || 'All') === cat;
-    const base = 'px-3 py-2 rounded-lg text-sm border transition-colors';
+    const base = 'px-3 py-2 rounded-full text-sm border transition-colors';
     const on = 'bg-accent text-white border-accent';
     const off = 'bg-white/80 dark:bg-darksection/80 text-main/80 dark:text-darktext border-main/10 dark:border-darkborder hover:bg-main/10 dark:hover:bg-background/10';
     return `<button class="cat-chip ${base} ${active ? on : off}" data-cat="${cat}">${cat}</button>`;
@@ -61,7 +61,7 @@ function groupByCategory(items) {
 // Card HTML
 function renderCard(g) {
   return `
-  <article class="group cursor-pointer rounded-xl border border-main/10 dark:border-darkborder bg-white/70 dark:bg-darksection/80 p-4 hover:shadow-md transition-shadow" data-id="${g.id}">
+  <article class="group cursor-pointer rounded-xl border border-main/10 dark:border-darkborder border-t-2 border-t-accent/60 dark:border-t-accent/40 bg-white dark:bg-darksection p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all" data-id="${g.id}">
     <div class="flex items-start justify-between gap-3">
       <div>
         <h3 class="text-lg font-semibold text-main dark:text-background m-0">${escapeHtml(g.title)}</h3>

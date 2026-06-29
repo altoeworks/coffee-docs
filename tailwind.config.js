@@ -225,7 +225,20 @@ module.exports = {
     // Changelog triggers
     'fa-arrow-up-right-from-square',
     // Error page
-    'mb-10'
+    'mb-10',
+    // Card elevation system
+    'shadow-sm',
+    'shadow-md',
+    'shadow-lg',
+    'hover:shadow-xl',
+    'hover:-translate-y-0.5',
+    'hover:-translate-y-1',
+    '-translate-y-0.5',
+    '-translate-y-1',
+    'transition-all',
+    'border-t-2',
+    'border-t-accent/60',
+    'dark:border-t-accent/40',
   ],
   theme: {
     extend: {

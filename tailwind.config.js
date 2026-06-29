@@ -2,16 +2,11 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    './index.html',
-    './glossary.html',
-    './guides/index.html',
-    './guides/aeropress-hedrick.html',
-    './guides/french-press-hoffmann.html',
-    './guides/v60-hoffmann.html',
-    './guides/iced-clever-hoffmann.html',
+    './*.html',
+    './resources/**/*.html',
     // Include JS so Tailwind picks up classes in template strings
     './js/**/*.js',
-    './guides/js/**/*.js',
+    './resources/js/**/*.js',
   ],
   safelist: [
     // Ensure tiny width utility used as a section marker is present even if purged

@@ -40,6 +40,7 @@
   async function loadChangelog() {
     const list = document.getElementById('changelog-list');
     if (!list) return;
+    list.innerHTML = '<div class="text-sm opacity-60">Loading…</div>';
     try {
       const res = await fetch('/changelog.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('Failed to load changelog');

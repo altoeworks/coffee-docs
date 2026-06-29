@@ -205,6 +205,12 @@
   </div>
   <!-- End Progress Bar -->
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" aria-label="Back to top"
+    class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-accent text-white shadow-lg hover:shadow-xl transition-all duration-500 opacity-0 pointer-events-none hover:scale-105 dark:bg-accent flex items-center justify-center">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <!-- Main content area -->
   <div class="site-content mt-16 md:mt-0">
     <h1 class="sr-only">Free Coffee Guides on Flavor and Espresso by Oscar Höfenstock</h1>
@@ -382,7 +388,7 @@
             <button
               onclick="downloadPDF('files/The Anatomy of Coffee Flavor - A Guide for Curious Drinker.pdf', 'The Anatomy of Coffee Flavor - A Guide for Curious Drinker')"
               class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
-              aria-label="Download PDF">
+              aria-label="Download PDF (13 MB)" title="Download PDF (13 MB)">
               <i class="fa-solid fa-file-download" aria-hidden="true"></i>
             </button>
             <button
@@ -457,7 +463,7 @@
             <button
               onclick="downloadPDF('files/Under Pressure - The Technique, Taste, and Chaos of Espresso.pdf', 'Under Pressure - The Technique, Taste, and Chaos of Espresso')"
               class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-200 text-gray-800 shadow hover:shadow-md transition-all dark:bg-gray-700 dark:text-gray-200"
-              aria-label="Download PDF">
+              aria-label="Download PDF (15 MB)" title="Download PDF (15 MB)">
               <i class="fa-solid fa-file-download" aria-hidden="true"></i>
             </button>
             <button
@@ -789,6 +795,7 @@
   <script src="js/script.js"></script>
   <script src="js/changelog.js"></script>
   <script src="js/cookie-consent.js"></script>
+  <script src="js/nav-active.js"></script>
   <script>
     (function () {
       function fmt(d) { try { return new Date(d).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' }); } catch (e) { return d; } }

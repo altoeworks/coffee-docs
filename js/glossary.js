@@ -10,14 +10,13 @@
  * Toggle dark mode
  */
 function toggleDarkMode() {
-    const body = document.body;
-    const isDark = body.classList.contains('dark');
-
+    const root = document.documentElement;
+    const isDark = root.classList.contains('dark');
     if (isDark) {
-        body.classList.remove('dark');
+        root.classList.remove('dark');
         localStorage.setItem('darkMode', 'false');
     } else {
-        body.classList.add('dark');
+        root.classList.add('dark');
         localStorage.setItem('darkMode', 'true');
     }
 }
@@ -28,7 +27,7 @@ function toggleDarkMode() {
 function loadDarkModePreference() {
     const savedPreference = localStorage.getItem('darkMode');
     if (savedPreference === 'true') {
-        document.body.classList.add('dark');
+        document.documentElement.classList.add('dark');
     }
 }
 
@@ -60,15 +59,16 @@ function initGlossary() {
     const terms = Object.keys(glossaryData);
     const alphabet = [...new Set(terms.map(term => term.charAt(0).toUpperCase()))].sort();
 
-    // Get all unique categories from all terms
+    // Get all unique categories from all terms and compute per-category counts
     const allCategories = new Set();
+    const categoryCounts = {};
     Object.values(glossaryData).forEach(item => {
         // Handle both old single category and new multiple categories format
-        if (item.categories) {
-            item.categories.forEach(cat => allCategories.add(cat));
-        } else if (item.category) {
-            allCategories.add(item.category);
-        }
+        const cats = item.categories || [item.category];
+        cats.forEach(cat => {
+            allCategories.add(cat);
+            categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+        });
     });
     const categories = [...allCategories].sort();
 
@@ -149,7 +149,8 @@ function initGlossary() {
             const button = document.createElement('button');
             const categoryColor = categoryColors[category] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
             button.className = `px-3 py-1.5 rounded-lg font-medium transition-colors ${categoryColor}`;
-            button.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            const count = categoryCounts[category] || 0;
+            button.textContent = category.charAt(0).toUpperCase() + category.slice(1) + ' (' + count + ')';
             button.setAttribute('data-category', category);
             button.addEventListener('click', () => filterByCategory(category));
             categoryNav.appendChild(button);
@@ -798,9 +799,9 @@ function initializeBackToTop() {
  * Set up keyboard shortcuts for better accessibility
  */
 function setupKeyboardShortcuts() {
-    // Ctrl+F to focus search
+    // '/' key to focus search (like GitHub/Notion), without blocking browser Ctrl+F
     document.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
             e.preventDefault();
             const searchInput = document.getElementById('search-input');
             if (searchInput) {
@@ -808,7 +809,7 @@ function setupKeyboardShortcuts() {
                 searchInput.select();
             }
         }
-        
+
         // Escape to clear search
         if (e.key === 'Escape') {
             const searchInput = document.getElementById('search-input');

@@ -240,3 +240,55 @@ button:disabled {
 .dark #hamburger-menu .overflow-y-auto::-webkit-scrollbar-thumb:hover {
   background-color: rgba(156, 163, 175, 0.5);
 }
+
+/* ===== ACTIVE NAV LINK ===== */
+a.nav-active {
+  color: #FF6B35 !important;
+  font-weight: 600;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .fade-in-section.visible {
+    animation: none !important;
+  }
+
+  .fade-line {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .fade-line.visible {
+    animation: none !important;
+  }
+
+  .typewriter {
+    animation: none !important;
+    width: 100% !important;
+    border-right: none !important;
+  }
+
+  .bounce-rotate,
+  .bounce-rotate-reverse {
+    animation: none !important;
+  }
+
+  .hover-lift,
+  .hover-lift:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -187,9 +187,9 @@ function showStickyBanner() {
       window.addEventListener('resize', updateTopNavOffset, { passive: true });
       window.addEventListener('orientationchange', updateTopNavOffset, { passive: true });
       
-      // Show cookie banner simultaneously if it exists
+      // Show cookie banner after a brief delay so the CC banner settles first
       if (typeof window.__showCookieBanner === 'function') {
-        window.__showCookieBanner();
+        setTimeout(window.__showCookieBanner, 2000);
       }
     }
   }, totalDelay);
@@ -591,6 +591,34 @@ function downloadPDF(pdfPath, guideName) {
 
 // Add scroll listener for progress bar
 window.addEventListener('scroll', updateProgressBar);
+
+// ============================================================================
+// BACK TO TOP BUTTON
+// ============================================================================
+
+function initializeBackToTop() {
+  const btn = document.getElementById('back-to-top-btn');
+  if (!btn) return;
+
+  function toggleBtn() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 300) {
+      btn.classList.remove('pointer-events-none');
+      setTimeout(() => btn.classList.remove('opacity-0'), 50);
+    } else {
+      btn.classList.add('opacity-0');
+      setTimeout(() => {
+        if (btn.classList.contains('opacity-0')) btn.classList.add('pointer-events-none');
+      }, 500);
+    }
+  }
+
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', toggleBtn, { passive: true });
+  toggleBtn();
+}
+
+document.addEventListener('DOMContentLoaded', initializeBackToTop);
 
 // ============================================================================
 // HAMBURGER MENU FUNCTIONALITY

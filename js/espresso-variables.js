@@ -44,6 +44,35 @@ const DOM_ELEMENTS = {
 // INITIALIZATION
 // ============================================================================
 
+function renderMobileVariableList() {
+    const container = document.getElementById('mobile-variables-list');
+    if (!container || typeof espressoVariablesData === 'undefined') return;
+
+    const inputs = Object.values(espressoVariablesData).filter(v => v.type === 'input');
+    const outputs = Object.values(espressoVariablesData).filter(v => v.type === 'output');
+
+    function renderGroup(label, color, vars) {
+        const dot = `<span class="inline-block w-3 h-3 rounded-full ${color} mr-2 flex-shrink-0"></span>`;
+        const cards = vars.map(v => `
+            <div class="rounded-xl border border-main/10 dark:border-darkborder bg-white/80 dark:bg-darksection/80 p-4">
+                <div class="flex items-center gap-2 mb-1">
+                    ${dot}
+                    <h3 class="font-semibold text-main dark:text-darktext text-base">${v.name}</h3>
+                </div>
+                <p class="text-sm text-main/70 dark:text-background/70 leading-relaxed">${v.definition}</p>
+            </div>`).join('');
+        return `
+            <div class="mb-6">
+                <h2 class="text-sm font-semibold uppercase tracking-wide text-main/50 dark:text-background/50 mb-3">${label}</h2>
+                <div class="space-y-3">${cards}</div>
+            </div>`;
+    }
+
+    container.innerHTML =
+        renderGroup('Input Variables — what you control', 'bg-accent', inputs) +
+        renderGroup('Output Variables — what you measure', 'bg-tertiary', outputs);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     initializeElements();
 
@@ -51,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const isMobile = window.matchMedia && window.matchMedia('(max-width: 639px)').matches;
     if (!isMobile) {
     initializeMindmap();
+    } else {
+        renderMobileVariableList();
     }
     // Initialize layout button label
     if (DOM_ELEMENTS.canvasLayoutToggleBtn) {

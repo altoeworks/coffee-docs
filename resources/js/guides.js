@@ -115,7 +115,7 @@ function renderOverview(list, activeCategory = 'All') {
       const ph = PLACEHOLDER_SECTIONS.find((p) => p.category === cat);
       return `<section aria-labelledby="${safeId}" id="${safeId}" class="first:border-0 first:pt-0 border-t border-main/10 dark:border-darkborder pt-6 md:pt-8 mb-4">
         ${header}
-        <p class="text-sm text-main/60 dark:text-background/60">${escapeHtml(ph?.description || 'New guides coming soon.')}</p>
+        <p class="text-sm text-main/60 dark:text-background/60">${escapeHtml(ph?.description || 'More guides coming — check back soon.')}</p>
       </section>`;
     }
     const grid = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-4">${items.map(renderCard).join('')}</div>`;
